@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eigen Grond — Jouw software. Jouw data. Jouw processen.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0C0B08;
+  --fg: #F0E6D0;
+  --green: #5C7A28;
+  --green-light: #7EA33A;
+  --muted: #6B6557;
+  --border: #2A2820;
+  --card: #141310;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 100;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: var(--fg);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--green-light); }
+.nav-sub { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+
+/* HERO */
+.hero {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 6rem 2rem 5rem;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 2.5rem;
+}
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--green-light);
+}
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4.5rem, 14vw, 10rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  margin-bottom: 2.5rem;
+}
+h1 .accent { color: var(--green-light); }
+.hero-lead {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 300;
+  color: #B8A98A;
+  max-width: 580px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  border-left: 2px solid var(--green);
+  padding-left: 1.25rem;
+}
+
+/* SECTIONS */
+.section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--border);
+}
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: 0.04em;
+  margin-bottom: 2.5rem;
+  line-height: 1;
+}
+
+/* PAIN GRID */
+.pain-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 3rem;
+}
+.pain-item {
+  background: var(--card);
+  padding: 2rem 1.75rem;
+}
+.pain-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  opacity: 0.4;
+}
+.pain-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--fg);
+  margin-bottom: 0.6rem;
+}
+.pain-body {
+  font-size: 0.88rem;
+  color: #7A6E58;
+  line-height: 1.6;
+}
+
+/* MANIFESTO */
+.manifesto {
+  background: var(--green);
+  padding: 3rem 2rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.manifesto p {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: #F0E6D0;
+}
+.manifesto p span {
+  opacity: 0.5;
+}
+
+/* SOLUTION GRID */
+.solution-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+.solution-item {
+  background: var(--card);
+  padding: 2rem 1.75rem;
+}
+.solution-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--green);
+  margin-bottom: 1.25rem;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+.solution-title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--fg);
+  margin-bottom: 0.6rem;
+}
+.solution-body {
+  font-size: 0.88rem;
+  color: #7A6E58;
+  line-height: 1.65;
+}
+
+/* CASE SECTION */
+.case-section {
+  background: #0F0E0B;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.case-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+.case-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 2rem;
+}
+.case-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: var(--fg);
+  margin-bottom: 2rem;
+}
+.case-body {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 620px;
+  border-left: 2px solid var(--border);
+  padding-left: 1.25rem;
+}
+.case-stats {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+.case-stat {
+  background: var(--bg);
+  padding: 1.75rem 1.5rem;
+}
+.case-stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  color: var(--green-light);
+  line-height: 1;
+}
+.case-stat-label {
+  font-size: 0.75rem;
+  color: #4A4438;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+}
+
+/* FORM */
+.form-section {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+.form-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+.form-sub {
+  font-size: 0.95rem;
+  color: #7A6E58;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+.field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 1px;
+}
+.field {
+  background: var(--card);
+  padding: 0;
+}
+.field label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 1rem 1.25rem 0.3rem;
+}
+.field input, .field select, .field textarea {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0 1.25rem 1rem;
+}
+.field input::placeholder, .field textarea::placeholder { color: #3A352A; }
+.field input:focus, .field textarea:focus { background: #181510; }
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+.field-full {
+  background: var(--card);
+  margin-bottom: 1px;
+}
+.field-full label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 1rem 1.25rem 0.3rem;
+}
+.field-full input, .field-full textarea {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0 1.25rem 1rem;
+}
+.field-full input::placeholder, .field-full textarea::placeholder { color: #3A352A; }
+.field-full input:focus, .field-full textarea:focus { background: #181510; }
+.btn-submit {
+  width: 100%;
+  background: var(--green-light);
+  color: var(--bg);
+  border: none;
+  padding: 1.25rem 2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: background 0.15s;
+  margin-top: 1px;
+}
+.btn-submit:hover { background: #93BF46; }
+.btn-arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid var(--bg);
+}
+.form-note {
+  font-size: 0.75rem;
+  color: #4A4438;
+  text-align: center;
+  margin-top: 1.5rem;
+  line-height: 1.5;
+}
+
+/* SUCCESS STATE */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 3rem 0;
+}
+.success-state.visible { display: block; }
+.success-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--green);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+.success-body { font-size: 0.95rem; color: #7A6E58; line-height: 1.6; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-brand { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
+.footer-brand strong { color: var(--fg); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; }
+.footer-links a:hover { color: var(--fg); }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  nav {
+    padding: 1.25rem 1.25rem;
+  }
+  .nav-sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+  .hero {
+    padding: 4rem 1.25rem 3.5rem;
+  }
+  .section {
+    padding: 3rem 1.25rem;
+  }
+  .case-inner {
+    padding: 3rem 1.25rem;
+  }
+  .form-section {
+    padding: 3.5rem 1.25rem;
+  }
+  footer {
+    padding: 1.5rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .pain-grid {
+    grid-template-columns: 1fr;
+  }
+  .solution-grid {
+    grid-template-columns: 1fr;
+  }
+  .field-group {
+    grid-template-columns: 1fr;
+  }
+  .case-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  html { font-size: 14px; }
+  .hero { padding: 3rem 1rem 2.5rem; }
+  .section { padding: 2.5rem 1rem; }
+  .case-inner { padding: 2.5rem 1rem; }
+  .form-section { padding: 3rem 1rem; }
+  nav { padding: 1rem; }
+  footer { padding: 1.25rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">EIGEN<span>GROND</span></a>
+  <span class="nav-sub">Een initiatief van Uxley</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Een beweging voor lokaal MKB</div>
+  <h1>JOUW<br>SOFT<span class="accent">WARE.</span><br>JOUW<br>DATA.</h1>
+  <p class="hero-lead">
+    Je betaalt elke maand voor software die jouw roosters beheert, jouw reserveringen bijhoudt, jouw klanten kent. Maar van wie zijn die data? Wie bepaalt de regels? En waarom pas jij je aan hun systeem aan — en niet andersom?
+  </p>
+</section>
+
+<!-- MANIFESTO BALK -->
+<div class="manifesto">
+  <p>
+    <span>Je huurt je eigen bedrijf terug.</span><br>
+    Dat is wat er nu gebeurt.
+  </p>
+</div>
+
+<!-- HERKENNING -->
+<section class="section">
+  <div class="section-label">Herken je dit?</div>
+  <div class="pain-grid">
+    <div class="pain-item">
+      <div class="pain-num">01</div>
+      <div class="pain-title">Jouw data voedt hun model</div>
+      <div class="pain-body">Elke reservering, elk rooster, elke klant. Die software leert van jouw cijfers. Jij betaalt het abonnement. Zij worden wijzer.</div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">02</div>
+      <div class="pain-title">Zij bepalen de regels. Niet jij.</div>
+      <div class="pain-body">Wat je mag exporteren, hoe lang je data bewaard blijft, of je het aan een ander systeem mag koppelen. De kleine lettertjes veranderen. Jij mag blijven of vertrekken.</div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">03</div>
+      <div class="pain-title">De software dicteert jouw processen</div>
+      <div class="pain-body">Jij werkt niet meer zoals het bij jou past. Je werkt zoals de software het toestaat. Elke afwijking van de standaard kost tijd, workarounds of een duur maatwerk-pakket.</div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">04</div>
+      <div class="pain-title">Tien mensen nodig voor één systeem</div>
+      <div class="pain-body">Software die gebouwd is voor het gemiddelde bedrijf vraagt om aanpassing, training, helpdesk en beheerders. Terwijl jij gewoon je werk wil doen.</div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">05</div>
+      <div class="pain-title">Morgen veranderen de voorwaarden</div>
+      <div class="pain-body">Zonder jouw toestemming. Je tekent opnieuw in of je verliest toegang tot jarenlange planningshistorie. Dat is geen vergissing. Dat is het businessmodel.</div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">06</div>
+      <div class="pain-title">Stoppen kost meer dan doorgaan</div>
+      <div class="pain-body">Al je data zit erin. Al je medewerkers kennen het. De overstapdrempel is precies zo hoog gebouwd dat vertrekken pijn doet. Dat is geen toeval.</div>
+    </div>
+  </div>
+</section>
+
+<!-- OPLOSSING -->
+<section class="section">
+  <div class="section-label">Wat Eigen Grond doet</div>
+  <h2>SOFTWARE DIE ECHT VAN JOU IS</h2>
+  <div class="solution-grid">
+    <div class="solution-item">
+      <div class="solution-icon"></div>
+      <div class="solution-title">Gebouwd op hoe jij werkt</div>
+      <div class="solution-body">Niet aangepast aan hoe duizend andere bedrijven werken. Jouw roosters, jouw planningslogica, jouw reserveringsflow. Precies.</div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-icon"></div>
+      <div class="solution-title">Jouw server, jouw data</div>
+      <div class="solution-body">De software draait op jouw account. De data staat bij jou. Geen platform dat morgen de prijzen verdubbelt of de spelregels verandert.</div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-icon"></div>
+      <div class="solution-title">Eenmalig betaald</div>
+      <div class="solution-body">Geen maandelijks abonnement aan een platform dat groeit van jouw nummers. Een investering. Daarna is het van jou.</div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-icon"></div>
+      <div class="solution-title">Gebouwd door iemand die jouw werkdag kent</div>
+      <div class="solution-body">Softwareontwerper & AI-producent. Eerst begrijpen hoe jij werkt, dan bouwen wat daar precies bij past. Geen handleiding van 80 pagina's. Gewoon werken.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE SECTIE -->
+<div class="case-section">
+  <div class="case-inner">
+    <div class="case-label">Uit de praktijk</div>
+    <p class="case-title">40 MEDEWERKERS. &euro;40.000 PER JAAR.<br>NIEMAND DIE HET SYSTEEM BEGREEP.</p>
+    <p class="case-body">
+      Een volledig backoffice-pakket voor offertebeheer, planning, CRM en urenregistratie. Gebouwd voor duizend bedrijven tegelijk. Niet voor dit bedrijf. Medewerkers werkten er omheen, kochten losse tools voor de gaten, en betaalden &euro;300 per aanpassing aan een systeem dat ze niet eens bezaten. Data overal. Planningen die niet klopten.
+    </p>
+    <div class="case-stats">
+      <div class="case-stat">
+        <div class="case-stat-number">&euro;20.000</div>
+        <div class="case-stat-label">Eerste jaar. De helft.</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-number">&euro;0</div>
+        <div class="case-stat-label">Per aanpassing. Want het is van hen.</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-number">1</div>
+        <div class="case-stat-label">Systeem. Alle data op &eacute;&eacute;n plek.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORM -->
+<section class="form-section">
+  <h2 class="form-title">KLAAR MET HUREN?</h2>
+  <p class="form-sub">Laat je gegevens achter. We nemen contact op om te bespreken wat Eigen Grond voor jouw bedrijf kan betekenen.</p>
+
+  <form id="join-form">
+    <div class="field-group">
+      <div class="field">
+        <label for="name">Jouw naam</label>
+        <input type="text" id="name" name="name" placeholder="Jan de Vries" required>
+      </div>
+      <div class="field">
+        <label for="company">Bedrijfsnaam</label>
+        <input type="text" id="company" name="company" placeholder="De Vries Installatie" required>
+      </div>
+    </div>
+    <div class="field-full">
+      <label for="email">E-mailadres</label>
+      <input type="email" id="email" name="email" placeholder="jan@devries-installatie.nl" required>
+    </div>
+    <button type="submit" class="btn-submit">
+      IK DOE MEE AAN EIGEN GROND <span class="btn-arrow"></span>
+    </button>
+    <p id="form-error" style="display:none;font-size:0.8rem;color:#C0392B;text-align:center;margin-top:1rem;line-height:1.5;">Er ging iets mis. Probeer het opnieuw of stuur een mail naar hallo@uxley.nl.</p>
+    <p class="form-note">Geen spam. Geen sales. Alleen wanneer er iets te melden is.</p>
+  </form>
+
+  <div class="success-state" id="success">
+    <div class="success-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5 13l4 4L19 7" stroke="#F0E6D0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="success-title">JE STAAT OP DE LIJST.</div>
+    <p class="success-body">We nemen contact op zodra Eigen Grond van start gaat.<br>Tot dan: vertel het door aan een ondernemer die je kent.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-links">
+    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="#">uxley.nl</a>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById('join-form');
+const success = document.getElementById('success');
+const btn = form ? form.querySelector('.btn-submit') : null;
+const errEl = document.getElementById('form-error');
+
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (btn) { btn.textContent = 'BEZIG MET VERSTUREN...'; btn.disabled = true; }
+    if (errEl) errEl.style.display = 'none';
+    try {
+      const res = await fetch('https://formspree.io/f/mpqoaplo', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        if (success) success.classList.add('visible');
+      } else {
+        throw new Error('server');
+      }
+    } catch(err) {
+      if (btn) { btn.innerHTML = 'IK DOE MEE AAN EIGEN GROND <span class="btn-arrow"></span>'; btn.disabled = false; }
+      if (errEl) errEl.style.display = 'block';
+    }
+  });
+}
+</script>
+</body>
+</html>
