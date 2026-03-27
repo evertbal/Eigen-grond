@@ -50,6 +50,18 @@ nav {
   text-decoration: none;
 }
 .nav-logo span { color: var(--green-light); }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  text-decoration: none;
+  border: 1px solid var(--green);
+  padding: 0.35rem 0.9rem;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover { background: var(--green); color: var(--fg); }
 .nav-sub { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
 
 /* HERO */
@@ -255,6 +267,89 @@ h2 {
   margin-top: 0.4rem;
 }
 
+/* RAPPORT CTA */
+.rapport-cta {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+.rapport-cta-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+.rapport-cta-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.75rem;
+}
+.rapport-cta-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: var(--fg);
+  margin-bottom: 0.75rem;
+}
+.rapport-cta-body {
+  font-size: 0.9rem;
+  color: #928670;
+  line-height: 1.6;
+  max-width: 420px;
+}
+.rapport-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.btn-rapport {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  background: var(--green-light);
+  color: var(--bg);
+  white-space: nowrap;
+}
+.btn-rapport:hover { background: #93BF46; }
+.btn-rapport-outline {
+  background: transparent;
+  border: 1px solid var(--green);
+  color: var(--green-light);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.5rem;
+}
+.btn-rapport-outline:hover { background: var(--green); color: var(--fg); }
+
+@media (max-width: 600px) {
+  .rapport-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1.25rem;
+  }
+  .rapport-cta-actions {
+    width: 100%;
+  }
+  .btn-rapport { width: 100%; text-align: center; }
+}
+
 /* FORM */
 .form-section {
   max-width: 680px;
@@ -419,8 +514,7 @@ footer {
     padding: 1.25rem 1.25rem;
   }
   .nav-sub {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
+    display: none;
   }
   .hero {
     padding: 4rem 1.25rem 3.5rem;
@@ -471,7 +565,10 @@ footer {
 
 <nav>
   <a class="nav-logo" href="#">EIGEN<span>GROND</span></a>
-  <span class="nav-sub">Een initiatief van Uxley</span>
+  <div class="nav-right">
+    <a href="rapport.html" class="nav-link">Rapport</a>
+    <span class="nav-sub">Een initiatief van Uxley</span>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -577,6 +674,24 @@ footer {
         <div class="case-stat-number">1</div>
         <div class="case-stat-label">Systeem. Alle data op &eacute;&eacute;n plek.</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- RAPPORT CTA -->
+<div class="rapport-cta">
+  <div class="rapport-cta-inner">
+    <div class="rapport-cta-text">
+      <div class="rapport-cta-label">Marktverkenning</div>
+      <p class="rapport-cta-title">WAT UW SOFTWARE U &Eacute;CHT KOST.</p>
+      <p class="rapport-cta-body">Lees het volledige rapport over platformafhankelijkheid, verborgen kosten en waarom maatwerk nu w&eacute;l bereikbaar is voor het MKB.</p>
+    </div>
+    <div class="rapport-cta-actions">
+      <a href="rapport.html" class="btn-rapport">Lees het rapport</a>
+      <a href="rapport.pdf" download class="btn-rapport btn-rapport-outline">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download PDF
+      </a>
     </div>
   </div>
 </div>
