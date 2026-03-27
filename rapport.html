@@ -9,42 +9,31 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://eigengrond.nu/rapport">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ── Reset & tokens ─────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --black:       #0C0B08;
-  --cream:       #F0E6D0;
-  --green-dark:  #5C7A28;
+  --bg: #0C0B08;
+  --fg: #F0E6D0;
+  --green: #5C7A28;
   --green-light: #7EA33A;
-  --muted:       #8A7D6E;
-  --border:      #2A2820;
-  --card:        #141310;
-  --off-white:   #F7F3EC;
-  --text-body:   #E8DCC8;
-
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
-
-  --max-w: 760px;
-  --gutter: clamp(1.25rem, 5vw, 2.5rem);
+  --muted: #8A7D6E;
+  --border: #2A2820;
+  --card: #141310;
 }
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
-
 body {
-  background: var(--black);
-  color: var(--text-body);
-  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
   font-weight: 300;
-  line-height: 1.75;
+  line-height: 1.6;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Reading progress bar ───────────────────────────────── */
+/* Reading progress bar */
 #progress-bar {
   position: fixed;
   top: 0; left: 0;
@@ -55,118 +44,89 @@ body {
   transition: width 0.1s linear;
 }
 
-/* ── Top nav ────────────────────────────────────────────── */
-.site-nav {
+/* NAV — identical to homepage */
+nav {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
+  background: var(--bg);
   z-index: 100;
-  background: var(--black);
-  border-bottom: 1px solid var(--border);
-  padding: 0 var(--gutter);
 }
-
-.nav-inner {
-  max-width: calc(var(--max-w) + 2 * var(--gutter));
-  margin: 0 auto;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-brand {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  letter-spacing: 0.06em;
-  color: var(--cream);
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: var(--fg);
   text-decoration: none;
 }
-
-.nav-brand span { color: var(--green-light); }
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.btn-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 1rem;
-  border: 1px solid var(--green-dark);
-  color: var(--green-light);
-  font-family: var(--font-body);
+.nav-logo span { color: var(--green-light); }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-link {
   font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: var(--green-light);
   text-decoration: none;
+  border: 1px solid var(--green);
+  padding: 0.35rem 0.9rem;
   transition: background 0.15s, color 0.15s;
 }
-
-.btn-download:hover {
-  background: var(--green-dark);
-  color: var(--cream);
+.nav-link:hover { background: var(--green); color: var(--fg); }
+.nav-link-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
+.nav-sub { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
 
-.btn-download svg {
-  flex-shrink: 0;
-}
-
-/* ── Hero ───────────────────────────────────────────────── */
+/* HERO */
 .hero {
-  padding: clamp(3.5rem, 10vw, 7rem) var(--gutter) clamp(2.5rem, 7vw, 5rem);
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 6rem 2rem 5rem;
   border-bottom: 1px solid var(--border);
 }
-
-.hero-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-
-.hero-label {
-  font-size: 0.68rem;
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--green-dark);
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  color: var(--green-light);
+  margin-bottom: 2.5rem;
 }
-
-.hero-label::before {
+.hero-tag::before {
   content: '';
   display: block;
   width: 28px;
   height: 1px;
-  background: var(--green-dark);
+  background: var(--green-light);
 }
-
 .hero-title {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2.8rem, 8vw, 5rem);
   letter-spacing: 0.03em;
-  line-height: 1;
-  color: var(--cream);
+  line-height: 0.95;
+  color: var(--fg);
   margin-bottom: 1.5rem;
 }
-
 .hero-title em {
   color: var(--green-light);
   font-style: normal;
 }
-
-.hero-sub {
-  font-size: 1.05rem;
-  color: var(--muted);
+.hero-lead {
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-weight: 300;
+  color: #928670;
   max-width: 540px;
+  line-height: 1.7;
   margin-bottom: 2.5rem;
-  line-height: 1.65;
 }
-
 .hero-meta {
   display: flex;
   flex-wrap: wrap;
@@ -177,33 +137,29 @@ body {
   color: var(--muted);
 }
 
-/* ── Table of contents ──────────────────────────────────── */
+/* TABLE OF CONTENTS */
 .toc {
-  padding: 2.5rem var(--gutter);
+  padding: 2.5rem 2rem;
   background: var(--card);
   border-bottom: 1px solid var(--border);
 }
-
 .toc-inner {
-  max-width: var(--max-w);
+  max-width: 860px;
   margin: 0 auto;
 }
-
 .toc-label {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--green-dark);
+  color: var(--green-light);
   margin-bottom: 1rem;
 }
-
 .toc-list {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 0.25rem 2rem;
 }
-
 .toc-list li a {
   display: flex;
   align-items: baseline;
@@ -212,111 +168,100 @@ body {
   color: var(--muted);
   text-decoration: none;
   font-size: 0.88rem;
-  border-bottom: 1px solid transparent;
   transition: color 0.15s;
 }
-
-.toc-list li a:hover { color: var(--cream); }
-
+.toc-list li a:hover { color: var(--fg); }
 .toc-list li a .toc-num {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 0.75rem;
-  color: var(--green-dark);
+  color: var(--green);
   letter-spacing: 0.1em;
   flex-shrink: 0;
   width: 20px;
 }
 
-/* ── Layout wrapper ─────────────────────────────────────── */
+/* REPORT BODY */
 .report-body {
-  max-width: var(--max-w);
+  max-width: 860px;
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  padding: 0 2rem;
 }
 
-/* ── Chapter sections ───────────────────────────────────── */
+/* CHAPTERS */
 .chapter {
   padding-top: clamp(3rem, 8vw, 5.5rem);
   padding-bottom: clamp(2rem, 5vw, 3.5rem);
   border-bottom: 1px solid var(--border);
 }
-
 .chapter:last-of-type { border-bottom: none; }
-
 .chapter-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--green-dark);
+  color: var(--green-light);
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
 .chapter-label::before {
   content: '';
   display: block;
   width: 20px;
   height: 1px;
-  background: var(--green-dark);
+  background: var(--green-light);
 }
-
 .chapter-title {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2rem, 5.5vw, 3.2rem);
   letter-spacing: 0.03em;
   line-height: 1.05;
-  color: var(--cream);
+  color: var(--fg);
   margin-bottom: 2rem;
 }
 
-/* ── Body text ──────────────────────────────────────────── */
+/* Body text */
 .chapter p {
-  font-size: 1rem;
-  color: var(--text-body);
-  line-height: 1.8;
+  font-size: 0.95rem;
+  color: var(--fg);
+  line-height: 1.75;
   margin-bottom: 1.25rem;
   max-width: 68ch;
 }
-
 .chapter p:last-child { margin-bottom: 0; }
 
-/* ── Knikhammer ─────────────────────────────────────────── */
+/* Knikhammer */
 .hammer {
   font-weight: 500 !important;
-  color: var(--cream) !important;
-  border-left: 3px solid var(--green-dark);
+  color: var(--fg) !important;
+  border-left: 3px solid var(--green);
   padding-left: 1.25rem !important;
   margin-top: 1.75rem !important;
   margin-bottom: 1.75rem !important;
 }
 
-/* ── Dark manifesto block ───────────────────────────────── */
+/* Manifesto block */
 .manifesto {
   background: var(--card);
-  border-left: 5px solid var(--green-dark);
+  border-left: 5px solid var(--green);
   padding: 2rem 2rem 2rem 2.25rem;
   margin: 2.5rem 0;
 }
-
 .manifesto p {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(1.3rem, 3.5vw, 1.9rem);
   letter-spacing: 0.02em;
   line-height: 1.15;
-  color: var(--cream);
+  color: var(--fg);
   max-width: none !important;
   margin-bottom: 0.5rem !important;
 }
-
 .manifesto p em {
   color: var(--green-light);
   font-style: normal;
 }
-
 .manifesto p.sub {
-  font-family: var(--font-body);
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0;
@@ -325,7 +270,7 @@ body {
   font-style: italic;
 }
 
-/* ── Stat grid ──────────────────────────────────────────── */
+/* Stat grid */
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -333,86 +278,75 @@ body {
   background: var(--border);
   margin: 2.5rem 0;
 }
-
 .stat-item {
   background: var(--card);
   padding: 1.5rem 1.25rem;
 }
-
 .stat-num {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 2.4rem;
   letter-spacing: 0.02em;
   color: var(--green-light);
   line-height: 1;
   margin-bottom: 0.4rem;
 }
-
 .stat-label {
-  font-size: 0.82rem;
-  color: var(--cream);
+  font-size: 0.88rem;
+  color: var(--fg);
   line-height: 1.5;
   margin-bottom: 0.4rem;
 }
-
 .stat-source {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   color: var(--muted);
   font-style: italic;
   letter-spacing: 0.02em;
 }
 
-/* ── Big single stat ────────────────────────────────────── */
+/* Big single stat */
 .stat-single {
   background: var(--card);
-  border: 1px solid var(--green-dark);
+  border: 1px solid var(--green);
   padding: 2rem 2rem 1.75rem;
   margin: 2.5rem 0;
   text-align: center;
 }
+.stat-single .stat-num { font-size: 3.5rem; }
 
-.stat-single .stat-num {
-  font-size: 3.5rem;
-}
-
-/* ── Bullet list ────────────────────────────────────────── */
+/* Bullet list */
 .chapter ul {
   list-style: none;
   margin: 1.25rem 0 1.5rem;
 }
-
 .chapter ul li {
   padding: 0.55rem 0 0.55rem 1.5rem;
   position: relative;
   font-size: 0.95rem;
-  color: var(--text-body);
+  color: var(--fg);
   border-bottom: 1px solid var(--border);
   line-height: 1.65;
 }
-
 .chapter ul li:first-child { border-top: 1px solid var(--border); }
-
 .chapter ul li::before {
-  content: '—';
+  content: '\2014';
   position: absolute;
   left: 0;
-  color: var(--green-dark);
+  color: var(--green);
   font-weight: 400;
 }
 
-/* ── Section H2 ─────────────────────────────────────────── */
+/* Section H2 */
 .chapter h2 {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   letter-spacing: 0.04em;
-  color: var(--cream);
+  color: var(--fg);
   margin: 2.75rem 0 1rem;
   line-height: 1.1;
 }
 
-/* ── Steps ──────────────────────────────────────────────── */
+/* Steps */
 .steps { margin: 2rem 0; }
-
 .step {
   display: grid;
   grid-template-columns: 3rem 1fr;
@@ -420,136 +354,114 @@ body {
   margin-bottom: 2rem;
   align-items: start;
 }
-
 .step-num {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 2.5rem;
   line-height: 1;
-  color: var(--green-dark);
+  color: var(--green);
   opacity: 0.5;
   padding-top: 0.1rem;
 }
-
 .step-content h3 {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.2rem;
   letter-spacing: 0.05em;
-  color: var(--cream);
+  color: var(--fg);
   margin-bottom: 0.5rem;
 }
-
 .step-content p {
   margin-bottom: 0 !important;
   font-size: 0.93rem !important;
 }
 
-/* ── Callout (infra section) ────────────────────────────── */
+/* Callout */
 .callout {
   border: 1px solid var(--border);
   padding: 1.75rem;
   margin: 2rem 0;
 }
-
 .callout-label {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--green-dark);
+  color: var(--green-light);
   margin-bottom: 0.75rem;
 }
-
 .callout p {
   font-size: 0.92rem !important;
   color: var(--muted) !important;
   margin-bottom: 0.75rem !important;
 }
-
 .callout p:last-child { margin-bottom: 0 !important; }
 
-/* ── CTA form section ───────────────────────────────────── */
+/* CTA form section */
 .cta-section {
   background: var(--card);
-  border-top: 3px solid var(--green-dark);
-  padding: clamp(3rem, 8vw, 5rem) var(--gutter);
+  border-top: 3px solid var(--green);
+  padding: 5rem 2rem;
   margin-top: 0;
 }
-
 .cta-inner {
-  max-width: var(--max-w);
+  max-width: 860px;
   margin: 0 auto;
 }
-
 .cta-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--green-dark);
+  color: var(--green-light);
   margin-bottom: 0.75rem;
 }
-
 .cta-title {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(1.8rem, 5vw, 2.8rem);
   letter-spacing: 0.03em;
-  color: var(--cream);
+  color: var(--fg);
   margin-bottom: 1rem;
   line-height: 1.1;
 }
-
 .cta-sub {
   font-size: 0.95rem;
-  color: var(--muted);
+  color: #928670;
   max-width: 480px;
   margin-bottom: 2.5rem;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 /* Form */
 .contact-form { max-width: 480px; }
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
+.form-group { margin-bottom: 1rem; }
 .form-group label {
   display: block;
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 0.4rem;
 }
-
 .form-group input {
   width: 100%;
-  background: var(--black);
+  background: var(--bg);
   border: 1px solid var(--border);
-  color: var(--cream);
-  font-family: var(--font-body);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
   padding: 0.7rem 0.9rem;
   outline: none;
   transition: border-color 0.15s;
   -webkit-appearance: none;
 }
-
-.form-group input:focus {
-  border-color: var(--green-dark);
-}
-
-.form-group input::placeholder { color: var(--muted); }
-
+.form-group input:focus { border-color: var(--green); }
+.form-group input::placeholder { color: #625B4B; }
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: var(--green-dark);
-  color: var(--cream);
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 400;
+  background: var(--green-light);
+  color: var(--bg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   border: none;
   padding: 0.85rem 2rem;
   cursor: pointer;
@@ -558,20 +470,16 @@ body {
   width: 100%;
   justify-content: center;
 }
-
-.btn-primary:hover { background: var(--green-light); }
-
+.btn-primary:hover { background: #93BF46; }
 .btn-primary.loading { opacity: 0.6; pointer-events: none; }
-
 .form-success {
   display: none;
   padding: 1.25rem 1.5rem;
-  border: 1px solid var(--green-dark);
+  border: 1px solid var(--green);
   color: var(--green-light);
   font-size: 0.9rem;
   margin-top: 1rem;
 }
-
 .form-error {
   display: none;
   padding: 1rem 1.25rem;
@@ -581,15 +489,14 @@ body {
   margin-top: 0.75rem;
 }
 
-/* ── Download banner ────────────────────────────────────── */
+/* Download banner */
 .download-banner {
   border-top: 1px solid var(--border);
-  padding: 2rem var(--gutter);
-  background: var(--black);
+  padding: 2rem;
+  background: var(--bg);
 }
-
 .download-banner-inner {
-  max-width: var(--max-w);
+  max-width: 860px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -597,89 +504,82 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
 }
-
 .download-banner p {
   font-size: 0.88rem;
   color: var(--muted);
 }
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--green);
+  color: var(--green-light);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-download:hover { background: var(--green); color: var(--fg); }
 
-/* ── Verantwoording ─────────────────────────────────────── */
+/* Verantwoording */
 .verantwoording {
   border-top: 1px solid var(--border);
-  padding: clamp(2.5rem, 7vw, 4rem) var(--gutter);
+  padding: 4rem 2rem;
 }
-
 .verantwoording-inner {
-  max-width: var(--max-w);
+  max-width: 860px;
   margin: 0 auto;
 }
-
 .verantwoording h2 {
-  font-family: var(--font-display);
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.4rem;
   letter-spacing: 0.04em;
-  color: var(--cream);
+  color: var(--fg);
   margin-bottom: 0.75rem;
 }
-
 .verantwoording p, .verantwoording li {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--muted);
   line-height: 1.7;
   margin-bottom: 0.5rem;
 }
-
 .verantwoording ul {
   list-style: none;
   margin: 0.75rem 0;
   padding: 0;
 }
-
 .verantwoording ul li {
   padding: 0.3rem 0 0.3rem 1.25rem;
   position: relative;
 }
-
 .verantwoording ul li::before {
-  content: '—';
+  content: '\2014';
   position: absolute;
   left: 0;
-  color: var(--green-dark);
+  color: var(--green);
 }
 
-/* ── Footer ─────────────────────────────────────────────── */
+/* FOOTER — identical to homepage */
 footer {
-  background: var(--black);
-  border-top: 3px solid var(--green-dark);
-  padding: 2.5rem var(--gutter);
-}
-
-.footer-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
+  border-top: 1px solid var(--border);
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
+.footer-brand { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
+.footer-brand strong { color: var(--fg); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; }
+.footer-links a:hover { color: var(--fg); }
 
-.footer-brand {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  color: var(--cream);
-}
-
-.footer-brand span { color: var(--green-light); }
-
-.footer-meta {
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-}
-
-/* ── Scroll reveal ──────────────────────────────────────── */
+/* Scroll reveal */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
@@ -692,11 +592,38 @@ footer {
   }
 }
 
-/* ── Responsive ─────────────────────────────────────────── */
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 1.25rem; }
+  .nav-sub { display: none; }
+  .hero { padding: 4rem 1.25rem 3.5rem; }
+  .report-body { padding: 0 1.25rem; }
+  .toc { padding: 2rem 1.25rem; }
+  .cta-section { padding: 3.5rem 1.25rem; }
+  .verantwoording { padding: 3rem 1.25rem; }
+  .download-banner { padding: 1.5rem 1.25rem; }
+  footer {
+    padding: 1.5rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 600px) {
   .stat-grid { grid-template-columns: 1fr 1fr; }
   .step { grid-template-columns: 2.5rem 1fr; }
   .download-banner-inner { flex-direction: column; }
+}
+
+@media (max-width: 380px) {
+  html { font-size: 14px; }
+  nav { padding: 1rem; }
+  .hero { padding: 3rem 1rem 2.5rem; }
+  .report-body { padding: 0 1rem; }
+  .toc { padding: 1.5rem 1rem; }
+  .cta-section { padding: 3rem 1rem; }
+  .verantwoording { padding: 2.5rem 1rem; }
+  footer { padding: 1.25rem 1rem; }
 }
 </style>
 </head>
@@ -704,39 +631,31 @@ footer {
 
 <div id="progress-bar"></div>
 
-<!-- ── NAV ──────────────────────────────────────────────── -->
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-brand">EIGEN<span>GROND</span></a>
-    <div class="nav-actions">
-      <a href="#contact" class="btn-download" style="border-color:var(--green-dark);color:var(--green-light);">
-        Gesprek aanvragen
-      </a>
-      <a href="/rapport.pdf" download class="btn-download">
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        PDF
-      </a>
-    </div>
+<!-- NAV — identical to homepage -->
+<nav>
+  <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
+  <div class="nav-right">
+    <a href="rapport.pdf" download class="nav-link nav-link-download">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      PDF
+    </a>
+    <span class="nav-sub">Een initiatief van Uxley</span>
   </div>
 </nav>
 
-<!-- ── HERO ──────────────────────────────────────────────── -->
+<!-- HERO -->
 <header class="hero">
-  <div class="hero-inner">
-    <p class="hero-label">Marktverkenning voor MKB-bedrijven</p>
-    <h1 class="hero-title">Wat uw software<br>u <em>écht</em> kost.</h1>
-    <p class="hero-sub">Patronen die zichtbaar worden als je lang genoeg kijkt naar hoe bedrijven daadwerkelijk werken versus hoe hun software is ingericht.</p>
-    <div class="hero-meta">
-      <span>Eigen Grond / Uxley</span>
-      <span>Evert Bal</span>
-      <span>Maart 2026</span>
-    </div>
+  <div class="hero-tag">Marktverkenning voor MKB-bedrijven</div>
+  <h1 class="hero-title">Wat uw software<br>u <em>écht</em> kost.</h1>
+  <p class="hero-lead">Patronen die zichtbaar worden als je lang genoeg kijkt naar hoe bedrijven daadwerkelijk werken versus hoe hun software is ingericht.</p>
+  <div class="hero-meta">
+    <span>Eigen Grond / Uxley</span>
+    <span>Evert Bal</span>
+    <span>Maart 2026</span>
   </div>
 </header>
 
-<!-- ── TABLE OF CONTENTS ─────────────────────────────────── -->
+<!-- TABLE OF CONTENTS -->
 <nav class="toc" aria-label="Inhoudsopgave">
   <div class="toc-inner">
     <p class="toc-label">Inhoud</p>
@@ -751,7 +670,7 @@ footer {
   </div>
 </nav>
 
-<!-- ── INTRO ─────────────────────────────────────────────── -->
+<!-- INTRO -->
 <div class="report-body">
 <section class="chapter reveal" id="intro">
   <p>Dit document is niet voor iedereen.</p>
@@ -769,7 +688,7 @@ footer {
   <p class="hammer">Dat is de enige eerlijke manier om dit onderwerp aan te snijden.</p>
 </section>
 
-<!-- ── H1 ────────────────────────────────────────────────── -->
+<!-- H1 -->
 <section class="chapter reveal" id="h1">
   <p class="chapter-label">Hoofdstuk 1</p>
   <h1 class="chapter-title">Het patroon.</h1>
@@ -780,7 +699,7 @@ footer {
 
   <div class="stat-grid">
     <div class="stat-item">
-      <div class="stat-num">€ 300</div>
+      <div class="stat-num">&euro; 300</div>
       <div class="stat-label">Gemiddelde kosten per aanpassing via helpdesk-ticket</div>
       <div class="stat-source">Marktobservatie, diverse leveranciers</div>
     </div>
@@ -813,7 +732,7 @@ footer {
   <p class="hammer">Het systeem is niet gebouwd voor uw bedrijf. Het is gebouwd voor duizend bedrijven tegelijk.</p>
 </section>
 
-<!-- ── H2 ────────────────────────────────────────────────── -->
+<!-- H2 -->
 <section class="chapter reveal" id="h2">
   <p class="chapter-label">Hoofdstuk 2</p>
   <h1 class="chapter-title">Wat de cijfers zeggen.</h1>
@@ -836,18 +755,18 @@ footer {
       <div class="stat-source">Monitor Digitale Economie 2024</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">€ 65&thinsp;mrd</div>
+      <div class="stat-num">&euro; 65&thinsp;mrd</div>
       <div class="stat-label">productiviteitspotentieel blijft onbenut</div>
-      <div class="stat-source">CBS / Comité voor Ondernemerschap 2025</div>
+      <div class="stat-source">CBS / Comit&eacute; voor Ondernemerschap 2025</div>
     </div>
   </div>
 
-  <p>81% heeft software. De vraag die dit document stelt, is een andere: past die software bij hoe mensen &#x00E9;cht werken?</p>
-  <p>Het CBS constateert dat er een productiviteitspotentieel van &#x20AC;65 miljard onbenut blijft in het Nederlandse MKB. Hun verklaring: &#x201E;de noodzaak wordt onderkend, maar het gevoel van urgentie is niet sterk genoeg.&#x201D;</p>
+  <p>81% heeft software. De vraag die dit document stelt, is een andere: past die software bij hoe mensen &eacute;cht werken?</p>
+  <p>Het CBS constateert dat er een productiviteitspotentieel van &euro;65 miljard onbenut blijft in het Nederlandse MKB. Hun verklaring: &#x201E;de noodzaak wordt onderkend, maar het gevoel van urgentie is niet sterk genoeg.&#x201D;</p>
   <p class="hammer">De urgentie is er wel. Ze zit opgesloten in een systeem dat niemand snapt.</p>
 </section>
 
-<!-- ── H3 ────────────────────────────────────────────────── -->
+<!-- H3 -->
 <section class="chapter reveal" id="h3">
   <p class="chapter-label">Hoofdstuk 3</p>
   <h1 class="chapter-title">Drie partijen bezitten uw werkprocessen.</h1>
@@ -865,31 +784,31 @@ footer {
 
   <h2>Wat platformafhankelijkheid u kost</h2>
 
-  <p>De kosten zijn zelden zichtbaar als &#x00E9;&#x00E9;n post op de begroting. Ze zitten verstopt:</p>
+  <p>De kosten zijn zelden zichtbaar als &eacute;&eacute;n post op de begroting. Ze zitten verstopt:</p>
   <ul>
-    <li>Maandelijkse licentiekosten: gemiddeld &#x20AC;400&#x2013;800 per maand voor een MKB-pakket met meerdere modules</li>
-    <li>Aanpassingskosten: &#x20AC;200&#x2013;500 per ticket, 1&#x2013;3 weken doorlooptijd</li>
+    <li>Maandelijkse licentiekosten: gemiddeld &euro;400&#x2013;800 per maand voor een MKB-pakket met meerdere modules</li>
+    <li>Aanpassingskosten: &euro;200&#x2013;500 per ticket, 1&#x2013;3 weken doorlooptijd</li>
     <li>Adoptieverlies: medewerkers die het systeem omzeilen kosten naar schatting 4&#x2013;8 uur per persoon per week aan handmatig herstelwerk</li>
     <li>Overstapkosten: data-export is complex of onmogelijk, waardoor overstappen voelt als opnieuw beginnen</li>
     <li>Besluitvormingsverlies: u kunt uw eigen werkproces niet aanpassen zonder toestemming van de leverancier</li>
   </ul>
 
   <div class="stat-single">
-    <div class="stat-num">&#x20AC; 40.000+</div>
+    <div class="stat-num">&euro; 40.000+</div>
     <div class="stat-label">Jaarlijkse kosten voor een gemiddeld 40-medewerkers bedrijf met volledig backoffice-pakket<br>(licenties + aanpassingen + productiviteitsverlies)</div>
     <div class="stat-source" style="margin-top:0.5rem;">Observationele schatting op basis van gepubliceerde tarieven en marktonderzoek</div>
   </div>
 
-  <p>Dat getal is opgebouwd uit kleine, onzichtbare posten. &#x20AC;500 hier, twee weken wachten daar, drie uur herstelwerk per week. Niemand besluit ooit bewust om dit te betalen.</p>
+  <p>Dat getal is opgebouwd uit kleine, onzichtbare posten. &euro;500 hier, twee weken wachten daar, drie uur herstelwerk per week. Niemand besluit ooit bewust om dit te betalen.</p>
   <p class="hammer">Het is een systeem dat u langzaam leegtrekt zonder dat u het merkt.</p>
 </section>
 
-<!-- ── H4 ────────────────────────────────────────────────── -->
+<!-- H4 -->
 <section class="chapter reveal" id="h4">
   <p class="chapter-label">Hoofdstuk 4</p>
   <h1 class="chapter-title">Wat er veranderd is.</h1>
 
-  <p>Tot voor kort was maatwerk software voor het operationele MKB financieel onhaalbaar. Projecten van &#x20AC;30.000 tot &#x20AC;50.000 waren de norm. Drie ontwikkelaars, acht weken bouwen, dan implementeren en hopen dat het werkt.</p>
+  <p>Tot voor kort was maatwerk software voor het operationele MKB financieel onhaalbaar. Projecten van &euro;30.000 tot &euro;50.000 waren de norm. Drie ontwikkelaars, acht weken bouwen, dan implementeren en hopen dat het werkt.</p>
   <p>Dat klopt niet meer.</p>
 
   <div class="manifesto">
@@ -898,22 +817,22 @@ footer {
     <p class="sub">Dat weten de platforms ook. U wist het nog niet.</p>
   </div>
 
-  <p>De reden is de opkomst van AI-gestuurde code-executie. Wat voorheen een team van drie ontwikkelaars en twee maanden kostte, kan nu &#x00E9;&#x00E9;n architect met de juiste werkwijze in twee tot vier weken realiseren. De architectuur, de analyse van het werkproces, de beslissingen over wat er gebouwd moet worden &#x2014; dat is nog steeds mensenwerk. De uitvoering is fundamenteel veranderd.</p>
+  <p>De reden is de opkomst van AI-gestuurde code-executie. Wat voorheen een team van drie ontwikkelaars en twee maanden kostte, kan nu &eacute;&eacute;n architect met de juiste werkwijze in twee tot vier weken realiseren. De architectuur, de analyse van het werkproces, de beslissingen over wat er gebouwd moet worden &#x2014; dat is nog steeds mensenwerk. De uitvoering is fundamenteel veranderd.</p>
   <p>Het resultaat is dat projecten die voorheen alleen voor grote bedrijven bereikbaar waren, nu beschikbaar zijn voor MKB-bedrijven met een normaal investeringsbudget.</p>
 
   <div class="stat-grid">
     <div class="stat-item">
-      <div class="stat-num" style="font-size:1.6rem;">Vanaf &#x20AC;&thinsp;2.500</div>
+      <div class="stat-num" style="font-size:1.6rem;">Vanaf &euro;&thinsp;2.500</div>
       <div class="stat-label">Enkelvoudig proces op maat (bijv. alleen planning of CRM)</div>
       <div class="stat-source">Eigen Grond, op basis van huidige bouwmethode</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num" style="font-size:1.6rem;">Vanaf &#x20AC;&thinsp;5.000</div>
+      <div class="stat-num" style="font-size:1.6rem;">Vanaf &euro;&thinsp;5.000</div>
       <div class="stat-label">Meerdere gekoppelde processen (planning + CRM + uren)</div>
       <div class="stat-source">Eigen Grond, indicatief</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">&#x20AC; 0</div>
+      <div class="stat-num">&euro; 0</div>
       <div class="stat-label">Doorlopende licentiekosten. De software is van u.</div>
       <div class="stat-source">Eigen Grond propositie</div>
     </div>
@@ -923,14 +842,14 @@ footer {
   <p class="hammer">Dat is precies wat er altijd ontbrak.</p>
 </section>
 
-<!-- ── H5 ────────────────────────────────────────────────── -->
+<!-- H5 -->
 <section class="chapter reveal" id="h5">
   <p class="chapter-label">Hoofdstuk 5</p>
   <h1 class="chapter-title">Hoe het anders kan.</h1>
 
-  <p>Stel dat iemand eerst komt kijken hoe uw bedrijf werkt. Niet hoe het zou moeten werken. Niet hoe een leverancier denkt dat het werkt. Hoe het &#x00E9;cht werkt.</p>
+  <p>Stel dat iemand eerst komt kijken hoe uw bedrijf werkt. Niet hoe het zou moeten werken. Niet hoe een leverancier denkt dat het werkt. Hoe het &eacute;cht werkt.</p>
   <p>En op basis van die analyse bouwt wat daarbij past. Eenmalig. Op infrastructuur die van u is. Zonder licentie. Zonder leverancier die morgen de spelregels verandert.</p>
-  <p>En daarna uw medewerkers traint om het zelf aan te passen &#x2014; zonder ticket, zonder wachttijd, zonder &#x20AC;300 per wijziging.</p>
+  <p>En daarna uw medewerkers traint om het zelf aan te passen &#x2014; zonder ticket, zonder wachttijd, zonder &euro;300 per wijziging.</p>
 
   <div class="manifesto">
     <p>Dat is geen toekomstmuziek.</p>
@@ -940,9 +859,9 @@ footer {
   <div class="callout">
     <p class="callout-label">Over &#x201E;infrastructuur die van u is&#x201D;</p>
     <p>Software die van u is, draait ook op infrastructuur die u beheert. Dat hoeft geen dure serverruimte te zijn. Een kleine dedicated computer op kantoor is voor de meeste MKB-toepassingen volledig toereikend &#x2014; betrouwbaar, snel, en volledig onder uw eigen beheer.</p>
-    <p>Eigen Grond helpt bij het inrichten van die infrastructuur als onderdeel van een project, inclusief back-upstrategie zodat uw data nooit afhankelijk is van &#x00E9;&#x00E9;n apparaat of locatie.</p>
+    <p>Eigen Grond helpt bij het inrichten van die infrastructuur als onderdeel van een project, inclusief back-upstrategie zodat uw data nooit afhankelijk is van &eacute;&eacute;n apparaat of locatie.</p>
     <p>Op langere termijn verkent Eigen Grond een model waarbij bedrijven voor elkaars data als back-uphost kunnen fungeren &#x2014; lokale bedrijven die samen eigenaarschap organiseren, zonder tussenkomst van een platform. Die richting is helder: eigenaarschap hoeft geen individuele aangelegenheid te zijn.</p>
-    <p style="color:var(--cream);font-weight:500;">Uw data is van u. Waar die staat, bepaalt u.</p>
+    <p style="color:var(--fg);font-weight:500;">Uw data is van u. Waar die staat, bepaalt u.</p>
   </div>
 
   <h2>De werkwijze in vier stappen</h2>
@@ -952,7 +871,7 @@ footer {
       <div class="step-num">01</div>
       <div class="step-content">
         <h3>Analyse</h3>
-        <p>Eigen Grond begint niet met bouwen. Er wordt eerst gekeken. Hoe werken uw mensen daadwerkelijk? Wat zijn de gaten tussen wat het systeem doet en wat het zou moeten doen? Welke Excel staat er naast het systeem? Die analyse duurt &#x00E9;&#x00E9;n of twee gesprekken.</p>
+        <p>Eigen Grond begint niet met bouwen. Er wordt eerst gekeken. Hoe werken uw mensen daadwerkelijk? Wat zijn de gaten tussen wat het systeem doet en wat het zou moeten doen? Welke Excel staat er naast het systeem? Die analyse duurt &eacute;&eacute;n of twee gesprekken.</p>
       </div>
     </div>
     <div class="step">
@@ -990,13 +909,13 @@ footer {
   <p class="hammer">U koopt geen software. U koopt de vrijheid om te werken zoals u dat wilt.</p>
 </section>
 
-<!-- ── H6 ────────────────────────────────────────────────── -->
+<!-- H6 -->
 <section class="chapter reveal" id="h6">
   <p class="chapter-label">Hoofdstuk 6</p>
   <h1 class="chapter-title">De vraag die bepaalt of dit iets voor u is.</h1>
 
-  <p>Heeft u software voor uw planning, uw administratie of uw klantbeheer die uw mensen &#x00E9;cht goed kunnen gebruiken?</p>
-  <p>Als het antwoord ja is &#x2014; en het systeem klopt volledig, iedereen werkt er prettig mee, aanpassingen zijn snel en betaalbaar, en de data staat altijd op &#x00E9;&#x00E9;n plek &#x2014; dan is dit document niet voor u.</p>
+  <p>Heeft u software voor uw planning, uw administratie of uw klantbeheer die uw mensen &eacute;cht goed kunnen gebruiken?</p>
+  <p>Als het antwoord ja is &#x2014; en het systeem klopt volledig, iedereen werkt er prettig mee, aanpassingen zijn snel en betaalbaar, en de data staat altijd op &eacute;&eacute;n plek &#x2014; dan is dit document niet voor u.</p>
   <p>Als het antwoord nee is, of &#x201E;min of meer&#x201D;, of &#x201E;eigenlijk niet, maar we redden ons er wel mee&#x201D; &#x2014; dan is dit precies voor u.</p>
 
   <div class="manifesto">
@@ -1009,27 +928,25 @@ footer {
   <p>Aan het einde van dat gesprek is duidelijk of maatwerk interessant is. Als het niet past, wordt dat eerlijk gezegd. Als het wel past, volgt een voorstel op vaste prijs.</p>
   <p class="hammer">Geen uurtarief. Geen open einde. Geen verrassingen achteraf.</p>
 </section>
-</div><!-- /report-body -->
+</div>
 
-<!-- ── DOWNLOAD BANNER ────────────────────────────────────── -->
+<!-- DOWNLOAD BANNER -->
 <div class="download-banner">
   <div class="download-banner-inner">
     <p>Dit rapport bewaren of doorsturen?</p>
-    <a href="/rapport.pdf" download class="btn-download">
-      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+    <a href="rapport.pdf" download class="btn-download">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Download PDF
     </a>
   </div>
 </div>
 
-<!-- ── CTA / FORM ─────────────────────────────────────────── -->
+<!-- CTA / FORM -->
 <section class="cta-section" id="contact">
   <div class="cta-inner">
     <p class="cta-label">Gesprek aanvragen</p>
     <h2 class="cta-title">Laat uw gegevens achter.<br>Evert neemt contact op.</h2>
-    <p class="cta-sub">Geen pitch. Geen verplichtingen. Één gesprek om te kijken of maatwerk iets voor uw bedrijf is.</p>
+    <p class="cta-sub">Geen pitch. Geen verplichtingen. E&eacute;n gesprek om te kijken of maatwerk iets voor uw bedrijf is.</p>
 
     <form class="contact-form" id="contactForm">
       <div class="form-group">
@@ -1046,9 +963,7 @@ footer {
       </div>
       <button type="submit" class="btn-primary" id="submitBtn">
         Stuur mijn gegevens
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <div class="form-success" id="formSuccess">
         Ontvangen. Evert neemt binnen twee werkdagen contact op.
@@ -1060,33 +975,34 @@ footer {
   </div>
 </section>
 
-<!-- ── VERANTWOORDING ────────────────────────────────────── -->
+<!-- VERANTWOORDING -->
 <section class="verantwoording">
   <div class="verantwoording-inner">
     <h2>Over dit document</h2>
     <p>Dit document is geen wetenschappelijk onderzoek. Het is een marktverkenning vanuit het perspectief van een aanbieder met een uitgesproken standpunt: Eigen Grond is ervan overtuigd dat MKB-bedrijven baat hebben bij software die van henzelf is.</p>
     <p>De cijfers zijn gebaseerd op openbare bronnen:</p>
     <ul>
-      <li>CBS Staat van het MKB 2025 &#x2014; Nederlands Comit&#x00E9; voor Ondernemerschap</li>
+      <li>CBS Staat van het MKB 2025 &#x2014; Nederlands Comit&eacute; voor Ondernemerschap</li>
       <li>Rijksoverheid Monitor Digitale Economie 2023 en 2024</li>
       <li>AFAS Software productpagina&#x2019;s en publieke tariefinformatie (2025)</li>
       <li>Keala Consultancy onderzoek marktaandelen NL bedrijfssoftware, via AutomatiseringGids</li>
       <li>Ondernemersbelang.nl: Softwaretrends MKB 2025</li>
     </ul>
-    <p>De &#x20AC;40.000-observatie is een illustratieve berekening op basis van gepubliceerde tarieven en een conservatieve schatting van indirecte productiviteitskosten. Bedoeld als herkenbare orde van grootte, niet als exacte meting.</p>
+    <p>De &euro;40.000-observatie is een illustratieve berekening op basis van gepubliceerde tarieven en een conservatieve schatting van indirecte productiviteitskosten. Bedoeld als herkenbare orde van grootte, niet als exacte meting.</p>
   </div>
 </section>
 
-<!-- ── FOOTER ────────────────────────────────────────────── -->
+<!-- FOOTER — identical to homepage -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">EIGEN<span>GROND</span></div>
-    <div class="footer-meta">Een initiatief van Uxley &middot; eigengrond.nu &middot; Evert Bal &middot; 2026</div>
+  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-links">
+    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="index.html">eigengrond.nu</a>
   </div>
 </footer>
 
 <script>
-/* ── Reading progress ─────────────────────────────────── */
+/* Reading progress */
 const bar = document.getElementById('progress-bar');
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
@@ -1094,7 +1010,7 @@ window.addEventListener('scroll', () => {
   bar.style.width = (scrolled / total * 100) + '%';
 }, { passive: true });
 
-/* ── Scroll reveal ────────────────────────────────────── */
+/* Scroll reveal */
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -1106,16 +1022,16 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => observer.observe(el));
 
-/* ── Formspree submission ─────────────────────────────── */
-const form   = document.getElementById('contactForm');
-const btn    = document.getElementById('submitBtn');
-const ok     = document.getElementById('formSuccess');
-const err    = document.getElementById('formError');
+/* Formspree submission */
+const form = document.getElementById('contactForm');
+const btn  = document.getElementById('submitBtn');
+const ok   = document.getElementById('formSuccess');
+const err  = document.getElementById('formError');
 
 form.addEventListener('submit', async e => {
   e.preventDefault();
   btn.classList.add('loading');
-  btn.textContent = 'Bezig met versturen…';
+  btn.textContent = 'Bezig met versturen\u2026';
   ok.style.display = 'none';
   err.style.display = 'none';
 
@@ -1127,7 +1043,7 @@ form.addEventListener('submit', async e => {
         name:    form.name.value,
         company: form.company.value,
         email:   form.email.value,
-        _subject: 'Aanvraag gesprek — Eigen Grond rapport',
+        _subject: 'Aanvraag gesprek \u2014 Eigen Grond rapport',
       }),
     });
     if (res.ok) {
