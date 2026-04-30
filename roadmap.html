@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap — Eigen Grond</title>
+<meta name="description" content="Van eigen software naar een lokaal digitaal ecosysteem. De roadmap van Eigen Grond.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/roadmap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0C0B08;
+  --fg: #F0E6D0;
+  --green: #5C7A28;
+  --green-light: #7EA33A;
+  --muted: #8A7D6E;
+  --border: #2A2820;
+  --card: #141310;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV — identiek aan rest van de site */
+nav {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 100;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: var(--fg);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--green-light); }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  text-decoration: none;
+  border: 1px solid var(--green);
+  padding: 0.35rem 0.9rem;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover { background: var(--green); color: var(--fg); }
+.nav-link.is-active { background: var(--green); color: var(--fg); }
+.nav-sub { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-left: 0.75rem; }
+
+/* HEADER */
+header.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 2rem 4rem;
+  border-bottom: 1px solid var(--border);
+}
+.header-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--green-light);
+}
+.header-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  letter-spacing: 0.03em;
+  line-height: 0.95;
+  margin-bottom: 1.75rem;
+  color: var(--fg);
+}
+.header-title span { color: var(--green-light); }
+.header-intro {
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  color: #928670;
+  line-height: 1.7;
+  max-width: 580px;
+}
+
+/* MANIFESTO BAR */
+.manifesto {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+}
+.manifesto-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.manifesto-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  color: var(--fg);
+}
+.manifesto-text em {
+  color: var(--green-light);
+  font-style: normal;
+}
+
+/* TIMELINE */
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+}
+.phase {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0;
+  margin-bottom: 0;
+  position: relative;
+}
+.phase-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.phase-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--green);
+  z-index: 2;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.phase.active .phase-dot {
+  background: var(--green-light);
+  box-shadow: 0 0 0 2px var(--green-light), 0 0 20px rgba(126, 163, 58, 0.3);
+}
+.phase-stem {
+  width: 2px;
+  flex-grow: 1;
+  background: var(--border);
+  min-height: 40px;
+}
+.phase:last-child .phase-stem {
+  background: linear-gradient(to bottom, var(--border), transparent);
+}
+.phase-content {
+  padding: 0 0 3.5rem 2rem;
+  border-bottom: none;
+}
+.phase-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+}
+.phase.active .phase-num {
+  color: var(--green-light);
+}
+.phase-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  line-height: 1;
+  margin-bottom: 0.9rem;
+}
+.phase-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 560px;
+}
+.phase-desc strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+.phase-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.75rem;
+  margin-top: 1rem;
+}
+.phase.active .phase-tag {
+  border-color: var(--green);
+  color: var(--green-light);
+  background: rgba(92, 122, 40, 0.12);
+}
+
+/* VISION BLOCK */
+.vision {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+.vision-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  position: relative;
+}
+.vision-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--green);
+}
+.vision-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1rem;
+}
+.vision-quote {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  letter-spacing: 0.03em;
+  color: var(--fg);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+.vision-body {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 620px;
+}
+
+/* CTA bar (dezelfde stijl als rapport.html) */
+.rapport-cta-bar {
+  background: var(--card);
+  border-top: 3px solid var(--green);
+  padding: 3rem 2rem;
+}
+.rapport-cta-bar-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.rapport-cta-bar h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  letter-spacing: 0.03em;
+  color: var(--fg);
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+.rapport-cta-bar p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.rapport-cta-bar .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  background: var(--green-light);
+  color: var(--bg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.rapport-cta-bar .btn-cta:hover { background: #93BF46; }
+
+/* FOOTER — identiek aan index.html / rapport.html */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-brand { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
+.footer-brand strong { color: var(--fg); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; }
+.footer-links a:hover { color: var(--fg); }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 1.25rem; }
+  .nav-sub { display: none; }
+  .nav-right { gap: 0.5rem; }
+  .nav-link { padding: 0.3rem 0.7rem; font-size: 0.7rem; }
+  header.hero { padding: 4rem 1.25rem 3rem; }
+  .manifesto { padding: 2rem 1.25rem; }
+  .timeline { padding: 3rem 1.25rem; }
+  .vision { padding: 0 1.25rem 4rem; }
+  .vision-card { padding: 1.75rem 1.5rem; }
+  .rapport-cta-bar { padding: 2.5rem 1.25rem; }
+  footer {
+    padding: 1.5rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .phase { grid-template-columns: 50px 1fr; }
+  .phase-content { padding: 0 0 2.5rem 1.25rem; }
+}
+
+@media (max-width: 380px) {
+  html { font-size: 14px; }
+  nav { padding: 1rem; }
+  header.hero { padding: 3rem 1rem 2.5rem; }
+  .manifesto { padding: 1.75rem 1rem; }
+  .timeline { padding: 2.5rem 1rem; }
+  .vision { padding: 0 1rem 3rem; }
+  footer { padding: 1.25rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
+  <div class="nav-right">
+    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="roadmap.html" class="nav-link is-active">Roadmap</a>
+    <span class="nav-sub">Een initiatief van Uxley</span>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="hero">
+  <div class="header-label">Roadmap</div>
+  <h1 class="header-title">VAN EIGEN SOFTWARE<br>NAAR <span>EIGEN GROND.</span></h1>
+  <p class="header-intro">Eigenaarschap begint bij software. Maar het stopt daar niet. Wat volgt is een pad van software naar infrastructuur, van infrastructuur naar intelligentie, van intelligentie naar een lokaal digitaal ecosysteem dat niet afhankelijk is van platforms, datacenters of centrale netwerken.</p>
+</header>
+
+<!-- MANIFESTO -->
+<div class="manifesto">
+  <div class="manifesto-inner">
+    <p class="manifesto-text">Elke stap geeft eigenaarschap terug.<br><em>Elke stap maakt de regio sterker.</em></p>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+
+  <div class="phase active">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-stem"></div>
+    </div>
+    <div class="phase-content">
+      <div class="phase-num">FASE 01</div>
+      <div class="phase-title">EIGEN SOFTWARE</div>
+      <div class="phase-desc">Bedrijven krijgen software die precies past op hoe ze werken. Gebouwd op basis van hun eigen processen, niet op basis van wat een platform voorschrijft. <strong>Eenmalig betaald. Volledig eigendom. Broncode inbegrepen.</strong></div>
+      <div class="phase-tag">Nu actief</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-stem"></div>
+    </div>
+    <div class="phase-content">
+      <div class="phase-num">FASE 02</div>
+      <div class="phase-title">EIGEN SERVER</div>
+      <div class="phase-desc">Software en data draaien op eigen infrastructuur. Geen cloud van een derde partij, geen platform dat de voorwaarden bepaalt. <strong>Een kleine, betrouwbare server op kantoor. Volledig onder eigen beheer.</strong></div>
+      <div class="phase-tag">Volgende stap</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-stem"></div>
+    </div>
+    <div class="phase-content">
+      <div class="phase-num">FASE 03</div>
+      <div class="phase-title">EIGEN INTELLIGENTIE</div>
+      <div class="phase-desc">AI ingezet op eigen data en processen. Slimmer plannen, sneller reageren, betere beslissingen nemen. <strong>Zonder bedrijfsinformatie uit handen te geven aan een extern platform dat er wijzer van wordt.</strong></div>
+      <div class="phase-tag">Korte termijn</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-stem"></div>
+    </div>
+    <div class="phase-content">
+      <div class="phase-num">FASE 04</div>
+      <div class="phase-title">EIGEN NETWERK</div>
+      <div class="phase-desc">Lokale bedrijven draaien elkaars backups. Als één server uitvalt, staat de data veilig bij een ondernemer om de hoek. <strong>Redundantie zonder datacenter. Vertrouwen zonder tussenpartij.</strong></div>
+      <div class="phase-tag">Middellange termijn</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-stem"></div>
+    </div>
+    <div class="phase-content">
+      <div class="phase-num">FASE 05</div>
+      <div class="phase-title">EIGEN VERBINDING</div>
+      <div class="phase-desc">Lokale netwerken op industrieterreinen en bedrijvenclusters. Als het internet uitvalt, draait het bedrijf door. <strong>Operationele continuïteit die niet afhankelijk is van één kabel of één provider.</strong></div>
+      <div class="phase-tag">Middellange termijn</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-stem"></div>
+    </div>
+    <div class="phase-content">
+      <div class="phase-num">FASE 06</div>
+      <div class="phase-title">EIGEN DIENSTEN</div>
+      <div class="phase-desc">Apps voor burgers en consumenten, gebouwd voor de regio. Belangrijke en urgente zaken, lokaal geregeld. <strong>Geen app van een techbedrijf aan de andere kant van de wereld. Een dienst van hier, voor hier.</strong></div>
+      <div class="phase-tag">Lange termijn</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-stem"></div>
+    </div>
+    <div class="phase-content">
+      <div class="phase-num">FASE 07</div>
+      <div class="phase-title">EIGEN INTERNET</div>
+      <div class="phase-desc">Een decentraal netwerk van bedrijven en burgers. Onderling verbonden, onafhankelijk van centrale infrastructuur. <strong>Communicatie die blijft werken als het internet zelf het niet doet.</strong></div>
+      <div class="phase-tag">Lange termijn</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- VISION -->
+<div class="vision">
+  <div class="vision-card">
+    <div class="vision-label">Geïnspireerd door Society 4.0</div>
+    <p class="vision-quote">De regio als fundament.<br>De burger als eigenaar.<br>Technologie als middel, niet als meester.</p>
+    <p class="vision-body">Deze roadmap is geïnspireerd door de visie van Prof. Bob de Wit (Society 4.0): een samenleving waarin technologische ontwikkelingen decentrale productie mogelijk maken, regio's het fundament vormen, en de belangen van burgers en ondernemers het vertrekpunt zijn. Niet top-down gestuurd door platforms en instituties, maar bottom-up gebouwd door de mensen die er wonen en werken. Eigen Grond begint bij software. Maar de richting is helder: eigenaarschap organiseren op elk niveau waar dat mogelijk is.</p>
+  </div>
+</div>
+
+<!-- CTA BAR -->
+<div class="rapport-cta-bar">
+  <div class="rapport-cta-bar-inner">
+    <h2>Meedenken over deze richting?</h2>
+    <p>Een eerste gesprek duurt maximaal een half uur. Geen pitch, geen verplichtingen.</p>
+    <a href="mailto:hallo@uxley.nl?subject=Roadmap%20Eigen%20Grond" class="btn-cta">
+      Gesprek aanvragen
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER — identiek aan index.html / rapport.html -->
+<footer>
+  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-links">
+    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="index.html">eigengrond.nu</a>
+  </div>
+</footer>
+
+</body>
+</html>

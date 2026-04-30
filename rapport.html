@@ -139,45 +139,95 @@ nav {
 
 /* TABLE OF CONTENTS */
 .toc {
-  padding: 2.5rem 2rem;
+  position: static;
+  z-index: auto;
+  padding: 0.8rem 2rem;
   background: var(--card);
   border-bottom: 1px solid var(--border);
 }
 .toc-inner {
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 .toc-label {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--green-light);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .toc-list {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0.25rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 1.25rem;
 }
 .toc-list li a {
   display: flex;
   align-items: baseline;
-  gap: 0.75rem;
-  padding: 0.4rem 0;
+  gap: 0.4rem;
+  padding: 0.25rem 0;
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   transition: color 0.15s;
+  white-space: nowrap;
 }
 .toc-list li a:hover { color: var(--fg); }
 .toc-list li a .toc-num {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--green);
   letter-spacing: 0.1em;
   flex-shrink: 0;
-  width: 20px;
+  width: 16px;
+}
+
+/* TOC hamburger (mobile only) */
+.toc-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.4rem 0.65rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.15s, border-color 0.15s;
+}
+.toc-toggle:hover { color: var(--fg); border-color: var(--muted); }
+.toc-toggle svg { flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .toc { padding: 0.75rem 1.25rem; }
+  .toc-inner { flex-wrap: wrap; gap: 0; justify-content: space-between; }
+  .toc-label { margin-bottom: 0; }
+  .toc-toggle { display: inline-flex; }
+  .toc-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .toc-list.is-open { display: flex; }
+  .toc-list li a {
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-list li:last-child a { border-bottom: none; }
 }
 
 /* REPORT BODY */
@@ -394,100 +444,79 @@ nav {
 }
 .callout p:last-child { margin-bottom: 0 !important; }
 
-/* CTA form section */
-.cta-section {
-  background: var(--card);
-  border-top: 3px solid var(--green);
-  padding: 5rem 2rem;
-  margin-top: 0;
+/* Inline CTA (mid-rapport + einde) */
+.inline-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  margin: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
-.cta-inner {
-  max-width: 860px;
-  margin: 0 auto;
+.inline-cta p {
+  font-size: 0.9rem !important;
+  color: var(--muted) !important;
+  margin-bottom: 0 !important;
 }
-.cta-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--green-light);
-  margin-bottom: 0.75rem;
-}
-.cta-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1.8rem, 5vw, 2.8rem);
-  letter-spacing: 0.03em;
-  color: var(--fg);
-  margin-bottom: 1rem;
-  line-height: 1.1;
-}
-.cta-sub {
-  font-size: 0.95rem;
-  color: #928670;
-  max-width: 480px;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-}
-
-/* Form */
-.contact-form { max-width: 480px; }
-.form-group { margin-bottom: 1rem; }
-.form-group label {
-  display: block;
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.4rem;
-}
-.form-group input {
-  width: 100%;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  color: var(--fg);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
-  padding: 0.7rem 0.9rem;
-  outline: none;
-  transition: border-color 0.15s;
-  -webkit-appearance: none;
-}
-.form-group input:focus { border-color: var(--green); }
-.form-group input::placeholder { color: #625B4B; }
-.btn-primary {
+.inline-cta .btn-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
   background: var(--green-light);
   color: var(--bg);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
-  border: none;
-  padding: 0.85rem 2rem;
-  cursor: pointer;
-  margin-top: 0.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
   transition: background 0.15s;
-  width: 100%;
-  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.btn-primary:hover { background: #93BF46; }
-.btn-primary.loading { opacity: 0.6; pointer-events: none; }
-.form-success {
-  display: none;
-  padding: 1.25rem 1.5rem;
-  border: 1px solid var(--green);
-  color: var(--green-light);
+.inline-cta .btn-cta:hover { background: #93BF46; }
+
+/* Full-width CTA bar (after report) */
+.rapport-cta-bar {
+  background: var(--card);
+  border-top: 3px solid var(--green);
+  padding: 3rem 2rem;
+}
+.rapport-cta-bar-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.rapport-cta-bar h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  letter-spacing: 0.03em;
+  color: var(--fg);
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+.rapport-cta-bar p {
   font-size: 0.9rem;
-  margin-top: 1rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
-.form-error {
-  display: none;
-  padding: 1rem 1.25rem;
-  border: 1px solid #8B0000;
-  color: #FF8080;
-  font-size: 0.85rem;
-  margin-top: 0.75rem;
+.rapport-cta-bar .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  background: var(--green-light);
+  color: var(--bg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.15s;
 }
+.rapport-cta-bar .btn-cta:hover { background: #93BF46; }
 
 /* Download banner */
 .download-banner {
@@ -596,12 +625,17 @@ footer {
 @media (max-width: 768px) {
   nav { padding: 1.25rem; }
   .nav-sub { display: none; }
+  .nav-right { gap: 0.5rem; }
+  .nav-link { padding: 0.3rem 0.7rem; font-size: 0.7rem; }
   .hero { padding: 4rem 1.25rem 3.5rem; }
   .report-body { padding: 0 1.25rem; }
-  .toc { padding: 2rem 1.25rem; }
   .cta-section { padding: 3.5rem 1.25rem; }
   .verantwoording { padding: 3rem 1.25rem; }
   .download-banner { padding: 1.5rem 1.25rem; }
+  .rapport-cta-bar { padding: 2.5rem 1.25rem; }
+  .stat-item { padding: 1.25rem 1rem; }
+  .stat-single { padding: 1.5rem 1.25rem; }
+  .inline-cta { flex-direction: column; align-items: flex-start; }
   footer {
     padding: 1.5rem 1.25rem;
     flex-direction: column;
@@ -620,7 +654,6 @@ footer {
   nav { padding: 1rem; }
   .hero { padding: 3rem 1rem 2.5rem; }
   .report-body { padding: 0 1rem; }
-  .toc { padding: 1.5rem 1rem; }
   .cta-section { padding: 3rem 1rem; }
   .verantwoording { padding: 2.5rem 1rem; }
   footer { padding: 1.25rem 1rem; }
@@ -635,6 +668,7 @@ footer {
 <nav>
   <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
   <div class="nav-right">
+    <a href="roadmap.html" class="nav-link">Roadmap</a>
     <a href="rapport.pdf" download class="nav-link nav-link-download">
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       PDF
@@ -659,13 +693,17 @@ footer {
 <nav class="toc" aria-label="Inhoudsopgave">
   <div class="toc-inner">
     <p class="toc-label">Inhoud</p>
-    <ul class="toc-list">
-      <li><a href="#h1"><span class="toc-num">01</span>Het patroon</a></li>
-      <li><a href="#h2"><span class="toc-num">02</span>Wat de cijfers zeggen</a></li>
-      <li><a href="#h3"><span class="toc-num">03</span>Drie partijen bezitten uw werkprocessen</a></li>
-      <li><a href="#h4"><span class="toc-num">04</span>Wat er veranderd is</a></li>
-      <li><a href="#h5"><span class="toc-num">05</span>Hoe het anders kan</a></li>
-      <li><a href="#h6"><span class="toc-num">06</span>De vraag die bepaalt of dit iets voor u is</a></li>
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocList">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4h10M2 7h10M2 10h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Menu
+    </button>
+    <ul class="toc-list" id="tocList">
+      <li><a href="#h1"><span class="toc-num">01</span><span class="toc-text">Het patroon</span></a></li>
+      <li><a href="#h2"><span class="toc-num">02</span><span class="toc-text">De cijfers</span></a></li>
+      <li><a href="#h3"><span class="toc-num">03</span><span class="toc-text">Drie partijen</span></a></li>
+      <li><a href="#h4"><span class="toc-num">04</span><span class="toc-text">Wat veranderde</span></a></li>
+      <li><a href="#h5"><span class="toc-num">05</span><span class="toc-text">Het alternatief</span></a></li>
+      <li><a href="#h6"><span class="toc-num">06</span><span class="toc-text">Is dit voor u?</span></a></li>
     </ul>
   </div>
 </nav>
@@ -801,6 +839,11 @@ footer {
 
   <p>Dat getal is opgebouwd uit kleine, onzichtbare posten. &euro;500 hier, twee weken wachten daar, drie uur herstelwerk per week. Niemand besluit ooit bewust om dit te betalen.</p>
   <p class="hammer">Het is een systeem dat u langzaam leegtrekt zonder dat u het merkt.</p>
+
+  <div class="inline-cta">
+    <p>Genoeg gelezen? Evert luistert graag naar uw verhaal.</p>
+    <a href="mailto:hallo@uxley.nl?subject=Gesprek%20Eigen%20Grond" class="btn-cta">Neem contact op</a>
+  </div>
 </section>
 
 <!-- H4 -->
@@ -930,6 +973,18 @@ footer {
 </section>
 </div>
 
+<!-- CTA BAR -->
+<div class="rapport-cta-bar">
+  <div class="rapport-cta-bar-inner">
+    <h2>Herkenbaar? Laten we praten.</h2>
+    <p>Een eerste gesprek duurt maximaal een half uur. Geen pitch, geen verplichtingen.</p>
+    <a href="mailto:hallo@uxley.nl?subject=Gesprek%20Eigen%20Grond" class="btn-cta">
+      Gesprek aanvragen
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
+
 <!-- DOWNLOAD BANNER -->
 <div class="download-banner">
   <div class="download-banner-inner">
@@ -941,39 +996,6 @@ footer {
   </div>
 </div>
 
-<!-- CTA / FORM -->
-<section class="cta-section" id="contact">
-  <div class="cta-inner">
-    <p class="cta-label">Gesprek aanvragen</p>
-    <h2 class="cta-title">Laat uw gegevens achter.<br>Evert neemt contact op.</h2>
-    <p class="cta-sub">Geen pitch. Geen verplichtingen. E&eacute;n gesprek om te kijken of maatwerk iets voor uw bedrijf is.</p>
-
-    <form class="contact-form" id="contactForm">
-      <div class="form-group">
-        <label for="name">Naam</label>
-        <input type="text" id="name" name="name" placeholder="Uw naam" required autocomplete="name">
-      </div>
-      <div class="form-group">
-        <label for="company">Bedrijfsnaam</label>
-        <input type="text" id="company" name="company" placeholder="Naam van uw bedrijf" required>
-      </div>
-      <div class="form-group">
-        <label for="email">E-mailadres</label>
-        <input type="email" id="email" name="email" placeholder="uw@bedrijf.nl" required autocomplete="email">
-      </div>
-      <button type="submit" class="btn-primary" id="submitBtn">
-        Stuur mijn gegevens
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="form-success" id="formSuccess">
-        Ontvangen. Evert neemt binnen twee werkdagen contact op.
-      </div>
-      <div class="form-error" id="formError">
-        Er ging iets mis. Probeer het opnieuw of stuur direct een mail.
-      </div>
-    </form>
-  </div>
-</section>
 
 <!-- VERANTWOORDING -->
 <section class="verantwoording">
@@ -1022,43 +1044,21 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => observer.observe(el));
 
-/* Formspree submission */
-const form = document.getElementById('contactForm');
-const btn  = document.getElementById('submitBtn');
-const ok   = document.getElementById('formSuccess');
-const err  = document.getElementById('formError');
-
-form.addEventListener('submit', async e => {
-  e.preventDefault();
-  btn.classList.add('loading');
-  btn.textContent = 'Bezig met versturen\u2026';
-  ok.style.display = 'none';
-  err.style.display = 'none';
-
-  try {
-    const res = await fetch('https://formspree.io/f/mpqoaplo', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name:    form.name.value,
-        company: form.company.value,
-        email:   form.email.value,
-        _subject: 'Aanvraag gesprek \u2014 Eigen Grond rapport',
-      }),
-    });
-    if (res.ok) {
-      form.reset();
-      ok.style.display = 'block';
-    } else {
-      throw new Error('non-200');
-    }
-  } catch (_) {
-    err.style.display = 'block';
-  } finally {
-    btn.classList.remove('loading');
-    btn.innerHTML = 'Stuur mijn gegevens <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+/* TOC hamburger toggle */
+const tocToggle = document.getElementById('tocToggle');
+const tocList = document.getElementById('tocList');
+tocToggle.addEventListener('click', () => {
+  const open = tocList.classList.toggle('is-open');
+  tocToggle.setAttribute('aria-expanded', open);
+});
+/* Close menu when a link is tapped */
+tocList.addEventListener('click', e => {
+  if (e.target.closest('a')) {
+    tocList.classList.remove('is-open');
+    tocToggle.setAttribute('aria-expanded', 'false');
   }
 });
+
 </script>
 </body>
 </html>
