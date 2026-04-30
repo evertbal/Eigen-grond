@@ -137,7 +137,7 @@ h2 {
   margin-bottom: 0.6rem;
 }
 .pain-body {
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   color: #928670;
   line-height: 1.6;
 }
@@ -185,7 +185,7 @@ h2 {
   margin-bottom: 0.6rem;
 }
 .solution-body {
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   color: #928670;
   line-height: 1.65;
 }
@@ -330,6 +330,91 @@ h2 {
     width: 100%;
   }
   .btn-rapport { width: 100%; text-align: center; }
+}
+
+/* WIE HIERACHTER ZIT */
+.who-section {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+.who-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.who-portrait {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.who-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.who-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.who-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--green-light);
+}
+.who-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+.who-content p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--fg);
+  max-width: 600px;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+.who-content p:last-of-type { margin-bottom: 0; }
+.who-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--green-light);
+  text-decoration: none;
+  margin-top: 1.5rem;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.who-link:hover { opacity: 0.85; transform: translateX(2px); }
+
+@media (max-width: 600px) {
+  .who-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 3rem 1.25rem;
+  }
+  .who-portrait { width: 100px; height: 100px; }
 }
 
 /* FORM */
@@ -507,6 +592,7 @@ h2 {
   <div class="nav-right">
     <a href="rapport.html" class="nav-link">Rapport</a>
     <a href="roadmap.html" class="nav-link">Roadmap</a>
+    <a href="over.html" class="nav-link">Over</a>
     <span class="nav-sub">Een initiatief van Uxley</span>
   </div>
 </nav>
@@ -514,9 +600,9 @@ h2 {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-tag">Een beweging voor lokaal MKB</div>
-  <h1>JOUW SOFTWARE.<br>JOUW DATA.<br>JOUW <span class="accent">REGELS.</span></h1>
+  <h1>JOUW <span class="accent">SOFTWARE.</span><br>JOUW <span class="accent">DATA.</span><br>JOUW <span class="accent">REGELS.</span></h1>
   <p class="hero-lead">
-    Je betaalt elke maand voor software die jouw roosters beheert, jouw reserveringen bijhoudt, jouw klanten kent. Maar van wie zijn die data? Wie bepaalt de regels? En waarom pas jij je aan hun systeem aan — en niet andersom?
+    Je betaalt elke maand voor software die jouw roosters beheert, jouw reserveringen bijhoudt, jouw klanten kent. Maar van wie zijn die data? Wie bepaalt de regels? En waarom pas jij je aan hun systeem aan, en niet andersom?
   </p>
   <div class="hero-actions">
     <a href="rapport.html" class="btn-hero">Lees het rapport
@@ -640,6 +726,22 @@ h2 {
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Download PDF
       </a>
+    </div>
+  </div>
+</div>
+
+<!-- WIE HIERACHTER ZIT -->
+<div class="who-section">
+  <div class="who-inner">
+    <div class="who-portrait">
+      <img src="evert.jpg" srcset="evert.jpg 1x, evert@2x.jpg 2x" alt="Portret Evert Bal" width="130" height="130" loading="lazy">
+    </div>
+    <div class="who-content">
+      <p class="who-label">Wie hierachter zit</p>
+      <h2 class="who-name">EVERT BAL</h2>
+      <p>Vijftien jaar als UX-ontwerper. Bij de ANWB, Philips, de Consumentenbond. Vijftien jaar lang kijken hoe bedrijven worstelen met software die niet past. Op een gegeven moment verschuift de vraag van &ldquo;hoe maak ik deze interface beter&rdquo; naar &ldquo;waarom is dit systeem niet gebouwd op hoe deze mensen werken.&rdquo;</p>
+      <p>Eigen Grond is het antwoord op die vraag. Eerst kijken hoe het bedrijf werkt. Dan bouwen wat daarbij past. Geen platform, geen abonnement, geen leveranciersslot.</p>
+      <a href="over.html" class="who-link">Meer over Evert Bal en Uxley &rarr;</a>
     </div>
   </div>
 </div>
