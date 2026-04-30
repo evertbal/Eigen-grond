@@ -36,10 +36,13 @@
 }
 h1 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(4.5rem, 14vw, 10rem);
-  line-height: 0.88;
-  letter-spacing: 0.02em;
+  /* Schaalt mee met viewport. Min/max gekozen zodat "JOUW SOFTWARE."
+     (de langste regel) altijd op 1 regel past, ook op 320px breed. */
+  font-size: clamp(2.7rem, 11vw, 8.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
   margin-bottom: 2.5rem;
+  white-space: nowrap;
 }
 h1 .accent { color: var(--green-light); }
 .hero-lead {
@@ -511,7 +514,7 @@ h2 {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-tag">Een beweging voor lokaal MKB</div>
-  <h1>JOUW<br>SOFT<span class="accent">WARE.</span><br>JOUW<br>DATA.</h1>
+  <h1>JOUW SOFTWARE.<br>JOUW DATA.<br>JOUW <span class="accent">REGELS.</span></h1>
   <p class="hero-lead">
     Je betaalt elke maand voor software die jouw roosters beheert, jouw reserveringen bijhoudt, jouw klanten kent. Maar van wie zijn die data? Wie bepaalt de regels? En waarom pas jij je aan hun systeem aan — en niet andersom?
   </p>
