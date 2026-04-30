@@ -77,16 +77,24 @@ h1 .accent { color: var(--green-light); }
 .btn-hero:hover { background: #93BF46; }
 .btn-hero-outline {
   background: transparent;
-  border: 1px solid var(--green);
-  color: var(--green-light);
+  border: none;
+  color: var(--muted);
   font-family: 'DM Sans', sans-serif;
   font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.6rem 1.4rem;
+  padding: 0.6rem 0.5rem;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 4px;
+  transition: color 0.15s, text-decoration-color 0.15s;
 }
-.btn-hero-outline:hover { background: var(--green); color: var(--fg); }
+.btn-hero-outline:hover {
+  background: transparent;
+  color: var(--green-light);
+  text-decoration-color: var(--green);
+}
 
 /* SECTIONS */
 .section {
@@ -138,8 +146,9 @@ h2 {
 }
 .pain-body {
   font-size: 0.98rem;
-  color: #928670;
-  line-height: 1.6;
+  font-weight: 400;
+  color: #B5A88E;
+  line-height: 1.65;
 }
 
 /* MANIFESTO */
@@ -158,6 +167,19 @@ h2 {
 }
 .manifesto p span {
   color: #CDD0AC;
+}
+.manifesto p.manifesto-coda {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: #F0E6D0;
+  opacity: 0.85;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(240, 230, 208, 0.18);
+  text-transform: none;
 }
 
 /* SOLUTION GRID */
@@ -186,8 +208,9 @@ h2 {
 }
 .solution-body {
   font-size: 0.98rem;
-  color: #928670;
-  line-height: 1.65;
+  font-weight: 400;
+  color: #B5A88E;
+  line-height: 1.7;
 }
 
 /* CASE SECTION */
@@ -247,6 +270,18 @@ h2 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-top: 0.4rem;
+}
+.case-divider {
+  max-width: 860px;
+  margin: 0 auto;
+  height: 1px;
+  background: var(--border);
+}
+.case-inner-secondary {
+  padding-top: 3rem;
+}
+.case-inner-secondary .case-title {
+  font-size: clamp(1.4rem, 3.4vw, 2.2rem);
 }
 
 /* RAPPORT CTA */
@@ -395,6 +430,26 @@ h2 {
   opacity: 0.9;
 }
 .who-content p:last-of-type { margin-bottom: 0; }
+.who-quote {
+  margin: 1.75rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--border);
+  max-width: 600px;
+}
+.who-quote p {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--fg);
+  opacity: 0.85;
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+}
+.who-quote-name {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 .who-link {
   display: inline-flex;
   align-items: center;
@@ -403,7 +458,7 @@ h2 {
   letter-spacing: 0.1em;
   color: var(--green-light);
   text-decoration: none;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   transition: opacity 0.15s, transform 0.15s;
 }
 .who-link:hover { opacity: 0.85; transform: translateX(2px); }
@@ -618,11 +673,12 @@ h2 {
     <span>Je huurt je eigen bedrijf terug.</span><br>
     Dat is wat er nu gebeurt.
   </p>
+  <p class="manifesto-coda">Wat van jou is, kan niemand veranderen.</p>
 </div>
 
 <!-- HERKENNING -->
 <section class="section">
-  <div class="section-label">Herken je dit?</div>
+  <div class="section-label">Heb je dit ooit zo bekeken?</div>
   <div class="pain-grid">
     <div class="pain-item">
       <div class="pain-num">01</div>
@@ -652,7 +708,7 @@ h2 {
     <div class="pain-item">
       <div class="pain-num">06</div>
       <div class="pain-title">Stoppen kost meer dan doorgaan</div>
-      <div class="pain-body">Al je data zit erin. Al je medewerkers kennen het. De overstapdrempel is precies zo hoog gebouwd dat vertrekken pijn doet. Dat is geen toeval.</div>
+      <div class="pain-body">Al je data zit erin. Al je medewerkers kennen het. De overstapdrempel is precies zo hoog gebouwd dat vertrekken pijn doet. Dat is geen toeval, dat is het verdienmodel. En het is niet jouw fout dat je er nu in zit.</div>
     </div>
   </div>
 </section>
@@ -670,7 +726,7 @@ h2 {
     <div class="solution-item">
       <div class="solution-icon"></div>
       <div class="solution-title">Eenmalig betaald</div>
-      <div class="solution-body">Geen maandelijks abonnement aan een platform dat groeit van jouw nummers. Een investering. Daarna is het van jou.</div>
+      <div class="solution-body">Stop met betalen voor data die niet van jou is. Geen maandelijks abonnement aan een platform dat groeit van jouw nummers. Een investering. Daarna is het van jou.</div>
     </div>
     <div class="solution-item">
       <div class="solution-icon"></div>
@@ -710,6 +766,30 @@ h2 {
       </div>
     </div>
   </div>
+
+  <div class="case-divider"></div>
+
+  <div class="case-inner case-inner-secondary">
+    <div class="case-label">En op kleinere schaal</div>
+    <p class="case-title">8 MEDEWERKERS. 4 LOSSE TOOLS.<br>&Eacute;&Eacute;N PERSOON DIE ALLES BIJHIELD.</p>
+    <p class="case-body">
+      Een installatiebedrijf met losse tools voor planning, offertes, urenregistratie en facturatie. Elk pakket op zich logisch. Samen onhanteerbaar. De eigenaar werkte elke avond bij om de gaten te dichten.
+    </p>
+    <div class="case-stats">
+      <div class="case-stat">
+        <div class="case-stat-number">&euro;600</div>
+        <div class="case-stat-label">Per maand bespaard.</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-number">1</div>
+        <div class="case-stat-label">Systeem. Eigen beheer.</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-number">0</div>
+        <div class="case-stat-label">Abonnementen.</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- RAPPORT CTA -->
@@ -741,6 +821,10 @@ h2 {
       <h2 class="who-name">EVERT BAL</h2>
       <p>Vijftien jaar als UX-ontwerper. Bij de ANWB, Philips, de Consumentenbond. Vijftien jaar lang kijken hoe bedrijven worstelen met software die niet past. Op een gegeven moment verschuift de vraag van &ldquo;hoe maak ik deze interface beter&rdquo; naar &ldquo;waarom is dit systeem niet gebouwd op hoe deze mensen werken.&rdquo;</p>
       <p>Eigen Grond is het antwoord op die vraag. Eerst kijken hoe het bedrijf werkt. Dan bouwen wat daarbij past. Geen platform, geen abonnement, geen leveranciersslot.</p>
+      <blockquote class="who-quote">
+        <p>&ldquo;Een naturel die niet gelijk met design begint maar eerst alle informatie ophaalt.&rdquo;</p>
+        <span class="who-quote-name">Quintin Doest, CEO</span>
+      </blockquote>
       <a href="over.html" class="who-link">Meer over Evert Bal en Uxley &rarr;</a>
     </div>
   </div>
