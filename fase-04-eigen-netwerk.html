@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eigen Netwerk &mdash; Eigen Grond</title>
+<meta name="description" content="Roadmap fase 04: Eigen Netwerk. Onderdeel van het pad van eigen software naar een lokaal digitaal ecosysteem.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/fase-04-eigen-netwerk">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.phase-back-wrap { max-width: 820px; margin: 0 auto; padding: 1.5rem 2rem 0; }
+.phase-back {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.15s;
+}
+.phase-back:hover { color: var(--green-light); }
+
+header.phase-hero { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 2rem; }
+.phase-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 1.25rem;
+}
+.phase-badge::before { content: ''; display: block; width: 28px; height: 1px; background: var(--green-light); }
+.phase-status {
+  font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green-light);
+  border: 1px solid var(--green);
+  padding: 0.2rem 0.6rem; margin-left: 0.5rem;
+  background: rgba(92, 122, 40, 0.12);
+}
+.phase-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  letter-spacing: 0.04em; line-height: 0.95;
+  color: var(--fg); margin-bottom: 0.9rem;
+}
+.phase-hero h1 em { color: var(--green-light); font-style: normal; }
+.phase-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #928670; max-width: 600px; line-height: 1.6;
+}
+
+.phase-intro {
+  max-width: 820px; margin: 0 auto;
+  padding: 0 2rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.phase-intro p { font-size: 1rem; color: var(--fg); line-height: 1.75; max-width: 620px; }
+
+.phase-content { max-width: 820px; margin: 0 auto; padding: 3rem 2rem 1rem; }
+.phase-section { margin-bottom: 3rem; }
+.phase-section-label {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 0.9rem;
+}
+.phase-section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--green-light); }
+.phase-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  letter-spacing: 0.04em; color: var(--fg);
+  line-height: 1.1; margin-bottom: 1rem;
+}
+.phase-section p {
+  font-size: 0.95rem; color: var(--muted); line-height: 1.75;
+  margin-bottom: 1.1rem; max-width: 64ch;
+}
+.phase-section p strong { color: var(--fg); font-weight: 500; }
+
+.phase-next-wrap {
+  border-top: 1px solid var(--border);
+  max-width: 820px; margin: 0 auto;
+  padding: 3rem 2rem;
+}
+.phase-next-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.15s;
+}
+.phase-next-card:hover { border-color: var(--green); }
+.phase-next-card::before {
+  content: ''; position: absolute; left: 0; top: 0;
+  width: 4px; height: 100%; background: var(--green);
+}
+.phase-next-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 0.75rem;
+}
+.phase-next-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em;
+  color: var(--fg); margin-bottom: 0.5rem;
+}
+.phase-next-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; max-width: 520px; }
+
+.phase-form {
+  border-top: 1px solid var(--border);
+  max-width: 820px; margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+}
+.phase-form h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em;
+  color: var(--fg); margin-bottom: 0.5rem;
+}
+.phase-form > p {
+  font-size: 0.9rem; color: var(--muted); line-height: 1.6;
+  margin-bottom: 1.5rem; max-width: 520px;
+}
+.phase-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.phase-form input, .phase-form textarea {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; font-weight: 300;
+  padding: 0.75rem 1rem;
+  width: 100%; outline: none;
+  transition: border-color 0.15s;
+}
+.phase-form input:focus, .phase-form textarea:focus { border-color: var(--green); }
+.phase-form input::placeholder, .phase-form textarea::placeholder { color: #625B4B; }
+.phase-form textarea { min-height: 110px; resize: vertical; margin-bottom: 1rem; }
+.phase-form button {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--green-light); color: var(--bg);
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.05rem; letter-spacing: 0.1em;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.phase-form button:hover { background: #93BF46; }
+.phase-form-msg {
+  display: none; font-size: 0.88rem; color: var(--green-light);
+  margin-top: 1rem; padding: 0.75rem 0;
+}
+.phase-form-msg.visible { display: block; }
+
+@media (max-width: 768px) {
+  .phase-back-wrap { padding: 1.25rem 1.25rem 0; }
+  header.phase-hero { padding: 2rem 1.25rem 1.5rem; }
+  .phase-intro, .phase-content, .phase-next-wrap, .phase-form { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .phase-form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 380px) {
+  .phase-back-wrap { padding: 1rem 1rem 0; }
+  header.phase-hero { padding: 1.75rem 1rem 1.25rem; }
+  .phase-intro, .phase-content, .phase-next-wrap, .phase-form { padding-left: 1rem; padding-right: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
+  <div class="nav-right">
+    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="roadmap.html" class="nav-link is-active">Roadmap</a>
+    <span class="nav-sub">Een initiatief van Uxley</span>
+  </div>
+</nav>
+
+<div class="phase-back-wrap">
+  <a class="phase-back" href="roadmap.html">&larr; Terug naar roadmap</a>
+</div>
+
+<header class="phase-hero">
+  <div class="phase-badge">Fase 04 <span class="phase-status">Middellange termijn</span></div>
+  <h1>Eigen <em>netwerk</em>.</h1>
+  <p class="phase-subtitle">Bedrijven die elkaars systemen versterken. Redundantie zonder datacenter.</p>
+</header>
+
+<div class="phase-intro">
+  <p>Een eigen server is kwetsbaar als die alleen staat. Als de hardware uitvalt, is de data weg. De traditionele oplossing is een cloudbackup bij een grote provider. Maar dat brengt je terug bij dezelfde afhankelijkheid. Eigen Netwerk is het alternatief: lokale bedrijven die onderling elkaars backups hosten.</p>
+</div>
+
+<div class="phase-content">
+    <div class="phase-section">
+      <div class="phase-section-label">Wat</div>
+      <h2>Peer-to-peer backup tussen bedrijven</h2>
+      <p>Het principe is vergelijkbaar met hoe het PlayStation Network werkt: elke deelnemer in het systeem is tegelijk gebruiker &eacute;n host. Bedrijf A slaat een versleutelde kopie van zijn data op bij Bedrijf B, en andersom. Als &eacute;&eacute;n server uitvalt, staat de data veilig bij een ander bedrijf.</p>
+      <p><strong>De bedrijven hoeven niet fysiek naast elkaar te staan.</strong> De verbinding loopt via internet, versleuteld en geautomatiseerd. Wat lokaal is, is het vertrouwen: je weet bij wie je data staat. Het is een ondernemer die je kent, niet een datacenter in een ander land.</p>
+      <p>De data die uitgewisseld wordt is versleuteld. Bedrijf B kan niet lezen wat Bedrijf A opslaat. Het enige wat Bedrijf B biedt, is opslagruimte. De sleutel blijft bij de eigenaar.</p>
+    </div>
+
+    <div class="phase-section">
+      <div class="phase-section-label">Hoe</div>
+      <h2>Smart contracts en geautomatiseerd vertrouwen</h2>
+      <p>Om dit betrouwbaar en transparant te organiseren, wordt blockchain-technologie ingezet. Zogenoemde smart contracts leggen de afspraken tussen bedrijven vast: hoeveel opslagruimte biedt elk bedrijf, hoe vaak worden backups gesynchroniseerd, wat gebeurt er als een partij niet beschikbaar is.</p>
+      <p>Smart contracts zijn zelfuitvoerende overeenkomsten. Ze draaien op een gedecentraliseerd netwerk en voeren automatisch uit wat is afgesproken, zonder tussenkomst van een beheerder. <strong>Geen handtekeningen, geen facturen, geen contractbeheerder.</strong> De afspraken staan in code en worden automatisch nageleefd.</p>
+      <p>Dit klinkt technisch, maar voor de deelnemende bedrijven is het eenvoudig. Het systeem regelt de backups op de achtergrond. De ondernemer ziet alleen een bevestiging dat zijn data veilig is, bij een ander bedrijf in het netwerk.</p>
+    </div>
+
+    <div class="phase-section">
+      <div class="phase-section-label">Waarom</div>
+      <h2>Eigenaarschap hoeft geen individuele aangelegenheid te zijn</h2>
+      <p>De zwakte van volledige onafhankelijkheid is kwetsbaarheid. E&eacute;n bedrijf, &eacute;&eacute;n server, &eacute;&eacute;n punt van falen. De kracht van een netwerk is dat het die kwetsbaarheid opheft zonder de onafhankelijkheid op te geven.</p>
+      <p>Dit model past bij het gedachtegoed van Society 4.0 (Bob de Wit): een samenleving waarin regionale co&ouml;peraties de basis vormen. Geen centrale autoriteit die de regels bepaalt, maar bedrijven die onderling afspraken maken en samen sterker zijn dan alleen.</p>
+      <p><strong>Dit concept staat nog in een vroeg stadium.</strong> De technologie bestaat, de principes zijn bewezen, maar de implementatie in een lokaal MKB-netwerk is nieuw terrein. Eigen Grond verkent actief hoe dit model werkt en staat open voor bedrijven die willen meedenken.</p>
+    </div>
+</div>
+
+<div class="phase-next-wrap">
+  <a class="phase-next-card" href="fase-05-eigen-verbinding.html">
+    <div class="phase-next-label">Volgende fase &rarr; Fase 05</div>
+    <div class="phase-next-title">EIGEN VERBINDING</div>
+    <div class="phase-next-desc">Lokale netwerken die blijven werken als het internet uitvalt. Operationele continu&iuml;teit, onafhankelijk van &eacute;&eacute;n provider.</div>
+  </a>
+</div>
+
+<div class="phase-form">
+  <h2>Meedenken?</h2>
+  <p>Dit is een visie in ontwikkeling. Suggesties, vragen of ervaringen die hierbij passen zijn welkom.</p>
+  <form id="contactForm" action="https://formspree.io/f/mpqoaplo" method="POST">
+    <div class="phase-form-row">
+      <input type="text" name="naam" placeholder="Naam" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+    </div>
+    <input type="hidden" name="onderwerp" value="Roadmap Fase 04: Eigen Netwerk">
+    <textarea name="bericht" placeholder="Uw suggestie, vraag of ervaring..."></textarea>
+    <button type="submit">Verstuur
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="phase-form-msg" id="formMsg">Bedankt voor uw bericht.</div>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-links">
+    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="index.html">eigengrond.nu</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = this;
+  fetch(f.action, {method:'POST', body:new FormData(f), headers:{'Accept':'application/json'}})
+    .then(function(r){ if(r.ok){ document.getElementById('formMsg').classList.add('visible'); f.reset(); } });
+});
+</script>
+</body>
+</html>

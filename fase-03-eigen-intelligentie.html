@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eigen Intelligentie &mdash; Eigen Grond</title>
+<meta name="description" content="Roadmap fase 03: Eigen Intelligentie. Onderdeel van het pad van eigen software naar een lokaal digitaal ecosysteem.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/fase-03-eigen-intelligentie">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.phase-back-wrap { max-width: 820px; margin: 0 auto; padding: 1.5rem 2rem 0; }
+.phase-back {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.15s;
+}
+.phase-back:hover { color: var(--green-light); }
+
+header.phase-hero { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 2rem; }
+.phase-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 1.25rem;
+}
+.phase-badge::before { content: ''; display: block; width: 28px; height: 1px; background: var(--green-light); }
+.phase-status {
+  font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green-light);
+  border: 1px solid var(--green);
+  padding: 0.2rem 0.6rem; margin-left: 0.5rem;
+  background: rgba(92, 122, 40, 0.12);
+}
+.phase-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  letter-spacing: 0.04em; line-height: 0.95;
+  color: var(--fg); margin-bottom: 0.9rem;
+}
+.phase-hero h1 em { color: var(--green-light); font-style: normal; }
+.phase-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #928670; max-width: 600px; line-height: 1.6;
+}
+
+.phase-intro {
+  max-width: 820px; margin: 0 auto;
+  padding: 0 2rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.phase-intro p { font-size: 1rem; color: var(--fg); line-height: 1.75; max-width: 620px; }
+
+.phase-content { max-width: 820px; margin: 0 auto; padding: 3rem 2rem 1rem; }
+.phase-section { margin-bottom: 3rem; }
+.phase-section-label {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 0.9rem;
+}
+.phase-section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--green-light); }
+.phase-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  letter-spacing: 0.04em; color: var(--fg);
+  line-height: 1.1; margin-bottom: 1rem;
+}
+.phase-section p {
+  font-size: 0.95rem; color: var(--muted); line-height: 1.75;
+  margin-bottom: 1.1rem; max-width: 64ch;
+}
+.phase-section p strong { color: var(--fg); font-weight: 500; }
+
+.phase-next-wrap {
+  border-top: 1px solid var(--border);
+  max-width: 820px; margin: 0 auto;
+  padding: 3rem 2rem;
+}
+.phase-next-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.15s;
+}
+.phase-next-card:hover { border-color: var(--green); }
+.phase-next-card::before {
+  content: ''; position: absolute; left: 0; top: 0;
+  width: 4px; height: 100%; background: var(--green);
+}
+.phase-next-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 0.75rem;
+}
+.phase-next-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em;
+  color: var(--fg); margin-bottom: 0.5rem;
+}
+.phase-next-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; max-width: 520px; }
+
+.phase-form {
+  border-top: 1px solid var(--border);
+  max-width: 820px; margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+}
+.phase-form h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em;
+  color: var(--fg); margin-bottom: 0.5rem;
+}
+.phase-form > p {
+  font-size: 0.9rem; color: var(--muted); line-height: 1.6;
+  margin-bottom: 1.5rem; max-width: 520px;
+}
+.phase-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.phase-form input, .phase-form textarea {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; font-weight: 300;
+  padding: 0.75rem 1rem;
+  width: 100%; outline: none;
+  transition: border-color 0.15s;
+}
+.phase-form input:focus, .phase-form textarea:focus { border-color: var(--green); }
+.phase-form input::placeholder, .phase-form textarea::placeholder { color: #625B4B; }
+.phase-form textarea { min-height: 110px; resize: vertical; margin-bottom: 1rem; }
+.phase-form button {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--green-light); color: var(--bg);
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.05rem; letter-spacing: 0.1em;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.phase-form button:hover { background: #93BF46; }
+.phase-form-msg {
+  display: none; font-size: 0.88rem; color: var(--green-light);
+  margin-top: 1rem; padding: 0.75rem 0;
+}
+.phase-form-msg.visible { display: block; }
+
+@media (max-width: 768px) {
+  .phase-back-wrap { padding: 1.25rem 1.25rem 0; }
+  header.phase-hero { padding: 2rem 1.25rem 1.5rem; }
+  .phase-intro, .phase-content, .phase-next-wrap, .phase-form { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .phase-form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 380px) {
+  .phase-back-wrap { padding: 1rem 1rem 0; }
+  header.phase-hero { padding: 1.75rem 1rem 1.25rem; }
+  .phase-intro, .phase-content, .phase-next-wrap, .phase-form { padding-left: 1rem; padding-right: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
+  <div class="nav-right">
+    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="roadmap.html" class="nav-link is-active">Roadmap</a>
+    <span class="nav-sub">Een initiatief van Uxley</span>
+  </div>
+</nav>
+
+<div class="phase-back-wrap">
+  <a class="phase-back" href="roadmap.html">&larr; Terug naar roadmap</a>
+</div>
+
+<header class="phase-hero">
+  <div class="phase-badge">Fase 03 <span class="phase-status">Korte termijn</span></div>
+  <h1>Eigen <em>intelligentie</em>.</h1>
+  <p class="phase-subtitle">AI op eigen data. Slimmer werken zonder bedrijfsinformatie uit handen te geven.</p>
+</header>
+
+<div class="phase-intro">
+  <p>AI wordt pas echt waardevol als het werkt met de data die er al is. Klantgeschiedenis, planningspatronen, e-mailcorrespondentie, projectdata. Maar dat betekent niet dat die data naar een extern platform moet. Eigen Intelligentie draait lokaal, op de eigen server, met open source modellen die geen informatie doorsturen.</p>
+</div>
+
+<div class="phase-content">
+    <div class="phase-section">
+      <div class="phase-section-label">Wat</div>
+      <h2>AI die voor jou werkt, niet van jou leert</h2>
+      <p>In Fase 1 bouwen we al software met ingebouwde slimme functionaliteit. Een CRM dat automatisch een compleet klantdossier opbouwt op basis van e-mailcorrespondentie. Een planningssysteem dat suggesties doet. Een offertegenerator die leert van eerdere projecten.</p>
+      <p>Eigen Intelligentie gaat een stap verder. <strong>Kleine, open source taalmodellen draaien lokaal op de eigen server.</strong> Ze analyseren bedrijfsdata zonder dat die data het pand verlaat. Geen ChatGPT of Copilot waar bedrijfsgeheimen naartoe gaan. Geen platform dat slimmer wordt van jouw informatie.</p>
+      <p>Concreet: een medewerker stelt een vraag in het systeem. Het lokale model doorzoekt klantdossiers, projecthistorie of planningsdata en geeft een antwoord. Dat antwoord is gebaseerd op de eigen data van het bedrijf, verwerkt op de eigen hardware.</p>
+    </div>
+
+    <div class="phase-section">
+      <div class="phase-section-label">Hoe</div>
+      <h2>Kleine modellen, grote impact</h2>
+      <p>De AI-modellen die hiervoor nodig zijn, worden steeds kleiner en effici&euml;nter. Open source modellen kunnen draaien op hardware die vergelijkbaar is met een gaming-computer. Geen serverpark nodig, geen cloudabonnement.</p>
+      <p>De implementatie is een uitbreiding op de bestaande software uit Fase 1. Het model wordt ge&iuml;nstalleerd op de server uit Fase 2 en gekoppeld aan de bedrijfsdata. <strong>De intelligentie is een laag bovenop het bestaande systeem, geen vervanging.</strong></p>
+      <p>Toepassingen die nu al in beeld zijn: automatische samenvattingen van klantcorrespondentie, slimme planning op basis van beschikbaarheid en historie, offerte-assistentie die leert van eerdere projecten, en signalering van patronen in projectdata die mensen over het hoofd zien.</p>
+    </div>
+
+    <div class="phase-section">
+      <div class="phase-section-label">Waarom</div>
+      <h2>Intelligentie zonder afhankelijkheid</h2>
+      <p>Elke keer dat een bedrijf ChatGPT of een vergelijkbare dienst gebruikt met bedrijfsdata, geeft het informatie uit handen. Die data wordt verwerkt op servers van Amerikaanse techbedrijven. In sommige gevallen wordt die data gebruikt om het model te verbeteren, wat betekent dat bedrijfskennis indirect beschikbaar wordt voor anderen.</p>
+      <p><strong>Lokale AI is het alternatief.</strong> Het model is eigendom. De data blijft lokaal. De verwerkingskracht staat op kantoor. Geen afhankelijkheid van een API die morgen duurder wordt of verdwijnt.</p>
+      <p>Dit is een verkenning. De technologie evolueert snel en de mogelijkheden groeien. Eigen Grond volgt deze ontwikkelingen actief en vertaalt ze naar toepassingen die passen bij het MKB.</p>
+    </div>
+</div>
+
+<div class="phase-next-wrap">
+  <a class="phase-next-card" href="fase-04-eigen-netwerk.html">
+    <div class="phase-next-label">Volgende fase &rarr; Fase 04</div>
+    <div class="phase-next-title">EIGEN NETWERK</div>
+    <div class="phase-next-desc">Lokale bedrijven die elkaars backups draaien. Redundantie zonder datacenter, vertrouwen zonder tussenpartij.</div>
+  </a>
+</div>
+
+<div class="phase-form">
+  <h2>Meedenken?</h2>
+  <p>Dit is een visie in ontwikkeling. Suggesties, vragen of ervaringen die hierbij passen zijn welkom.</p>
+  <form id="contactForm" action="https://formspree.io/f/mpqoaplo" method="POST">
+    <div class="phase-form-row">
+      <input type="text" name="naam" placeholder="Naam" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+    </div>
+    <input type="hidden" name="onderwerp" value="Roadmap Fase 03: Eigen Intelligentie">
+    <textarea name="bericht" placeholder="Uw suggestie, vraag of ervaring..."></textarea>
+    <button type="submit">Verstuur
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="phase-form-msg" id="formMsg">Bedankt voor uw bericht.</div>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-links">
+    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="index.html">eigengrond.nu</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = this;
+  fetch(f.action, {method:'POST', body:new FormData(f), headers:{'Accept':'application/json'}})
+    .then(function(r){ if(r.ok){ document.getElementById('formMsg').classList.add('visible'); f.reset(); } });
+});
+</script>
+</body>
+</html>

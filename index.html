@@ -9,61 +9,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-:root {
-  --bg: #0C0B08;
-  --fg: #F0E6D0;
-  --green: #5C7A28;
-  --green-light: #7EA33A;
-  --muted: #8A7D6E;
-  --border: #2A2820;
-  --card: #141310;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
-  min-height: 100vh;
-}
-
-/* NAV */
-nav {
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  background: var(--bg);
-  z-index: 100;
-}
-.nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.1em;
-  color: var(--fg);
-  text-decoration: none;
-}
-.nav-logo span { color: var(--green-light); }
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
-.nav-link {
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--green-light);
-  text-decoration: none;
-  border: 1px solid var(--green);
-  padding: 0.35rem 0.9rem;
-  transition: background 0.15s, color 0.15s;
-}
-.nav-link:hover { background: var(--green); color: var(--fg); }
-.nav-sub { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-
 /* HERO */
 .hero {
   max-width: 860px;
@@ -524,70 +471,21 @@ h2 {
 }
 .success-body { font-size: 0.95rem; color: #7A6E58; line-height: 1.6; }
 
-/* FOOTER */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.footer-brand { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
-.footer-brand strong { color: var(--fg); }
-.footer-links { display: flex; gap: 2rem; }
-.footer-links a { font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; }
-.footer-links a:hover { color: var(--fg); }
-
-/* MOBILE RESPONSIVE */
+/* PAGINA-SPECIFIEKE MOBILE OVERRIDES */
 @media (max-width: 768px) {
-  nav {
-    padding: 1.25rem 1.25rem;
-  }
-  .nav-sub {
-    display: none;
-  }
-  .nav-right { gap: 0.5rem; }
-  .nav-link { padding: 0.3rem 0.7rem; font-size: 0.7rem; }
-  .hero {
-    padding: 4rem 1.25rem 3.5rem;
-  }
-  .section {
-    padding: 3rem 1.25rem;
-  }
-  .case-inner {
-    padding: 3rem 1.25rem;
-  }
-  .pain-item, .solution-item {
-    padding: 1.25rem 1rem;
-  }
-  .case-stat {
-    padding: 1.25rem 1rem;
-  }
-  .form-section {
-    padding: 3.5rem 1.25rem;
-  }
-  footer {
-    padding: 1.5rem 1.25rem;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  .hero { padding: 4rem 1.25rem 3.5rem; }
+  .section { padding: 3rem 1.25rem; }
+  .case-inner { padding: 3rem 1.25rem; }
+  .pain-item, .solution-item { padding: 1.25rem 1rem; }
+  .case-stat { padding: 1.25rem 1rem; }
+  .form-section { padding: 3.5rem 1.25rem; }
 }
 
 @media (max-width: 600px) {
-  .pain-grid {
-    grid-template-columns: 1fr;
-  }
-  .solution-grid {
-    grid-template-columns: 1fr;
-  }
-  .field-group {
-    grid-template-columns: 1fr;
-  }
-  .case-stats {
-    grid-template-columns: 1fr;
-  }
+  .pain-grid { grid-template-columns: 1fr; }
+  .solution-grid { grid-template-columns: 1fr; }
+  .field-group { grid-template-columns: 1fr; }
+  .case-stats { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 380px) {
@@ -596,14 +494,12 @@ footer {
   .section { padding: 2.5rem 1rem; }
   .case-inner { padding: 2.5rem 1rem; }
   .form-section { padding: 3rem 1rem; }
-  nav { padding: 1rem; }
-  footer { padding: 1.25rem 1rem; }
 }
 </style>
 </head>
 <body>
 
-<nav>
+<nav class="site-nav">
   <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
   <div class="nav-right">
     <a href="rapport.html" class="nav-link">Rapport</a>
@@ -779,7 +675,7 @@ footer {
   </div>
 </section>
 
-<footer>
+<footer class="site-footer">
   <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
   <div class="footer-links">
     <a href="mailto:hallo@uxley.nl">Contact</a>

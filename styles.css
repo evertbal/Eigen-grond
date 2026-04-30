@@ -1,0 +1,122 @@
+/* ========================================================================
+   Eigen Grond — gedeelde styling
+   Bevat: design tokens, reset, body/typografie, sticky nav, footer,
+   reveal-animatie, mobile overrides voor nav/footer.
+   Pagina-specifieke styling blijft inline per HTML-bestand.
+   ======================================================================== */
+
+/* Design tokens */
+:root {
+  --bg: #0C0B08;
+  --fg: #F0E6D0;
+  --green: #5C7A28;
+  --green-light: #7EA33A;
+  --muted: #8A7D6E;
+  --border: #2A2820;
+  --card: #141310;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sticky main nav */
+nav.site-nav {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 100;
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: var(--fg);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--green-light); }
+.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  text-decoration: none;
+  border: 1px solid var(--green);
+  padding: 0.35rem 0.9rem;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover { background: var(--green); color: var(--fg); }
+.nav-link.is-active { background: var(--green); color: var(--fg); }
+.nav-link-download { display: inline-flex; align-items: center; gap: 0.4rem; }
+.nav-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-left: 0.75rem;
+}
+
+/* Footer */
+footer.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-brand { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
+.footer-brand strong { color: var(--fg); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.footer-links a:hover { color: var(--fg); }
+
+/* Reveal-animatie utility (gebruikt door rapport, kan elke pagina gebruiken) */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+}
+
+/* Mobile responsive — nav + footer */
+@media (max-width: 768px) {
+  nav.site-nav { padding: 1.25rem; }
+  .nav-sub { display: none; }
+  .nav-right { gap: 0.5rem; }
+  .nav-link { padding: 0.3rem 0.7rem; font-size: 0.7rem; }
+  footer.site-footer {
+    padding: 1.5rem 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 380px) {
+  nav.site-nav { padding: 1rem; }
+  footer.site-footer { padding: 1.25rem 1rem; }
+}

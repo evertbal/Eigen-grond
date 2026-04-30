@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eigen Verbinding &mdash; Eigen Grond</title>
+<meta name="description" content="Roadmap fase 05: Eigen Verbinding. Onderdeel van het pad van eigen software naar een lokaal digitaal ecosysteem.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/fase-05-eigen-verbinding">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.phase-back-wrap { max-width: 820px; margin: 0 auto; padding: 1.5rem 2rem 0; }
+.phase-back {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.15s;
+}
+.phase-back:hover { color: var(--green-light); }
+
+header.phase-hero { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 2rem; }
+.phase-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 1.25rem;
+}
+.phase-badge::before { content: ''; display: block; width: 28px; height: 1px; background: var(--green-light); }
+.phase-status {
+  font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green-light);
+  border: 1px solid var(--green);
+  padding: 0.2rem 0.6rem; margin-left: 0.5rem;
+  background: rgba(92, 122, 40, 0.12);
+}
+.phase-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  letter-spacing: 0.04em; line-height: 0.95;
+  color: var(--fg); margin-bottom: 0.9rem;
+}
+.phase-hero h1 em { color: var(--green-light); font-style: normal; }
+.phase-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #928670; max-width: 600px; line-height: 1.6;
+}
+
+.phase-intro {
+  max-width: 820px; margin: 0 auto;
+  padding: 0 2rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.phase-intro p { font-size: 1rem; color: var(--fg); line-height: 1.75; max-width: 620px; }
+
+.phase-content { max-width: 820px; margin: 0 auto; padding: 3rem 2rem 1rem; }
+.phase-section { margin-bottom: 3rem; }
+.phase-section-label {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 0.9rem;
+}
+.phase-section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--green-light); }
+.phase-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  letter-spacing: 0.04em; color: var(--fg);
+  line-height: 1.1; margin-bottom: 1rem;
+}
+.phase-section p {
+  font-size: 0.95rem; color: var(--muted); line-height: 1.75;
+  margin-bottom: 1.1rem; max-width: 64ch;
+}
+.phase-section p strong { color: var(--fg); font-weight: 500; }
+
+.phase-next-wrap {
+  border-top: 1px solid var(--border);
+  max-width: 820px; margin: 0 auto;
+  padding: 3rem 2rem;
+}
+.phase-next-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.15s;
+}
+.phase-next-card:hover { border-color: var(--green); }
+.phase-next-card::before {
+  content: ''; position: absolute; left: 0; top: 0;
+  width: 4px; height: 100%; background: var(--green);
+}
+.phase-next-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 0.75rem;
+}
+.phase-next-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em;
+  color: var(--fg); margin-bottom: 0.5rem;
+}
+.phase-next-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; max-width: 520px; }
+
+.phase-form {
+  border-top: 1px solid var(--border);
+  max-width: 820px; margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+}
+.phase-form h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em;
+  color: var(--fg); margin-bottom: 0.5rem;
+}
+.phase-form > p {
+  font-size: 0.9rem; color: var(--muted); line-height: 1.6;
+  margin-bottom: 1.5rem; max-width: 520px;
+}
+.phase-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.phase-form input, .phase-form textarea {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; font-weight: 300;
+  padding: 0.75rem 1rem;
+  width: 100%; outline: none;
+  transition: border-color 0.15s;
+}
+.phase-form input:focus, .phase-form textarea:focus { border-color: var(--green); }
+.phase-form input::placeholder, .phase-form textarea::placeholder { color: #625B4B; }
+.phase-form textarea { min-height: 110px; resize: vertical; margin-bottom: 1rem; }
+.phase-form button {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--green-light); color: var(--bg);
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.05rem; letter-spacing: 0.1em;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.phase-form button:hover { background: #93BF46; }
+.phase-form-msg {
+  display: none; font-size: 0.88rem; color: var(--green-light);
+  margin-top: 1rem; padding: 0.75rem 0;
+}
+.phase-form-msg.visible { display: block; }
+
+@media (max-width: 768px) {
+  .phase-back-wrap { padding: 1.25rem 1.25rem 0; }
+  header.phase-hero { padding: 2rem 1.25rem 1.5rem; }
+  .phase-intro, .phase-content, .phase-next-wrap, .phase-form { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .phase-form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 380px) {
+  .phase-back-wrap { padding: 1rem 1rem 0; }
+  header.phase-hero { padding: 1.75rem 1rem 1.25rem; }
+  .phase-intro, .phase-content, .phase-next-wrap, .phase-form { padding-left: 1rem; padding-right: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
+  <div class="nav-right">
+    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="roadmap.html" class="nav-link is-active">Roadmap</a>
+    <span class="nav-sub">Een initiatief van Uxley</span>
+  </div>
+</nav>
+
+<div class="phase-back-wrap">
+  <a class="phase-back" href="roadmap.html">&larr; Terug naar roadmap</a>
+</div>
+
+<header class="phase-hero">
+  <div class="phase-badge">Fase 05 <span class="phase-status">Middellange termijn</span></div>
+  <h1>Eigen <em>verbinding</em>.</h1>
+  <p class="phase-subtitle">Lokale netwerken die blijven werken als het internet uitvalt.</p>
+</header>
+
+<div class="phase-intro">
+  <p>Elke stroomstoring, elke cyberaanval, elk technisch mankement bij een telecomprovider legt bedrijven plat. Geen internet, geen communicatie, geen systeem. Eigen Verbinding is een lokaal mesh-netwerk dat bedrijven onderling verbindt, onafhankelijk van provider of centraal netwerk.</p>
+</div>
+
+<div class="phase-content">
+    <div class="phase-section">
+      <div class="phase-section-label">Wat</div>
+      <h2>Mesh: een netwerk zonder middelpunt</h2>
+      <p>Een mesh-netwerk bestaat uit meerdere zenders die onderling met elkaar communiceren. Er is geen centraal punt dat het netwerk aanstuurt. Als &eacute;&eacute;n knooppunt uitvalt, vindt het netwerk automatisch een andere route. Hoe meer deelnemers, hoe sterker het netwerk wordt.</p>
+      <p><strong>Voor bedrijven op een industrieterrein of bedrijvencluster is dit bijzonder krachtig.</strong> De fysieke nabijheid maakt een lokaal mesh-netwerk haalbaar met bestaande technologie. Bedrijven die dicht bij elkaar staan, kunnen met relatief eenvoudige apparatuur een eigen onderling netwerk opzetten.</p>
+      <p>In Nederland bestaat al het LocalMesh-initiatief: een burgerbeweging die via MeshCore-technologie en LoRa-radio een onafhankelijk noodcommunicatienetwerk opbouwt. Meer dan honderd repeaters staan actief in de Randstad. De technologie is bewezen, de kosten zijn laag (een basisapparaat kost &euro;20 tot &euro;50), en er is geen vergunning of abonnement nodig.</p>
+    </div>
+
+    <div class="phase-section">
+      <div class="phase-section-label">Hoe</div>
+      <h2>Van noodcommunicatie naar operationele verbinding</h2>
+      <p>De eerste stap is basiscommunicatie: tekstberichten en co&ouml;rdinatie tussen bedrijven als het reguliere netwerk uitvalt. Dit is haalbaar met bestaande LoRa-apparatuur op de vrije 868 MHz-frequentieband.</p>
+      <p>De volgende stap is breder: een lokaal wifi-mesh-netwerk op een bedrijventerrein dat ook zonder internet functioneert. Bedrijven die elkaars software en data hosten (Fase 4) kunnen via dit lokale netwerk met elkaar communiceren, onafhankelijk van een internetprovider.</p>
+      <p><strong>Bedrijven die fysiek naast elkaar zitten, kunnen ook directe verbindingen leggen.</strong> Een netwerkkabel van het ene pand naar het andere is de meest robuuste verbinding die er bestaat. Gecombineerd met draadloze mesh voor flexibiliteit, ontstaat een hybride netwerk dat extreem betrouwbaar is.</p>
+      <p>Dit is niet alleen relevant bij crisissituaties. Een lokaal netwerk is sneller dan een internetverbinding, onafhankelijk van de grillen van een provider, en biedt een extra laag van operationele continu&iuml;teit die steeds waardevoller wordt naarmate de digitale afhankelijkheid groeit.</p>
+    </div>
+
+    <div class="phase-section">
+      <div class="phase-section-label">Waarom</div>
+      <h2>Onafhankelijkheid van factoren buiten je controle</h2>
+      <p>De afhankelijkheid van &eacute;&eacute;n internetprovider en &eacute;&eacute;n centraal netwerk is een risico dat de meeste bedrijven niet bewust nemen. Het overkomt ze. Een eigen verbinding maakt dat risico zichtbaar en biedt een praktisch alternatief.</p>
+      <p>Na de overstromingen in Limburg (2021), de storing bij KPN (2019) en diverse cyberaanvallen op Nederlandse infrastructuur is de kwetsbaarheid van gecentraliseerde communicatie geen theoretisch probleem meer. In Nepal (2015) en Puerto Rico (2017) werden mesh-netwerken ingezet toen alle andere infrastructuur verwoest was.</p>
+      <p><strong>Dit concept is een verkenning.</strong> De technologie is beschikbaar. De vraag is hoe een groep bedrijven in de Krimpenerwaard dit praktisch kan organiseren. Eigen Grond brengt de kennis en bouwt de eerste verbindingen. De rest groeit organisch.</p>
+    </div>
+</div>
+
+<div class="phase-next-wrap">
+  <a class="phase-next-card" href="fase-06-eigen-diensten.html">
+    <div class="phase-next-label">Volgende fase &rarr; Fase 06</div>
+    <div class="phase-next-title">EIGEN DIENSTEN</div>
+    <div class="phase-next-desc">Lokale apps voor burgers en bedrijven. Diensten van hier, voor hier.</div>
+  </a>
+</div>
+
+<div class="phase-form">
+  <h2>Meedenken?</h2>
+  <p>Dit is een visie in ontwikkeling. Suggesties, vragen of ervaringen die hierbij passen zijn welkom.</p>
+  <form id="contactForm" action="https://formspree.io/f/mpqoaplo" method="POST">
+    <div class="phase-form-row">
+      <input type="text" name="naam" placeholder="Naam" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+    </div>
+    <input type="hidden" name="onderwerp" value="Roadmap Fase 05: Eigen Verbinding">
+    <textarea name="bericht" placeholder="Uw suggestie, vraag of ervaring..."></textarea>
+    <button type="submit">Verstuur
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="phase-form-msg" id="formMsg">Bedankt voor uw bericht.</div>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-links">
+    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="index.html">eigengrond.nu</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = this;
+  fetch(f.action, {method:'POST', body:new FormData(f), headers:{'Accept':'application/json'}})
+    .then(function(r){ if(r.ok){ document.getElementById('formMsg').classList.add('visible'); f.reset(); } });
+});
+</script>
+</body>
+</html>

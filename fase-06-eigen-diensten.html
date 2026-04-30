@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eigen Diensten &mdash; Eigen Grond</title>
+<meta name="description" content="Roadmap fase 06: Eigen Diensten. Onderdeel van het pad van eigen software naar een lokaal digitaal ecosysteem.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/fase-06-eigen-diensten">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.phase-back-wrap { max-width: 820px; margin: 0 auto; padding: 1.5rem 2rem 0; }
+.phase-back {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color 0.15s;
+}
+.phase-back:hover { color: var(--green-light); }
+
+header.phase-hero { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 2rem; }
+.phase-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 1.25rem;
+}
+.phase-badge::before { content: ''; display: block; width: 28px; height: 1px; background: var(--green-light); }
+.phase-status {
+  font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green-light);
+  border: 1px solid var(--green);
+  padding: 0.2rem 0.6rem; margin-left: 0.5rem;
+  background: rgba(92, 122, 40, 0.12);
+}
+.phase-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  letter-spacing: 0.04em; line-height: 0.95;
+  color: var(--fg); margin-bottom: 0.9rem;
+}
+.phase-hero h1 em { color: var(--green-light); font-style: normal; }
+.phase-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #928670; max-width: 600px; line-height: 1.6;
+}
+
+.phase-intro {
+  max-width: 820px; margin: 0 auto;
+  padding: 0 2rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.phase-intro p { font-size: 1rem; color: var(--fg); line-height: 1.75; max-width: 620px; }
+
+.phase-content { max-width: 820px; margin: 0 auto; padding: 3rem 2rem 1rem; }
+.phase-section { margin-bottom: 3rem; }
+.phase-section-label {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 0.9rem;
+}
+.phase-section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--green-light); }
+.phase-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  letter-spacing: 0.04em; color: var(--fg);
+  line-height: 1.1; margin-bottom: 1rem;
+}
+.phase-section p {
+  font-size: 0.95rem; color: var(--muted); line-height: 1.75;
+  margin-bottom: 1.1rem; max-width: 64ch;
+}
+.phase-section p strong { color: var(--fg); font-weight: 500; }
+
+.phase-next-wrap {
+  border-top: 1px solid var(--border);
+  max-width: 820px; margin: 0 auto;
+  padding: 3rem 2rem;
+}
+.phase-next-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.15s;
+}
+.phase-next-card:hover { border-color: var(--green); }
+.phase-next-card::before {
+  content: ''; position: absolute; left: 0; top: 0;
+  width: 4px; height: 100%; background: var(--green);
+}
+.phase-next-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 0.75rem;
+}
+.phase-next-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em;
+  color: var(--fg); margin-bottom: 0.5rem;
+}
+.phase-next-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; max-width: 520px; }
+
+.phase-form {
+  border-top: 1px solid var(--border);
+  max-width: 820px; margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+}
+.phase-form h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em;
+  color: var(--fg); margin-bottom: 0.5rem;
+}
+.phase-form > p {
+  font-size: 0.9rem; color: var(--muted); line-height: 1.6;
+  margin-bottom: 1.5rem; max-width: 520px;
+}
+.phase-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.phase-form input, .phase-form textarea {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; font-weight: 300;
+  padding: 0.75rem 1rem;
+  width: 100%; outline: none;
+  transition: border-color 0.15s;
+}
+.phase-form input:focus, .phase-form textarea:focus { border-color: var(--green); }
+.phase-form input::placeholder, .phase-form textarea::placeholder { color: #625B4B; }
+.phase-form textarea { min-height: 110px; resize: vertical; margin-bottom: 1rem; }
+.phase-form button {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--green-light); color: var(--bg);
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.05rem; letter-spacing: 0.1em;
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.phase-form button:hover { background: #93BF46; }
+.phase-form-msg {
+  display: none; font-size: 0.88rem; color: var(--green-light);
+  margin-top: 1rem; padding: 0.75rem 0;
+}
+.phase-form-msg.visible { display: block; }
+
+@media (max-width: 768px) {
+  .phase-back-wrap { padding: 1.25rem 1.25rem 0; }
+  header.phase-hero { padding: 2rem 1.25rem 1.5rem; }
+  .phase-intro, .phase-content, .phase-next-wrap, .phase-form { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .phase-form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 380px) {
+  .phase-back-wrap { padding: 1rem 1rem 0; }
+  header.phase-hero { padding: 1.75rem 1rem 1.25rem; }
+  .phase-intro, .phase-content, .phase-next-wrap, .phase-form { padding-left: 1rem; padding-right: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
+  <div class="nav-right">
+    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="roadmap.html" class="nav-link is-active">Roadmap</a>
+    <span class="nav-sub">Een initiatief van Uxley</span>
+  </div>
+</nav>
+
+<div class="phase-back-wrap">
+  <a class="phase-back" href="roadmap.html">&larr; Terug naar roadmap</a>
+</div>
+
+<header class="phase-hero">
+  <div class="phase-badge">Fase 06 <span class="phase-status">Lange termijn</span></div>
+  <h1>Eigen <em>diensten</em>.</h1>
+  <p class="phase-subtitle">Lokale apps voor burgers en bedrijven. Gebouwd voor de regio, niet voor de wereldmarkt.</p>
+</header>
+
+<div class="phase-intro">
+  <p>Vrijwilligerswerk co&ouml;rdineren via een Amerikaans platform. Spullen weggeven via een app die advertentiedata verkoopt. Buurtcommunicatie via een netwerk dat bepaalt wat je te zien krijgt. Het kan anders. Eigen Diensten bouwt lokale toepassingen voor de zaken die ertoe doen, zonder tussenkomst van big tech.</p>
+</div>
+
+<div class="phase-content">
+    <div class="phase-section">
+      <div class="phase-section-label">Wat</div>
+      <h2>Toepassingen voor de regio</h2>
+      <p>Eigen Diensten richt zich op digitale toepassingen die nu via grote platforms lopen, maar lokaal beter en eerlijker georganiseerd kunnen worden.</p>
+      <p>Denk aan: een lokale marktplaats voor spullen weggeven en ruilen. Een platform voor buurtcommunicatie en calamiteiten. Co&ouml;rdinatie van vrijwilligerswerk in de regio. Een systeem waarmee lokale ondernemers en burgers afspraken met elkaar maken. <strong>Toepassingen die verbinding cre&euml;ren in plaats van data te oogsten.</strong></p>
+      <p>Maar ook: diensten die eenzaamheid tegengaan door mensen in een buurt met elkaar in contact te brengen. Een digitaal platform dat niet ontworpen is om gebruikers zo lang mogelijk vast te houden, maar om ze zo snel mogelijk te helpen.</p>
+    </div>
+
+    <div class="phase-section">
+      <div class="phase-section-label">Hoe</div>
+      <h2>Gebouwd op de infrastructuur van de vorige fasen</h2>
+      <p>De diensten uit deze fase draaien op de lokale infrastructuur die in de eerdere fasen is opgebouwd. Eigen servers, eigen netwerk, eigen verbinding. Dat betekent dat de data van burgers lokaal blijft, dat er geen advertentiemodel nodig is, en dat de regels bepaald worden door de gemeenschap die het gebruikt.</p>
+      <p><strong>De apps zijn open source.</strong> Iedereen kan zien hoe ze werken. Iedereen kan bijdragen aan verbetering. Er is geen bedrijf dat het platform bezit en de voorwaarden eenzijdig kan veranderen.</p>
+      <p>Prof. Bob de Wit beschrijft in Regio 4.0 negen maatschappelijke domeinen die regionaal georganiseerd kunnen worden: voedsel, energie, digitale infrastructuur, wonen, gezondheid, onderwijs, economie, betalen en ondernemen. Eigen Diensten sluit aan bij het domein digitale infrastructuur en regionale economie, met de mogelijkheid om naar andere domeinen door te groeien.</p>
+    </div>
+
+    <div class="phase-section">
+      <div class="phase-section-label">Waarom</div>
+      <h2>Digitale soevereiniteit voor burgers</h2>
+      <p>De digitale identiteit van burgers wordt steeds meer bepaald door platforms buiten hun controle. Wat je te zien krijgt, met wie je verbonden wordt, welke informatie over je wordt opgeslagen, dat wordt bepaald door algoritmen van bedrijven die geen verantwoording afleggen aan de gemeenschap.</p>
+      <p>Tegelijkertijd neemt de druk op privacy toe. Amerikaanse techbedrijven mengen zich steeds meer in Europese overheidsdiensten. De Data Act en de AI Act bieden juridische kaders, maar de praktische uitvoering loopt achter. <strong>Lokale diensten zijn geen protest, maar een praktisch alternatief.</strong></p>
+      <p>De visie van Society 4.0 beschrijft een samenleving waarin burgers directe besluitvorming hebben over de zaken die hen raken. Digitale diensten die lokaal georganiseerd zijn, maken die participatie mogelijk. Niet als abstract ideaal, maar als werkend systeem.</p>
+      <p><strong>Dit staat nog in de kinderschoenen.</strong> Welke diensten het eerst gebouwd worden, hangt af van wat de regio nodig heeft. Eigen Grond luistert, verkent en bouwt. Input is welkom.</p>
+    </div>
+</div>
+
+<div class="phase-next-wrap">
+  <a class="phase-next-card" href="fase-07-eigen-internet.html">
+    <div class="phase-next-label">Volgende fase &rarr; Fase 07</div>
+    <div class="phase-next-title">EIGEN INTERNET</div>
+    <div class="phase-next-desc">Een decentraal netwerk van bedrijven en burgers. Communicatie die blijft werken, ongeacht wat er centraal gebeurt.</div>
+  </a>
+</div>
+
+<div class="phase-form">
+  <h2>Meedenken?</h2>
+  <p>Dit is een visie in ontwikkeling. Suggesties, vragen of ervaringen die hierbij passen zijn welkom.</p>
+  <form id="contactForm" action="https://formspree.io/f/mpqoaplo" method="POST">
+    <div class="phase-form-row">
+      <input type="text" name="naam" placeholder="Naam" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+    </div>
+    <input type="hidden" name="onderwerp" value="Roadmap Fase 06: Eigen Diensten">
+    <textarea name="bericht" placeholder="Uw suggestie, vraag of ervaring..."></textarea>
+    <button type="submit">Verstuur
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="phase-form-msg" id="formMsg">Bedankt voor uw bericht.</div>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-links">
+    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="index.html">eigengrond.nu</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f = this;
+  fetch(f.action, {method:'POST', body:new FormData(f), headers:{'Accept':'application/json'}})
+    .then(function(r){ if(r.ok){ document.getElementById('formMsg').classList.add('visible'); f.reset(); } });
+});
+</script>
+</body>
+</html>
