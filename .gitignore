@@ -2,3 +2,11 @@
 .claude/
 .tmp/
 node_modules/
+
+# Lokale bron-bestanden (niet voor productie)
+evert-bron.*
+evert-bron.jpg
+evert-bron.png
+
+# Linux fuse mount artefacten (Dropbox sync)
+.fuse_hidden*

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eigen Grond — Jouw software. Jouw data. Jouw processen.</title>
+<title>Eigen Grond. Jouw software, jouw data, jouw processen.</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -270,6 +270,105 @@ h2 {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-top: 0.4rem;
+}
+
+/* CASES OVERVIEW (drie cases op homepage) */
+.cases-overview-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: var(--fg);
+  margin-bottom: 0.5rem;
+}
+.cases-overview-intro {
+  font-size: 0.95rem;
+  color: #928670;
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+}
+.cases-list {
+  display: flex;
+  flex-direction: column;
+}
+.case-item {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+.case-item:first-child { border-top: none; padding-top: 0.5rem; }
+.case-item-text { min-width: 0; }
+.case-item-sector {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.9rem;
+}
+.case-item-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.3rem, 2.6vw, 1.85rem);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: var(--fg);
+  font-weight: normal;
+  margin-bottom: 0.9rem;
+}
+.case-item-body {
+  font-size: 0.95rem;
+  color: #B5A88E;
+  line-height: 1.7;
+}
+.case-item-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-left: 2px solid var(--green);
+  padding-left: 1.25rem;
+  align-self: start;
+  margin-top: 0.4rem;
+}
+.case-item-stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  color: var(--green-light);
+  line-height: 1;
+}
+.case-item-stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.cases-overview-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: var(--green-light);
+  text-decoration: none;
+  margin-top: 2.75rem;
+  border: 1px solid var(--green);
+  padding: 0.7rem 1.4rem;
+  transition: background 0.15s, color 0.15s;
+}
+.cases-overview-link:hover { background: var(--green); color: var(--fg); }
+
+@media (max-width: 700px) {
+  .case-item {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+  .case-item-stat { padding-left: 1rem; }
 }
 .case-divider {
   max-width: 860px;
@@ -646,6 +745,7 @@ h2 {
   <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
   <div class="nav-right">
     <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="cases.html" class="nav-link">Cases</a>
     <a href="roadmap.html" class="nav-link">Roadmap</a>
     <a href="over.html" class="nav-link">Over</a>
     <span class="nav-sub">Een initiatief van Uxley</span>
@@ -745,50 +845,53 @@ h2 {
 <div class="case-section">
   <div class="case-inner">
     <div class="case-label">Uit de praktijk</div>
-    <p class="case-title">40 MEDEWERKERS. &euro;40.000 PER JAAR.<br>NIEMAND DIE HET SYSTEEM BEGREEP.</p>
-    <p class="case-body">
-      Een volledig backoffice-pakket voor offertebeheer, planning, CRM en urenregistratie. Gebouwd voor duizend bedrijven tegelijk. Niet voor dit bedrijf. Medewerkers werkten er omheen, kochten losse tools voor de gaten, en betaalden &euro;300 per aanpassing aan een systeem dat ze niet eens bezaten. Data overal. Planningen die niet klopten.
-      <br><br>
-      Dit is geen uitzondering. Dit is het patroon dat zichtbaar wordt als je bij genoeg bedrijven naar binnen kijkt.
-    </p>
-    <div class="case-stats">
-      <div class="case-stat">
-        <div class="case-stat-number">&euro;20.000</div>
-        <div class="case-stat-label">Eerste jaar. De helft.</div>
-      </div>
-      <div class="case-stat">
-        <div class="case-stat-number">&euro;0</div>
-        <div class="case-stat-label">Per aanpassing. Want het is van hen.</div>
-      </div>
-      <div class="case-stat">
-        <div class="case-stat-number">1</div>
-        <div class="case-stat-label">Systeem. Alle data op &eacute;&eacute;n plek.</div>
-      </div>
-    </div>
-  </div>
+    <h2 class="cases-overview-title">DRIE BEDRIJVEN. &Eacute;&Eacute;N PATROON.</h2>
+    <p class="cases-overview-intro">Drie bedrijven die hun eigen software in eigendom hebben. Drie sectoren, drie schalen, dezelfde keuze.</p>
 
-  <div class="case-divider"></div>
+    <div class="cases-list">
 
-  <div class="case-inner case-inner-secondary">
-    <div class="case-label">En op kleinere schaal</div>
-    <p class="case-title">8 MEDEWERKERS. 4 LOSSE TOOLS.<br>&Eacute;&Eacute;N PERSOON DIE ALLES BIJHIELD.</p>
-    <p class="case-body">
-      Een installatiebedrijf met losse tools voor planning, offertes, urenregistratie en facturatie. Elk pakket op zich logisch. Samen onhanteerbaar. De eigenaar werkte elke avond bij om de gaten te dichten.
-    </p>
-    <div class="case-stats">
-      <div class="case-stat">
-        <div class="case-stat-number">&euro;600</div>
-        <div class="case-stat-label">Per maand bespaard.</div>
-      </div>
-      <div class="case-stat">
-        <div class="case-stat-number">1</div>
-        <div class="case-stat-label">Systeem. Eigen beheer.</div>
-      </div>
-      <div class="case-stat">
-        <div class="case-stat-number">0</div>
-        <div class="case-stat-label">Abonnementen.</div>
-      </div>
+      <article class="case-item">
+        <div class="case-item-text">
+          <div class="case-item-sector">Internationale staalhandel, Zuid-Holland</div>
+          <h3 class="case-item-headline">6.000 CONTACTEN. NIEMAND DIE OPMERKT WIE STIL VALT.</h3>
+          <p class="case-item-body">Een staalhandelaar met tien jaar e-mailgeschiedenis in Outlook. AI leest de mailhistorie per contact en signaleert welke klanten verdwijnen voordat de relatie weg is. Het netwerk zit niet meer in &eacute;&eacute;n hoofd, het zit in het systeem.</p>
+        </div>
+        <div class="case-item-stat">
+          <span class="case-item-stat-number">23 tot 42%</span>
+          <span class="case-item-stat-label">Klantverloop in beeld</span>
+        </div>
+      </article>
+
+      <article class="case-item">
+        <div class="case-item-text">
+          <div class="case-item-sector">Uitzendbureau, groenvoorziening</div>
+          <h3 class="case-item-headline">ZE BREIDDEN HET GISTEREN UIT. ZELF.</h3>
+          <p class="case-item-body">Drie medewerkers, geen developer in dienst. Een eigen ATS in plaats van &euro;500 per maand voor een suite waarvan ze een kwart gebruikten. Aanpassen gebeurt nu zonder ticket, zonder wachttijd, zonder factuur.</p>
+        </div>
+        <div class="case-item-stat">
+          <span class="case-item-stat-number">&euro;500 / mnd</span>
+          <span class="case-item-stat-label">Bespaard, blijvend</span>
+        </div>
+      </article>
+
+      <article class="case-item">
+        <div class="case-item-text">
+          <div class="case-item-sector">Conceptstore, Gouda</div>
+          <h3 class="case-item-headline">10,5 UUR EIGEN MUZIEK. GEEN BUMA. GEEN ABONNEMENT.</h3>
+          <p class="case-item-body">Een conceptstore van 350 m&sup2; in een monumentaal pand. AI genereert 268 unieke tracks in vijf sferen, afgestemd op de winkeldag. Speelt offline, zonder streaming. De rechten zijn van de winkel.</p>
+        </div>
+        <div class="case-item-stat">
+          <span class="case-item-stat-number">Onder &euro;80</span>
+          <span class="case-item-stat-label">Eenmalig, in plaats van &euro;700 tot &euro;1.000 per jaar</span>
+        </div>
+      </article>
+
     </div>
+
+    <a href="cases.html" class="cases-overview-link">
+      Lees alle cases
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
 </div>
 
@@ -814,7 +917,7 @@ h2 {
 <div class="who-section">
   <div class="who-inner">
     <div class="who-portrait">
-      <img src="evert.jpg" srcset="evert.jpg 1x, evert@2x.jpg 2x" alt="Portret Evert Bal" width="130" height="130" loading="lazy">
+      <img src="evert.png" srcset="evert.png 1x, evert@2x.png 2x" alt="Portret Evert Bal" width="130" height="130" loading="lazy">
     </div>
     <div class="who-content">
       <p class="who-label">Wie hierachter zit</p>

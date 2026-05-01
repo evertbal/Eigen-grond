@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cases, Eigen Grond</title>
+<meta name="description" content="Drie bedrijven die hun eigen software in eigendom hebben. Een staalhandel, een uitzendbureau in de groenvoorziening en een conceptstore in Gouda.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/cases">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* HERO */
+header.cases-hero {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+}
+.cases-hero-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cases-hero-label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--green-light);
+}
+.cases-hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--fg);
+  margin-bottom: 1.25rem;
+}
+.cases-hero-title em {
+  color: var(--green-light);
+  font-style: normal;
+}
+.cases-hero-lead {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #B5A88E;
+  line-height: 1.7;
+  max-width: 600px;
+  font-weight: 300;
+  border-left: 2px solid var(--green);
+  padding-left: 1.25rem;
+}
+
+/* CASE PAGE ITEM */
+.case-page-list {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.case-page-item {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border);
+}
+.case-page-item:first-child { border-top: none; padding-top: 3rem; }
+.case-page-sector {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.case-page-sector::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: var(--green-light);
+}
+.case-page-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: var(--fg);
+  margin-bottom: 2rem;
+  font-weight: normal;
+  max-width: 720px;
+}
+
+/* Stats grid */
+.case-page-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2rem 0 2.75rem;
+}
+.case-page-stat {
+  background: var(--card);
+  padding: 1.5rem 1.25rem;
+}
+.case-page-stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+  color: var(--green-light);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.case-page-stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* Body blocks */
+.case-page-block {
+  margin-bottom: 2rem;
+  max-width: 680px;
+}
+.case-page-block-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.case-page-block-label::before {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--green-light);
+}
+.case-page-block p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--fg);
+  margin-bottom: 1.1rem;
+  opacity: 0.92;
+}
+.case-page-block p:last-child { margin-bottom: 0; }
+
+/* Knikhammer */
+.case-page-knikhammer {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--fg);
+  border-left: 3px solid var(--green);
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  max-width: 680px;
+  margin: 2.5rem 0 0;
+}
+
+/* CTA aan het einde */
+.cases-cta {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 4rem 2rem 5rem;
+  border-top: 1px solid var(--border);
+}
+.cases-cta-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.25rem;
+}
+.cases-cta-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--fg);
+  margin-bottom: 1.25rem;
+}
+.cases-cta-body {
+  font-size: 0.95rem;
+  color: #928670;
+  line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
+.cases-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.6rem;
+  background: var(--green-light);
+  color: var(--bg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.btn-primary:hover { background: #93BF46; }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.6rem;
+  background: transparent;
+  border: 1px solid var(--green);
+  color: var(--green-light);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-secondary:hover { background: var(--green); color: var(--fg); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  header.cases-hero { padding: 3rem 1.25rem 1.5rem; }
+  .case-page-list { padding: 0 1.25rem; }
+  .case-page-item { padding: 3rem 0; }
+  .case-page-item:first-child { padding-top: 2rem; }
+  .cases-cta { padding: 3rem 1.25rem 4rem; }
+}
+@media (max-width: 380px) {
+  header.cases-hero { padding: 2.5rem 1rem 1rem; }
+  .case-page-list { padding: 0 1rem; }
+  .cases-cta { padding: 2.5rem 1rem 3.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
+  <div class="nav-right">
+    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="cases.html" class="nav-link is-active">Cases</a>
+    <a href="roadmap.html" class="nav-link">Roadmap</a>
+    <a href="over.html" class="nav-link">Over</a>
+    <span class="nav-sub">Een initiatief van Uxley</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="cases-hero">
+  <div class="cases-hero-label">Cases</div>
+  <h1 class="cases-hero-title">EIGENDOM, <em>IN DRIE BEDRIJVEN.</em></h1>
+  <p class="cases-hero-lead">
+    Drie sectoren. Drie schalen. Dezelfde keuze: software die past op het werk, in eigendom van het bedrijf zelf. Geen platform, geen abonnement, geen leveranciersslot.
+  </p>
+</header>
+
+<!-- CASES -->
+<div class="case-page-list">
+
+  <!-- CASE 1: STAALHANDEL -->
+  <article class="case-page-item">
+    <div class="case-page-sector">Internationale staalhandel, Zuid-Holland</div>
+    <h2 class="case-page-headline">6.000 CONTACTEN. 10 JAAR E-MAIL.<br>NIEMAND DIE OPMERKT WIE STIL VALT.</h2>
+
+    <div class="case-page-stats">
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">6.000</div>
+        <div class="case-page-stat-label">Contacten ontsloten uit Outlook</div>
+      </div>
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">23 tot 42%</div>
+        <div class="case-page-stat-label">Klantverloop in beeld</div>
+      </div>
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">6 weken</div>
+        <div class="case-page-stat-label">Van eerste gesprek tot werkend systeem</div>
+      </div>
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">Eenmalig</div>
+        <div class="case-page-stat-label">Geen maandlicentie</div>
+      </div>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Situatie</div>
+      <p>Een kleine internationale staalhandelaar. Vier medewerkers. Levert staal aan offshore, scheepsbouw en constructie. De directeur reist &eacute;&eacute;n week per maand naar het buitenland en doet dan 24 tot 30 klantbezoeken per trip. Het hele klantennetwerk zit in zijn hoofd en in Outlook. Tien jaar e-mailgeschiedenis, 6.000 contacten, geen overzicht van wie er stil is gevallen. Tussen de 23 en 42 procent van de klanten komt na een jaar niet terug. Niet door slechte service, maar omdat niemand het opmerkt.</p>
+      <p>De eerste reflex is een standaard CRM kiezen. Pipedrive, HubSpot, Salesforce. Maar die pakketten bieden te veel en tegelijk te weinig. Ze zijn gebouwd rond verkooppipelines, niet rond internationale bezoekweken met gedeelde inboxen. Implementatie kost weken configuratie, het kost honderden euro's per maand, en geen van die pakketten leest tien jaar e-mail in om per contact een relatiekaart te maken. Dat bestaat niet als standaardmodule.</p>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Wat er is gebouwd</div>
+      <p>Een op maat CRM dat aansluit op de bestaande Microsoft 365 omgeving. Medewerkers loggen in met hun eigen Microsoft-account, zonder extra wachtwoorden. Alle 6.000 contacten zijn ge&iuml;mporteerd en gekoppeld aan de volledige e-mailgeschiedenis. AI leest de mailhistorie per contact en genereert een relatiekaart: waar ging het over, wat was de uitkomst, zijn er openstaande punten. Slapende klanten worden automatisch gesignaleerd. Collega's werken vanuit hetzelfde overzicht. Taken met vervaldatum, prioritering van klanten en nieuwsbriefcampagnes met reactiemeting zitten ingebouwd.</p>
+      <p>Na oplevering kwamen er direct vier concrete vervolgwensen. Dat is het bewijs dat het systeem aansluit op hoe ze werken.</p>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Wat er nog komt</div>
+      <p>Een lead-systeem dat nieuwe klanten vindt via LinkedIn-prospecting en offshore-projectensites. Daarna: een dertien jaar oud ordersysteem, dat niet meer te onderhouden is, opnieuw opbouwen tot een moderne tool die naadloos samenwerkt met het CRM en het offerteproces.</p>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Terugverdientijd</div>
+      <p>Een standaard CRM voor vier gebruikers kost al snel &euro;100 tot &euro;400 per maand, plus implementatie en configuratie. Het maatwerksysteem is eenmalig betaald. Na een jaar is het verschil zichtbaar, na twee jaar rekent het zich vanzelf terug. Als &eacute;&eacute;n slapende klant terugkomt door actieve opvolging, is de investering in &eacute;&eacute;n order goedgemaakt.</p>
+    </div>
+
+    <p class="case-page-knikhammer">De directeur hoeft niet meer alles in zijn hoofd te bewaren. Het systeem doet het nu.</p>
+  </article>
+
+  <!-- CASE 2: UITZENDBUREAU GROEN -->
+  <article class="case-page-item">
+    <div class="case-page-sector">Uitzendbureau, groenvoorziening</div>
+    <h2 class="case-page-headline">ZE BREIDDEN HET GISTEREN UIT.<br>ZELF. ZONDER ONS.</h2>
+
+    <div class="case-page-stats">
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">&euro;500 / mnd</div>
+        <div class="case-page-stat-label">Bespaard, blijvend</div>
+      </div>
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">25%</div>
+        <div class="case-page-stat-label">Van de suite was nodig, de rest stond in de weg</div>
+      </div>
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">3 uur</div>
+        <div class="case-page-stat-label">Interview, daarna een prototype</div>
+      </div>
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">Zelf</div>
+        <div class="case-page-stat-label">Aanpassen, zonder ticket of factuur</div>
+      </div>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Situatie</div>
+      <p>Een uitzendbureau dat mensen plaatst in de groenvoorziening. Drie medewerkers. Geen techbedrijf. Geen developers in dienst. Wel een administratief proces dat jaren hetzelfde was: kandidaten bijhouden, matches maken, opvolging regelen. Allemaal in losse tools en Excel.</p>
+      <p>De software die eerder werd overwogen kostte &euro;500 per maand. Daarvoor kreeg het bureau een complete uitzendsuite, ontworpen voor grote bureaus met tientallen medewerkers. Hier waren er drie. Een kwart van de suite was nodig, de rest stond in de weg. En de data zou niet van hen zijn. Die zou op het platform van de leverancier staan, onder de voorwaarden van de leverancier.</p>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Hoe het is gebouwd</div>
+      <p>Met een interview van drie uur is het hele proces in kaart gebracht. Hoe kandidaten binnenkomen, hoe het matchen werkt, hoe de opvolging loopt. Op basis daarvan is een prototype gemaakt en aangepast totdat het klopte. AI heeft het systeem verder gebouwd. Een software engineer heeft de code gereviewd en het systeem op hun eigen server gezet.</p>
+      <p>Het resultaat is een eigen ATS (Applicant Tracking System). Precies wat zij nodig hebben, niets meer.</p>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Het echte verhaal</div>
+      <p>Het systeem is niet het eindpunt. Ze breidden het gisteren nog uit. Zelf. Zonder de oorspronkelijke bouwer erbij. Geen ticket, geen wachttijd, geen factuur. Dat is het moment waar het om gaat.</p>
+      <p>De drempel om technologie te bezitten in plaats van te huren is aan het verdwijnen. Dit uitzendbureau bewijst dat. Geen techbedrijf, geen developers, wel eigenaar van hun eigen systeem.</p>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Wat de klant niet meer heeft</div>
+      <p>Geen &euro;500 per maand aan een platform dat voor 75 procent uit functies bestaat die niemand aanraakt. Geen data op de server van een leverancier, onder andermans voorwaarden. En niet meer het gevoel dat technologie niet voor hen is.</p>
+    </div>
+
+    <p class="case-page-knikhammer">Aanpassen kan nu vandaag, niet over twee weken na een ticket.</p>
+  </article>
+
+  <!-- CASE 3: CONCEPTSTORE GOUDA -->
+  <article class="case-page-item">
+    <div class="case-page-sector">Conceptstore, Gouda</div>
+    <h2 class="case-page-headline">10,5 UUR EIGEN MUZIEK.<br>GEEN BUMA. GEEN ABONNEMENT.</h2>
+
+    <div class="case-page-stats">
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">268 tracks</div>
+        <div class="case-page-stat-label">10,5 uur unieke muziek</div>
+      </div>
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">5 sferen</div>
+        <div class="case-page-stat-label">Afgestemd op de winkeldag</div>
+      </div>
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">Geen Buma</div>
+        <div class="case-page-stat-label">Geen Sena, geen streaming</div>
+      </div>
+      <div class="case-page-stat">
+        <div class="case-page-stat-number">Onder &euro;80</div>
+        <div class="case-page-stat-label">Eenmalig (vs &euro;700 tot &euro;1.000 per jaar)</div>
+      </div>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Situatie</div>
+      <p>Een conceptstore van 350 m&sup2; in een monumentaal pand in Gouda. 62 creatieve ondernemers onder &eacute;&eacute;n dak. Het publiek: vrouwen tussen 25 en 55 die bewust winkelen en waarde hechten aan authenticiteit en ambacht.</p>
+      <p>Achtergrondmuziek in een winkel van dit formaat is niet gratis. Wie bestaande muziek afspeelt (Spotify, radio, cd's) betaalt jaarlijks aan Buma/Stemra voor auteursrechten en aan Sena voor naburige rechten. Een gewoon Spotify-abonnement mag niet commercieel gebruikt worden, dus daar komt &oacute;f een zakelijk streamingabonnement bij, &oacute;f een professionele muziekdienst van &euro;30 tot &euro;50 per maand. Alles bij elkaar: &euro;700 tot &euro;1.000 per jaar, elk jaar opnieuw.</p>
+      <p>En dan nog: de nummers zijn herkenbaar. Onderzoek laat zien dat onbekende muziek in winkels beter werkt. Klanten blijven langer, ervaren minder stress, en kopen vaker impulsief. Bekende hits doen het tegenovergestelde.</p>
+    </div>
+
+    <div class="case-page-block">
+      <div class="case-page-block-label">Wat er is gebouwd</div>
+      <p>Een applicatie die via AI unieke achtergrondmuziek genereert. Vijf thematische sferen, van ochtendlicht (indie folk, akoestische warmte) tot gouden uur (downtempo soul, warm elektronisch), gebaseerd op muziekpsychologie-onderzoek. 63 miljoen unieke combinaties per sfeer. Elke track is letterlijk eenmalig.</p>
+      <p>De muziek is volledig AI-gegenereerd. Geen bestaande artiesten, geen bestaande composities. Dat betekent: geen Buma/Stemra-verplichting, geen Sena-afdracht. De rechten zijn bewijsbaar van de winkel zelf.</p>
+      <p>De muziek draait op een slim, betaalbaar offline systeem. Geen telefoon, geen wifi, geen streaming. Medewerkers zetten het apparaat aan, de muziek speelt. Verversen gebeurt door de app, die nieuwe tracks genereert.</p>
+    </div>
+
+    <p class="case-page-knikhammer">De totaaloplossing kost eenmalig minder dan wat &eacute;&eacute;n jaar muziekrechten zou kosten. De muziek is van de winkel. De rechten zijn van de winkel. Elk jaar opnieuw, zonder factuur.</p>
+  </article>
+
+</div>
+
+<!-- CTA -->
+<div class="cases-cta">
+  <div class="cases-cta-label">Volgende case</div>
+  <h2 class="cases-cta-title">JOUW BEDRIJF, JOUW VERHAAL.</h2>
+  <p class="cases-cta-body">
+    Geen presentatie, geen pitch. Een eerste gesprek duurt maximaal een half uur. Vertel waar je software niet aansluit op hoe je werkt. Er wordt geluisterd.
+  </p>
+  <div class="cases-cta-actions">
+    <a href="mailto:hallo@uxley.nl?subject=Gesprek%20Eigen%20Grond" class="btn-primary">
+      Gesprek aanvragen
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="rapport.html" class="btn-secondary">Lees het rapport</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-links">
+    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="index.html">eigengrond.nu</a>
+  </div>
+</footer>
+
+</body>
+</html>
