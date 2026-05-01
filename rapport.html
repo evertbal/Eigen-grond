@@ -570,7 +570,10 @@
 <!-- NAV — identical to homepage -->
 <nav class="site-nav">
   <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
-  <div class="nav-right">
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
     <a href="cases.html" class="nav-link">Cases</a>
     <a href="roadmap.html" class="nav-link">Roadmap</a>
     <a href="over.html" class="nav-link">Over</a>
@@ -965,5 +968,7 @@ tocList.addEventListener('click', e => {
 });
 
 </script>
+
+<script src="nav.js" defer></script>
 </body>
 </html>

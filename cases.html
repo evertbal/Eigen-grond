@@ -250,7 +250,10 @@ header.cases-hero {
 <!-- NAV -->
 <nav class="site-nav">
   <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
-  <div class="nav-right">
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
     <a href="rapport.html" class="nav-link">Rapport</a>
     <a href="cases.html" class="nav-link is-active">Cases</a>
     <a href="roadmap.html" class="nav-link">Roadmap</a>
@@ -438,5 +441,7 @@ header.cases-hero {
   </div>
 </footer>
 
+
+<script src="nav.js" defer></script>
 </body>
 </html>

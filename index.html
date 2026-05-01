@@ -155,6 +155,8 @@ h2 {
 .manifesto {
   background: var(--green);
   padding: 3rem 2rem;
+}
+.manifesto-inner {
   max-width: 860px;
   margin: 0 auto;
 }
@@ -717,6 +719,7 @@ h2 {
 @media (max-width: 768px) {
   .hero { padding: 4rem 1.25rem 3.5rem; }
   .section { padding: 3rem 1.25rem; }
+  .manifesto { padding: 2.5rem 1.25rem; }
   .case-inner { padding: 3rem 1.25rem; }
   .pain-item, .solution-item { padding: 1.25rem 1rem; }
   .case-stat { padding: 1.25rem 1rem; }
@@ -734,6 +737,7 @@ h2 {
   html { font-size: 14px; }
   .hero { padding: 3rem 1rem 2.5rem; }
   .section { padding: 2.5rem 1rem; }
+  .manifesto { padding: 2rem 1rem; }
   .case-inner { padding: 2.5rem 1rem; }
   .form-section { padding: 3rem 1rem; }
 }
@@ -743,7 +747,10 @@ h2 {
 
 <nav class="site-nav">
   <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
-  <div class="nav-right">
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
     <a href="rapport.html" class="nav-link">Rapport</a>
     <a href="cases.html" class="nav-link">Cases</a>
     <a href="roadmap.html" class="nav-link">Roadmap</a>
@@ -769,11 +776,13 @@ h2 {
 
 <!-- MANIFESTO BALK -->
 <div class="manifesto">
-  <p>
-    <span>Je huurt je eigen bedrijf terug.</span><br>
-    Dat is wat er nu gebeurt.
-  </p>
-  <p class="manifesto-coda">Wat van jou is, kan niemand veranderen.</p>
+  <div class="manifesto-inner">
+    <p>
+      <span>Je huurt je eigen bedrijf terug.</span><br>
+      Dat is wat er nu gebeurt.
+    </p>
+    <p class="manifesto-coda">Wat van jou is, kan niemand veranderen.</p>
+  </div>
 </div>
 
 <!-- HERKENNING -->
@@ -1005,5 +1014,7 @@ if (form) {
   });
 }
 </script>
+
+<script src="nav.js" defer></script>
 </body>
 </html>

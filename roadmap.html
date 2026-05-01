@@ -292,7 +292,10 @@ header.hero {
 <!-- NAV -->
 <nav class="site-nav">
   <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
-  <div class="nav-right">
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
     <a href="rapport.html" class="nav-link">Rapport</a>
     <a href="cases.html" class="nav-link">Cases</a>
     <a href="roadmap.html" class="nav-link is-active">Roadmap</a>
@@ -424,7 +427,7 @@ header.hero {
     <div class="vision-label">Geïnspireerd door Society 4.0</div>
     <p class="vision-quote">De regio als fundament.<br>De burger als eigenaar.<br>Technologie als middel, niet als meester.</p>
     <p class="vision-body">Deze roadmap is geïnspireerd door de visie van Prof. Bob de Wit (Society 4.0): een samenleving waarin technologische ontwikkelingen decentrale productie mogelijk maken, regio's het fundament vormen, en de belangen van burgers en ondernemers het vertrekpunt zijn. Niet top-down gestuurd door platforms en instituties, maar bottom-up gebouwd door de mensen die er wonen en werken. Eigen Grond begint bij software. Maar de richting is helder: eigenaarschap organiseren op elk niveau waar dat mogelijk is.</p>
-    <p class="vision-body" style="margin-top:1.25rem;">Eigen Grond bouwt niet alleen. <strong>OwnGPT</strong> levert engineering en quality assurance. <strong><a href="https://nosuch.ai" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--green);">NOSUCH.ai</a></strong> levert organisatiecapaciteit. Samen vormen zij het netwerk achter de beweging.</p>
+    <p class="vision-body" style="margin-top:1.25rem;">Eigen Grond bouwt niet alleen. <strong><a href="https://owngpt.nl" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--green);">OwnGPT</a></strong> levert engineering en quality assurance. <strong><a href="https://nosuch.ai" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--green);">NOSUCH.ai</a></strong> levert organisatiecapaciteit. Samen vormen zij het netwerk achter de beweging.</p>
   </div>
 </div>
 
@@ -449,5 +452,7 @@ header.hero {
   </div>
 </footer>
 
+
+<script src="nav.js" defer></script>
 </body>
 </html>
