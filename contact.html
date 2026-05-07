@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact, Eigen Grond</title>
+<meta name="description" content="Stel je vraag of vraag een vrijblijvend gesprek aan. Geen pitch, geen verplichtingen.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/contact">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+header.contact-hero {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+}
+.contact-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--green-light);
+}
+.contact-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--fg);
+  margin-bottom: 1rem;
+}
+.contact-title em {
+  color: var(--green-light);
+  font-style: normal;
+}
+.contact-sub {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--fg);
+  opacity: 0.85;
+  max-width: 580px;
+}
+
+.contact-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 4rem;
+}
+
+.contact-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.contact-form label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.contact-form input, .contact-form textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--green); }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #625B4B; }
+.contact-form .field-full { margin-bottom: 1rem; }
+.contact-form textarea { min-height: 140px; resize: vertical; }
+.contact-form button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--green-light);
+  color: var(--bg);
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  padding: 0.85rem 2rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 0.5rem;
+}
+.contact-form button:hover { background: #93BF46; }
+.contact-form-msg {
+  display: none;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--green);
+  color: var(--green-light);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.contact-form-msg.visible { display: block; }
+.contact-form-error {
+  display: none;
+  padding: 1rem 1.25rem;
+  border: 1px solid #8B0000;
+  color: #FF8080;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+.contact-form-error.visible { display: block; }
+
+.contact-fallback {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.contact-fallback a { color: var(--green-light); text-decoration: none; }
+.contact-fallback a:hover { text-decoration: underline; }
+
+@media (max-width: 700px) {
+  header.contact-hero { padding: 3rem 1.25rem 1.5rem; }
+  .contact-content { padding: 1rem 1.25rem 3rem; }
+  .contact-form { padding: 1.5rem 1.25rem; }
+  .contact-form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 380px) {
+  header.contact-hero { padding: 2.5rem 1rem 1rem; }
+  .contact-content { padding: 0.5rem 1rem 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
+    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="cases.html" class="nav-link">Cases</a>
+    <a href="over.html" class="nav-link">Over</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="contact-hero">
+  <div class="contact-label">Contact</div>
+  <h1 class="contact-title">Stel je <em>vraag</em>.</h1>
+  <p class="contact-sub">Geen pitch, geen verplichtingen. Een eerste gesprek duurt maximaal een half uur. Vertel waar je software niet aansluit op hoe je werkt &mdash; we nemen contact op binnen een week.</p>
+</header>
+
+<!-- CONTENT -->
+<div class="contact-content">
+  <form class="contact-form" id="contactForm" action="https://formspree.io/f/mpqoaplo" method="POST">
+    <div class="contact-form-row">
+      <div>
+        <label for="naam">Naam</label>
+        <input type="text" id="naam" name="naam" placeholder="Jouw naam" required autocomplete="name">
+      </div>
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" required autocomplete="email">
+      </div>
+    </div>
+    <div class="field-full">
+      <label for="bedrijf">Bedrijf <span style="text-transform:none;letter-spacing:0;color:#625B4B;">(optioneel)</span></label>
+      <input type="text" id="bedrijf" name="bedrijf" placeholder="Naam van je bedrijf">
+    </div>
+    <div class="field-full">
+      <label for="bericht">Bericht</label>
+      <textarea id="bericht" name="bericht" placeholder="Vertel kort waar je tegenaan loopt of wat je wilt bespreken." required></textarea>
+    </div>
+    <input type="hidden" name="_subject" value="Contact via eigengrond.nu">
+    <button type="submit">Verstuur
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="contact-form-msg" id="formMsg">Ontvangen. We nemen binnen een week contact op.</div>
+    <div class="contact-form-error" id="formErr">Er ging iets mis. Probeer het opnieuw of stuur direct een mail naar info@uxley.nl.</div>
+  </form>
+
+  <p class="contact-fallback">Liever direct mailen? <a href="mailto:info@uxley.nl">info@uxley.nl</a></p>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <a href="https://uxley.nl" target="_blank" rel="noopener"><strong>Uxley</strong></a></div>
+  <div class="footer-links">
+    <a href="contact.html">Contact</a>
+    <a href="mediakit.html">Mediakit</a>
+    <a href="index.html">eigengrond.nu</a>
+  </div>
+</footer>
+
+<script src="nav.js" defer></script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var f = this;
+  var btn = f.querySelector('button');
+  var ok = document.getElementById('formMsg');
+  var err = document.getElementById('formErr');
+  ok.classList.remove('visible');
+  err.classList.remove('visible');
+  btn.disabled = true;
+  btn.textContent = 'Bezig met versturen...';
+  fetch(f.action, {
+    method: 'POST',
+    body: new FormData(f),
+    headers: {'Accept': 'application/json'}
+  }).then(function(r) {
+    if (r.ok) {
+      f.reset();
+      ok.classList.add('visible');
+      btn.innerHTML = 'Verstuur <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    } else {
+      throw new Error('non-200');
+    }
+  }).catch(function() {
+    err.classList.add('visible');
+    btn.innerHTML = 'Verstuur <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }).finally(function() { btn.disabled = false; });
+});
+</script>
+</body>
+</html>

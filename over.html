@@ -154,6 +154,34 @@ header.over-hero {
   min-height: 60px;
 }
 
+/* Wie meebouwt — partners */
+.over-partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  max-width: 720px;
+}
+.over-partner {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.5rem 1.5rem 1.25rem;
+}
+.over-partner-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+  margin-bottom: 0.4rem;
+}
+.over-partner-name a { color: var(--fg); text-decoration: none; }
+.over-partner-name a:hover { color: var(--green-light); }
+.over-partner-role {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 /* Reference quote */
 .over-ref {
   margin-top: 2rem;
@@ -238,7 +266,6 @@ header.over-hero {
     <a href="rapport.html" class="nav-link">Rapport</a>
     <a href="cases.html" class="nav-link">Cases</a>
     <a href="over.html" class="nav-link is-active">Over</a>
-    <span class="nav-sub">Een initiatief van Uxley</span>
   </div>
 </nav>
 
@@ -304,6 +331,26 @@ header.over-hero {
     </div>
   </div>
 
+  <!-- WIE MEEBOUWT -->
+  <div class="over-block">
+    <div class="over-block-label">Wie meebouwt</div>
+    <p>Eigen Grond is een initiatief, geen eenmanszaak. Achter de schermen leveren de volgende partijen capaciteit, kwaliteit en organisatiekracht.</p>
+    <div class="over-partners">
+      <div class="over-partner">
+        <div class="over-partner-name"><a href="https://uxley.nl" target="_blank" rel="noopener">Uxley</a></div>
+        <div class="over-partner-role">Initiator. Vijftien jaar UX-ontwerp, nu gericht op lokaal MKB.</div>
+      </div>
+      <div class="over-partner">
+        <div class="over-partner-name"><a href="https://owngpt.nl" target="_blank" rel="noopener">OwnGPT</a></div>
+        <div class="over-partner-role">Engineering en quality assurance. Bouwt en reviewt mee aan de software.</div>
+      </div>
+      <div class="over-partner">
+        <div class="over-partner-name"><a href="https://nosuch.ai" target="_blank" rel="noopener">NOSUCH.ai</a></div>
+        <div class="over-partner-role">Organisatiecapaciteit en operationele backbone.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Visie-link -->
   <div class="over-block">
     <div class="over-block-label">Waar dit toe leidt op de lange termijn</div>
@@ -317,7 +364,7 @@ header.over-hero {
 
 <!-- CTA -->
 <div class="over-cta">
-  <a href="mailto:hallo@uxley.nl?subject=Gesprek%20Eigen%20Grond" class="over-cta-link">
+  <a href="contact.html" class="over-cta-link">
     Gesprek aanvragen
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
@@ -326,9 +373,9 @@ header.over-hero {
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-brand">Eigen Grond is een initiatief van <a href="https://uxley.nl" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border);transition:color 0.15s, border-color 0.15s;"><strong>Uxley</strong></a></div>
   <div class="footer-links">
-    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="contact.html">Contact</a>
     <a href="mediakit.html">Mediakit</a>
     <a href="index.html">eigengrond.nu</a>
   </div>
