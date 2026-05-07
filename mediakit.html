@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mediakit, Eigen Grond</title>
+<meta name="description" content="Achtergrond, visie en perscontact voor Eigen Grond. Voor pers, opiniemakers en publieke partners die schrijven over digitale soevereiniteit van het MKB.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/mediakit">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+header.media-hero {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 4rem 2rem 3rem;
+}
+.media-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.media-label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--green-light);
+}
+.media-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--fg);
+  margin-bottom: 1rem;
+}
+.media-title em {
+  color: var(--green-light);
+  font-style: normal;
+}
+.media-subtitle {
+  font-size: 1.05rem;
+  color: var(--fg);
+  opacity: 0.85;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.media-content {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.media-block {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+}
+.media-block-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.media-block-label::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--green-light);
+}
+.media-block h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.media-block p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--fg);
+  max-width: 600px;
+  margin-bottom: 1.25rem;
+}
+.media-block p:last-child { margin-bottom: 0; }
+.media-block p strong { font-weight: 500; }
+.media-block ul {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  max-width: 600px;
+}
+.media-block ul li {
+  padding: 0.55rem 0 0.55rem 1.5rem;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--fg);
+  border-bottom: 1px solid var(--border);
+  line-height: 1.65;
+}
+.media-block ul li:first-child { border-top: 1px solid var(--border); }
+.media-block ul li::before {
+  content: '\2014';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+}
+
+/* Quote-block (Society 4.0) */
+.media-quote {
+  background: var(--card);
+  border-left: 4px solid var(--green);
+  padding: 2rem;
+  margin: 1.5rem 0 0;
+  max-width: 620px;
+}
+.media-quote p {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  color: var(--fg);
+  margin-bottom: 0;
+}
+.media-quote-source {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+/* Pers-info-grid */
+.media-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  margin: 1.5rem 0;
+  max-width: 620px;
+}
+.media-fact {
+  background: var(--card);
+  padding: 1.25rem 1.25rem 1.25rem;
+}
+.media-fact-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.media-fact-value {
+  font-size: 0.95rem;
+  color: var(--fg);
+  line-height: 1.5;
+}
+.media-fact-value a { color: var(--green-light); text-decoration: none; }
+.media-fact-value a:hover { text-decoration: underline; }
+
+/* Partners blok */
+.media-partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  max-width: 720px;
+}
+.media-partner {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.5rem 1.5rem 1.25rem;
+}
+.media-partner-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+  margin-bottom: 0.4rem;
+}
+.media-partner-name a { color: var(--fg); text-decoration: none; }
+.media-partner-name a:hover { color: var(--green-light); }
+.media-partner-role {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  header.media-hero { padding: 3rem 1.25rem 2rem; }
+  .media-content { padding: 0 1.25rem; }
+}
+@media (max-width: 380px) {
+  header.media-hero { padding: 2.5rem 1rem 1.5rem; }
+  .media-content { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">EIGEN<span>GROND</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
+    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="cases.html" class="nav-link">Cases</a>
+    <a href="over.html" class="nav-link">Over</a>
+    <span class="nav-sub">Een initiatief van Uxley</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="media-hero">
+  <div class="media-label">Mediakit</div>
+  <h1 class="media-title">Voor pers en <em>opiniemakers</em>.</h1>
+  <p class="media-subtitle">Eigen Grond is een initiatief dat lokale MKB-bedrijven digitaal onafhankelijk wil maken. Op deze pagina staat de achtergrond, de visie en het perscontact &mdash; bedoeld voor journalisten, opiniemakers en publieke partners die over digitale soevereiniteit van ondernemers schrijven.</p>
+</header>
+
+<!-- CONTENT -->
+<div class="media-content">
+
+  <!-- KERN -->
+  <div class="media-block">
+    <div class="media-block-label">In een zin</div>
+    <h2>Software die van jou is, niet van een platform.</h2>
+    <p>De meeste MKB-bedrijven gebruiken software die voor duizend bedrijven tegelijk is gemaakt. Dat heeft consequenties: medewerkers werken eromheen, data staat overal, kosten lopen op, en stoppen kost meer dan doorgaan. Eigen Grond bouwt het alternatief: software die het bedrijf eenmalig koopt, in eigendom houdt en zelf kan aanpassen.</p>
+    <p><strong>De kern is niet technologie. De kern is eigenaarschap.</strong> Wie de software bezit waarmee een bedrijf draait, bezit de processen van dat bedrijf. Wie de data bezit, bepaalt de spelregels.</p>
+  </div>
+
+  <!-- KERNGEDACHTE -->
+  <div class="media-block">
+    <div class="media-block-label">Kerngedachte</div>
+    <h2>Eigenaarschap stopt niet bij software.</h2>
+    <p>Wat Eigen Grond verkoopt, is software die je in eigen beheer houdt. Wat Eigen Grond verkent, is wat er volgt: een server op kantoor in plaats van in de cloud, AI op eigen data zonder dat die data het pand verlaat, lokale netwerken die blijven werken als het internet uitvalt, diensten gebouwd voor de regio in plaats van voor de wereldmarkt.</p>
+    <div class="media-quote">
+      <p>Elke stap geeft eigenaarschap terug. Elke stap maakt de regio sterker.</p>
+      <span class="media-quote-source">&mdash; Eigen Grond</span>
+    </div>
+  </div>
+
+  <!-- SOCIETY 4.0 -->
+  <div class="media-block">
+    <div class="media-block-label">Bredere visie</div>
+    <h2>Ge&iuml;nspireerd door Society 4.0.</h2>
+    <p>De richting waar Eigen Grond aan werkt sluit aan op het gedachtegoed van Prof. Bob de Wit (<em>Society 4.0</em>): een samenleving waarin technologische ontwikkelingen decentrale productie mogelijk maken, regio&rsquo;s het fundament vormen, en de belangen van burgers en ondernemers het vertrekpunt zijn. Niet top-down gestuurd door platforms en instituties, maar bottom-up gebouwd door de mensen die er wonen en werken.</p>
+    <div class="media-quote">
+      <p>De regio als fundament. De burger als eigenaar.<br>Technologie als middel, niet als meester.</p>
+      <span class="media-quote-source">&mdash; Society 4.0</span>
+    </div>
+    <p style="margin-top:1.5rem;">Eigen Grond begint bij &eacute;&eacute;n stap, &eacute;&eacute;n bedrijf, &eacute;&eacute;n stuk software. De richting is helder: eigenaarschap organiseren op elk niveau waar dat mogelijk is.</p>
+  </div>
+
+  <!-- DE FEITEN -->
+  <div class="media-block">
+    <div class="media-block-label">De feiten</div>
+    <h2>Wat Eigen Grond is.</h2>
+    <div class="media-facts">
+      <div class="media-fact">
+        <div class="media-fact-label">Initiatiefnemer</div>
+        <div class="media-fact-value">Evert Bal &mdash; softwareontwerper en AI-producent</div>
+      </div>
+      <div class="media-fact">
+        <div class="media-fact-label">Onderdeel van</div>
+        <div class="media-fact-value">Uxley</div>
+      </div>
+      <div class="media-fact">
+        <div class="media-fact-label">Werkgebied</div>
+        <div class="media-fact-value">Krimpenerwaard en omstreken</div>
+      </div>
+      <div class="media-fact">
+        <div class="media-fact-label">Doelgroep</div>
+        <div class="media-fact-value">MKB-bedrijven met 5&ndash;50 medewerkers</div>
+      </div>
+      <div class="media-fact">
+        <div class="media-fact-label">Aanbod nu</div>
+        <div class="media-fact-value">Maatwerk-software, eenmalig betaald, broncode bij de klant</div>
+      </div>
+      <div class="media-fact">
+        <div class="media-fact-label">Domein</div>
+        <div class="media-fact-value"><a href="https://eigengrond.nu">eigengrond.nu</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTNERS -->
+  <div class="media-block">
+    <div class="media-block-label">Het netwerk</div>
+    <h2>Wie meebouwt.</h2>
+    <p>Eigen Grond is een initiatief, geen eenmanszaak. De volgende partijen leveren capaciteit, kwaliteit en organisatiekracht:</p>
+    <div class="media-partners">
+      <div class="media-partner">
+        <div class="media-partner-name"><a href="https://uxley.nl" target="_blank" rel="noopener">Uxley</a></div>
+        <div class="media-partner-role">Initiator. Vijftien jaar UX-ontwerp, nu gericht op lokaal MKB.</div>
+      </div>
+      <div class="media-partner">
+        <div class="media-partner-name"><a href="https://owngpt.nl" target="_blank" rel="noopener">OwnGPT</a></div>
+        <div class="media-partner-role">Engineering en quality assurance. Bouwt en reviewt mee aan de software.</div>
+      </div>
+      <div class="media-partner">
+        <div class="media-partner-name"><a href="https://nosuch.ai" target="_blank" rel="noopener">NOSUCH.ai</a></div>
+        <div class="media-partner-role">Organisatiecapaciteit en operationele backbone.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRONNEN -->
+  <div class="media-block">
+    <div class="media-block-label">Onderbouwing</div>
+    <h2>Bronnen voor onderzoek.</h2>
+    <p>Het rapport <em>&ldquo;Wat uw software u &eacute;cht kost&rdquo;</em> bundelt de analyse achter Eigen Grond. Voor citeerbare cijfers en context:</p>
+    <ul>
+      <li>CBS Staat van het MKB 2025 &mdash; Nederlands Comit&eacute; voor Ondernemerschap</li>
+      <li>Rijksoverheid Monitor Digitale Economie 2023 en 2024</li>
+      <li>AFAS Software productpagina&rsquo;s en publieke tariefinformatie (2025)</li>
+      <li>Keala Consultancy onderzoek marktaandelen NL bedrijfssoftware, via AutomatiseringGids</li>
+      <li>Ondernemersbelang.nl: Softwaretrends MKB 2025</li>
+    </ul>
+    <p style="margin-top:1.25rem;">
+      <a href="rapport.html" style="color:var(--green-light);text-decoration:underline;text-decoration-color:var(--green);text-underline-offset:4px;">Lees het volledige rapport &rarr;</a>
+      &nbsp;&middot;&nbsp;
+      <a href="rapport.pdf" download style="color:var(--green-light);text-decoration:underline;text-decoration-color:var(--green);text-underline-offset:4px;">Download als PDF</a>
+    </p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="media-block">
+    <div class="media-block-label">Perscontact</div>
+    <h2>Voor interview, citaat of duiding.</h2>
+    <p>Evert Bal staat open voor gesprek met journalisten en opiniemakers over digitale soevereiniteit, platformafhankelijkheid in het MKB en het idee van regionale digitale infrastructuur.</p>
+    <div class="media-facts">
+      <div class="media-fact">
+        <div class="media-fact-label">E-mail</div>
+        <div class="media-fact-value"><a href="mailto:hallo@uxley.nl?subject=Pers%20Eigen%20Grond">hallo@uxley.nl</a></div>
+      </div>
+      <div class="media-fact">
+        <div class="media-fact-label">Naam</div>
+        <div class="media-fact-value">Evert Bal &middot; Uxley</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
+  <div class="footer-links">
+    <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="mediakit.html">Mediakit</a>
+    <a href="index.html">eigengrond.nu</a>
+  </div>
+</footer>
+
+<script src="nav.js" defer></script>
+</body>
+</html>

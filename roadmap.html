@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roadmap, Eigen Grond</title>
-<meta name="description" content="Van eigen software naar een lokaal digitaal ecosysteem. De roadmap van Eigen Grond.">
+<title>Visie, Eigen Grond</title>
+<meta name="description" content="Van eigen software naar een lokaal digitaal ecosysteem. De richting waar Eigen Grond aan werkt.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -74,11 +74,65 @@ header.hero {
   font-style: normal;
 }
 
+/* HORIZON HEADER (Wat je vandaag/morgen kunt krijgen | Waar dit naartoe groeit) */
+.horizon-header {
+  border-top: 1px solid var(--border);
+  padding: 3.5rem 2rem 0.5rem;
+}
+.horizon-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.horizon-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1rem;
+}
+.horizon-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: var(--fg);
+  margin-bottom: 0.9rem;
+}
+.horizon-intro {
+  font-size: 0.98rem;
+  color: #B5A88E;
+  line-height: 1.7;
+  max-width: 600px;
+}
+/* Visuele breuk tussen horizon 1 en horizon 2 */
+.horizon-break {
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+  padding: 0 2rem;
+  position: relative;
+}
+.horizon-break::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border) 20%, var(--border) 80%, transparent);
+}
+.horizon-header-vision .horizon-label { color: var(--muted); }
+.horizon-header-vision .horizon-title { opacity: 0.95; }
+.timeline-vision .phase-title { font-size: clamp(1.2rem, 2.8vw, 1.6rem); }
+.timeline-vision .phase-num { color: var(--muted); }
+.timeline-vision .phase-dot {
+  background: transparent;
+  box-shadow: 0 0 0 2px var(--border);
+}
+.timeline-vision .phase-stem { background: var(--border); opacity: 0.5; }
+
 /* TIMELINE */
 .timeline {
   max-width: 900px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 2.5rem 2rem 3rem;
   position: relative;
 }
 .phase {
@@ -266,10 +320,9 @@ header.hero {
 /* PAGINA-SPECIFIEKE MOBILE OVERRIDES */
 @media (max-width: 768px) {
   header.hero { padding: 4rem 1.25rem 3rem; }
-  .manifesto { padding: 2rem 1.25rem; }
-  .timeline { padding: 3rem 1.25rem; }
-  .vision { padding: 0 1.25rem 4rem; }
-  .vision-card { padding: 1.75rem 1.5rem; }
+  .horizon-header { padding: 2.5rem 1.25rem 0.5rem; }
+  .horizon-break { padding: 0 1.25rem; }
+  .timeline { padding: 2rem 1.25rem 2.5rem; }
   .rapport-cta-bar { padding: 2.5rem 1.25rem; }
 }
 
@@ -281,9 +334,9 @@ header.hero {
 @media (max-width: 380px) {
   html { font-size: 14px; }
   header.hero { padding: 3rem 1rem 2.5rem; }
-  .manifesto { padding: 1.75rem 1rem; }
-  .timeline { padding: 2.5rem 1rem; }
-  .vision { padding: 0 1rem 3rem; }
+  .horizon-header { padding: 2rem 1rem 0.5rem; }
+  .horizon-break { padding: 0 1rem; }
+  .timeline { padding: 1.5rem 1rem 2rem; }
 }
 </style>
 </head>
@@ -298,7 +351,6 @@ header.hero {
   <div class="nav-right" id="nav-menu">
     <a href="rapport.html" class="nav-link">Rapport</a>
     <a href="cases.html" class="nav-link">Cases</a>
-    <a href="roadmap.html" class="nav-link is-active">Roadmap</a>
     <a href="over.html" class="nav-link">Over</a>
     <span class="nav-sub">Een initiatief van Uxley</span>
   </div>
@@ -306,19 +358,20 @@ header.hero {
 
 <!-- HEADER -->
 <header class="hero">
-  <div class="header-label">Roadmap</div>
-  <h1 class="header-title">VAN EIGEN SOFTWARE<br>NAAR <span>EIGEN GROND.</span></h1>
-  <p class="header-intro">Eigenaarschap begint bij software. Maar het stopt daar niet. Wat volgt is een pad van software naar infrastructuur, van infrastructuur naar intelligentie, van intelligentie naar een lokaal digitaal ecosysteem dat niet afhankelijk is van platforms, datacenters of centrale netwerken.</p>
+  <div class="header-label">Visie</div>
+  <h1 class="header-title">DE RICHTING.<br><span>NIET HET MENU.</span></h1>
+  <p class="header-intro">Wat Eigen Grond nu bouwt is &eacute;&eacute;n ding: software die je eenmalig koopt en in eigendom houdt. Daarna stopt het verhaal niet. Onderstaand is geen aankooplijst en geen tijdpad &mdash; het is de richting waar dit naartoe groeit. Een uitnodiging om mee te denken, niet om volgens schema iets te kopen.</p>
 </header>
 
-<!-- MANIFESTO -->
-<div class="manifesto">
-  <div class="manifesto-inner">
-    <p class="manifesto-text">Elke stap geeft eigenaarschap terug.<br><em>Elke stap maakt de regio sterker.</em></p>
+<!-- HORIZON 1: Vandaag of morgen -->
+<div class="horizon-header">
+  <div class="horizon-inner">
+    <div class="horizon-label">Horizon 1</div>
+    <h2 class="horizon-title">Wat je vandaag of morgen kunt krijgen.</h2>
+    <p class="horizon-intro">Software op maat, en de twee logische uitbreidingen die daar in het komende jaar bij kunnen. Concrete diensten, geen ideologie.</p>
   </div>
 </div>
 
-<!-- TIMELINE -->
 <div class="timeline">
 
   <div class="phase active">
@@ -327,10 +380,9 @@ header.hero {
       <div class="phase-stem"></div>
     </div>
     <div class="phase-content">
-      <div class="phase-num">FASE 01</div>
-      <div class="phase-title">EIGEN SOFTWARE</div>
-      <div class="phase-desc">Bedrijven krijgen software die precies past op hoe ze werken. Gebouwd op basis van hun eigen processen, niet op basis van wat een platform voorschrijft. <strong>Eenmalig betaald. Volledig eigendom. Broncode inbegrepen.</strong> Ontworpen door Evert Bal. Gebouwd en gereviewd samen met OwnGPT.</div>
-      <div class="phase-tag">Nu actief</div>
+      <div class="phase-num">FASE 01 &middot; Nu</div>
+      <div class="phase-title">SOFTWARE DIE PAST OP HOE JIJ WERKT.</div>
+      <div class="phase-desc">Geen pakket dat duizend bedrijven moet bedienen. Een systeem dat past op de werkvloer van &eacute;&eacute;n bedrijf: jouw planning, jouw offertes, jouw klanten. <strong>Eenmalig betaald. Broncode bij jou. Geen abonnement.</strong> Aanpassingen doe je zelf, of laat je doen op vaste prijs.</div>
       <a class="phase-link" href="fase-01-eigen-software.html">Lees meer &rarr;</a>
     </div>
   </div>
@@ -341,10 +393,9 @@ header.hero {
       <div class="phase-stem"></div>
     </div>
     <div class="phase-content">
-      <div class="phase-num">FASE 02</div>
-      <div class="phase-title">EIGEN SERVER</div>
-      <div class="phase-desc">Wanneer een bedrijf er klaar voor is, verhuist de software naar eigen infrastructuur. <strong>Een kleine, betrouwbare server op kantoor. Niet als vereiste, maar als keuze.</strong></div>
-      <div class="phase-tag">Volgende stap</div>
+      <div class="phase-num">FASE 02 &middot; Optioneel</div>
+      <div class="phase-title">JE DATA VERLAAT JE PAND NIET.</div>
+      <div class="phase-desc">Wil je dat je systeem in eigen huis draait? Dat kan. Een kleine, stille server op kantoor doet het werk &mdash; net zo betrouwbaar als een cloud, maar zonder een externe partij die je voorwaarden kan veranderen. <strong>Een keuze, geen voorwaarde.</strong></div>
       <a class="phase-link" href="fase-02-eigen-server.html">Lees meer &rarr;</a>
     </div>
   </div>
@@ -355,13 +406,27 @@ header.hero {
       <div class="phase-stem"></div>
     </div>
     <div class="phase-content">
-      <div class="phase-num">FASE 03</div>
-      <div class="phase-title">EIGEN INTELLIGENTIE</div>
-      <div class="phase-desc">AI ingezet op eigen data en processen. Slimmer plannen, sneller reageren, betere beslissingen nemen. <strong>Zonder bedrijfsinformatie uit handen te geven aan een extern platform dat er wijzer van wordt.</strong></div>
-      <div class="phase-tag">Korte termijn</div>
+      <div class="phase-num">FASE 03 &middot; Optioneel</div>
+      <div class="phase-title">EEN ROOSTER DAT ZICHZELF MAAKT.</div>
+      <div class="phase-desc">Slimme functies die werk uit handen nemen &mdash; planning die zichzelf voorstelt, een klantdossier dat zich opbouwt uit je e-mail. <strong>Allemaal op je eigen data, op je eigen apparaat. Niets gaat naar een extern platform.</strong></div>
       <a class="phase-link" href="fase-03-eigen-intelligentie.html">Lees meer &rarr;</a>
     </div>
   </div>
+
+</div>
+
+<!-- HORIZON 2: Waar het naartoe groeit -->
+<div class="horizon-break"></div>
+
+<div class="horizon-header horizon-header-vision">
+  <div class="horizon-inner">
+    <div class="horizon-label">Horizon 2</div>
+    <h2 class="horizon-title">Waar deze beweging naartoe groeit.</h2>
+    <p class="horizon-intro">Vanaf hier praten we over richting, niet over diensten. Dit zijn geen producten die je kunt bestellen &mdash; dit is waar Eigen Grond aan denkt. Lees het als een uitnodiging om mee te bouwen, niet als een aankooplijst.</p>
+  </div>
+</div>
+
+<div class="timeline timeline-vision">
 
   <div class="phase">
     <div class="phase-line">
@@ -369,10 +434,9 @@ header.hero {
       <div class="phase-stem"></div>
     </div>
     <div class="phase-content">
-      <div class="phase-num">FASE 04</div>
-      <div class="phase-title">EIGEN NETWERK</div>
-      <div class="phase-desc">Lokale bedrijven draaien elkaars backups. Als één server uitvalt, staat de data veilig bij een ondernemer om de hoek. <strong>Redundantie zonder datacenter. Vertrouwen zonder tussenpartij.</strong></div>
-      <div class="phase-tag">Middellange termijn</div>
+      <div class="phase-num">RICHTING &middot; 04</div>
+      <div class="phase-title">ALS JE SERVER UITVALT, DRAAIT JE BEDRIJF MORGEN GEWOON DOOR.</div>
+      <div class="phase-desc">Stel je voor dat lokale bedrijven elkaars systemen back-uppen. Geen abonnement bij een Amerikaans datacenter, maar een ondernemer om de hoek. <strong>Redundantie zonder tussenpartij.</strong></div>
       <a class="phase-link" href="fase-04-eigen-netwerk.html">Lees meer &rarr;</a>
     </div>
   </div>
@@ -383,10 +447,9 @@ header.hero {
       <div class="phase-stem"></div>
     </div>
     <div class="phase-content">
-      <div class="phase-num">FASE 05</div>
-      <div class="phase-title">EIGEN VERBINDING</div>
-      <div class="phase-desc">Lokale netwerken op industrieterreinen en bedrijvenclusters. Als het internet uitvalt, draait het bedrijf door. <strong>Operationele continuïteit die niet afhankelijk is van één kabel of één provider.</strong></div>
-      <div class="phase-tag">Middellange termijn</div>
+      <div class="phase-num">RICHTING &middot; 05</div>
+      <div class="phase-title">HET INTERNET LIGT ERUIT &mdash; EN JIJ WERKT DOOR.</div>
+      <div class="phase-desc">Bedrijventerreinen die een lokaal netwerk delen. Zelfs als de provider plat ligt, kunnen aangrenzende bedrijven met elkaar communiceren. <strong>Operationele continu&iuml;teit, los van &eacute;&eacute;n kabel.</strong></div>
       <a class="phase-link" href="fase-05-eigen-verbinding.html">Lees meer &rarr;</a>
     </div>
   </div>
@@ -397,10 +460,9 @@ header.hero {
       <div class="phase-stem"></div>
     </div>
     <div class="phase-content">
-      <div class="phase-num">FASE 06</div>
-      <div class="phase-title">EIGEN DIENSTEN</div>
-      <div class="phase-desc">Apps voor burgers en consumenten, gebouwd voor de regio. Belangrijke en urgente zaken, lokaal geregeld. <strong>Geen app van een techbedrijf aan de andere kant van de wereld. Een dienst van hier, voor hier.</strong></div>
-      <div class="phase-tag">Lange termijn</div>
+      <div class="phase-num">RICHTING &middot; 06</div>
+      <div class="phase-title">EEN APP VOOR DE BUURT, NIET VOOR DE WERELDMARKT.</div>
+      <div class="phase-desc">Marktplaats, vrijwilligerswerk, calamiteiten, buurtcommunicatie &mdash; gebouwd voor wie hier woont en werkt. <strong>Geen platform dat je aandacht verkoopt. Een dienst die je probleem oplost.</strong></div>
       <a class="phase-link" href="fase-06-eigen-diensten.html">Lees meer &rarr;</a>
     </div>
   </div>
@@ -411,24 +473,13 @@ header.hero {
       <div class="phase-stem"></div>
     </div>
     <div class="phase-content">
-      <div class="phase-num">FASE 07</div>
-      <div class="phase-title">EIGEN INTERNET</div>
-      <div class="phase-desc">Een decentraal netwerk van bedrijven en burgers. Onderling verbonden, onafhankelijk van centrale infrastructuur. <strong>Communicatie die blijft werken als het internet zelf het niet doet.</strong></div>
-      <div class="phase-tag">Lange termijn</div>
+      <div class="phase-num">RICHTING &middot; 07</div>
+      <div class="phase-title">COMMUNICATIE DIE BLIJFT WERKEN, ZELFS ZONDER CENTRAAL NETWERK.</div>
+      <div class="phase-desc">Een decentrale verbinding tussen bedrijven en burgers, zonder &eacute;&eacute;n centraal punt dat de regels bepaalt. <strong>Werkbaar zolang er deelnemers zijn.</strong></div>
       <a class="phase-link" href="fase-07-eigen-internet.html">Lees meer &rarr;</a>
     </div>
   </div>
 
-</div>
-
-<!-- VISION -->
-<div class="vision">
-  <div class="vision-card">
-    <div class="vision-label">Geïnspireerd door Society 4.0</div>
-    <p class="vision-quote">De regio als fundament.<br>De burger als eigenaar.<br>Technologie als middel, niet als meester.</p>
-    <p class="vision-body">Deze roadmap is geïnspireerd door de visie van Prof. Bob de Wit (Society 4.0): een samenleving waarin technologische ontwikkelingen decentrale productie mogelijk maken, regio's het fundament vormen, en de belangen van burgers en ondernemers het vertrekpunt zijn. Niet top-down gestuurd door platforms en instituties, maar bottom-up gebouwd door de mensen die er wonen en werken. Eigen Grond begint bij software. Maar de richting is helder: eigenaarschap organiseren op elk niveau waar dat mogelijk is.</p>
-    <p class="vision-body" style="margin-top:1.25rem;">Eigen Grond bouwt niet alleen. <strong><a href="https://owngpt.nl" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--green);">OwnGPT</a></strong> levert engineering en quality assurance. <strong><a href="https://nosuch.ai" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--green);">NOSUCH.ai</a></strong> levert organisatiecapaciteit. Samen vormen zij het netwerk achter de beweging.</p>
-  </div>
 </div>
 
 <!-- CTA BAR -->
@@ -436,7 +487,7 @@ header.hero {
   <div class="rapport-cta-bar-inner">
     <h2>Meedenken over deze richting?</h2>
     <p>Een eerste gesprek duurt maximaal een half uur. Geen pitch, geen verplichtingen.</p>
-    <a href="mailto:hallo@uxley.nl?subject=Roadmap%20Eigen%20Grond" class="btn-cta">
+    <a href="mailto:hallo@uxley.nl?subject=Visie%20Eigen%20Grond" class="btn-cta">
       Gesprek aanvragen
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -448,6 +499,7 @@ header.hero {
   <div class="footer-brand">Eigen Grond is een initiatief van <strong>Uxley</strong></div>
   <div class="footer-links">
     <a href="mailto:hallo@uxley.nl">Contact</a>
+    <a href="mediakit.html">Mediakit</a>
     <a href="index.html">eigengrond.nu</a>
   </div>
 </footer>
