@@ -468,6 +468,81 @@ h2 {
   .btn-rapport { width: 100%; text-align: center; }
 }
 
+/* LAATST GESCHREVEN */
+.recent-writing {
+  border-bottom: 1px solid var(--border);
+}
+.recent-writing-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.recent-writing-meta {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  line-height: 1.8;
+}
+.recent-writing-meta .meta-date {
+  display: block;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+.recent-writing-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: var(--fg);
+  margin-bottom: 1rem;
+}
+.recent-writing-title em { color: var(--green-light); font-style: normal; }
+.recent-writing-body {
+  font-size: 1rem;
+  color: #B5A88E;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 580px;
+}
+.recent-writing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+  align-items: center;
+}
+.recent-writing-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--green-light);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+  transition: color 0.15s, border-color 0.15s;
+}
+.recent-writing-link:hover { color: var(--fg); border-bottom-color: var(--green-light); }
+.recent-writing-link.is-quiet {
+  color: var(--muted);
+  border-bottom-color: transparent;
+}
+.recent-writing-link.is-quiet:hover { color: var(--green-light); }
+
+@media (max-width: 600px) {
+  .recent-writing-inner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 3rem 1.25rem;
+  }
+}
+
 /* WIE HIERACHTER ZIT */
 .who-section {
   background: var(--card);
@@ -751,6 +826,7 @@ h2 {
     <span class="nav-toggle-icon"></span>
   </button>
   <div class="nav-right" id="nav-menu">
+    <a href="stukken/" class="nav-link">Stukken</a>
     <a href="rapport.html" class="nav-link">Rapport</a>
     <a href="cases.html" class="nav-link">Cases</a>
     <a href="over.html" class="nav-link">Over</a>
@@ -919,6 +995,27 @@ h2 {
     </div>
   </div>
 </div>
+
+<!-- LAATST GESCHREVEN -->
+<section class="recent-writing">
+  <div class="recent-writing-inner">
+    <div class="recent-writing-meta">
+      Laatst geschreven
+      <span class="meta-date">15 mei 2026</span>
+    </div>
+    <div>
+      <h2 class="recent-writing-title">6 MILJARD VOOR AI.<br><em>NUL VOOR HET FAMILIEBEDRIJF.</em></h2>
+      <p class="recent-writing-body">De twee grootste AI-bedrijven haalden in mei 2026 samen bijna zes miljard dollar op om AI te installeren bij bedrijven. De eerste bedrijven die geholpen worden zijn de bedrijven die de investeringsfondsen al bezitten. Het familiebedrijf in Bergambacht staat op geen enkele lijst.</p>
+      <div class="recent-writing-actions">
+        <a href="stukken/6-miljard-voor-ai.html" class="recent-writing-link">
+          Lees het volledige stuk
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="stukken/" class="recent-writing-link is-quiet">Alle stukken &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- WIE HIERACHTER ZIT -->
 <div class="who-section">
