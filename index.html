@@ -817,6 +817,55 @@ h2 {
   .form-section { padding: 3rem 1rem; }
 }
 </style>
+<style>
+/* Anti-AI Slop Design · component: lifecycle flow (Zo groeit de afhankelijkheid)
+ * tokens locked to existing system · pre-emit critique: P5 H4 E4 S5 R5 V4 */
+.flow { display: flex; flex-direction: column; margin-bottom: 3rem; }
+.flow-step {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+}
+.flow-step:first-child { border-top: none; padding-top: 0; }
+.flow-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  line-height: 0.9;
+  color: var(--green);
+  opacity: 0.45;
+}
+.flow-body-wrap { min-width: 0; }
+.flow-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--fg);
+  margin-bottom: 0.4rem;
+  overflow-wrap: anywhere;
+}
+.flow-text {
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: #B5A88E;
+  line-height: 1.65;
+}
+.flow-step--last .flow-num { opacity: 1; }
+.flow-step--last .flow-title { color: var(--green-light); }
+.flow-coda {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  color: var(--fg);
+  margin-top: 0.5rem;
+}
+@media (max-width: 480px) {
+  .flow-step { grid-template-columns: 2.6rem 1fr; gap: 1rem; }
+  .flow-num { font-size: 2rem; }
+}
+</style>
 </head>
 <body>
 
@@ -838,7 +887,7 @@ h2 {
   <div class="hero-tag">Digitale onafhankelijkheid voor het MKB</div>
   <h1>JOUW <span class="accent">SOFTWARE.</span><br>JOUW <span class="accent">DATA.</span><br>JOUW <span class="accent">REGELS.</span></h1>
   <p class="hero-lead">
-    Je betaalt elke maand voor software die jouw roosters beheert, jouw reserveringen bijhoudt, jouw klanten kent. Maar van wie zijn die data? Wie bepaalt de regels? En waarom pas jij je aan hun systeem aan, en niet andersom?
+    Ik bouw maatwerksoftware die je zelf bezit, gebouwd op hoe jouw bedrijf echt werkt. Eenmalig betaald, geen abonnement, geen leveranciersslot. De data, de regels en de broncode blijven van jou.
   </p>
   <div class="hero-actions">
     <a href="rapport.html" class="btn-hero">Lees het rapport
@@ -859,43 +908,6 @@ h2 {
   </div>
 </div>
 
-<!-- HERKENNING -->
-<section class="section">
-  <div class="section-label">Heb je dit ooit zo bekeken?</div>
-  <div class="pain-grid">
-    <div class="pain-item">
-      <div class="pain-num">01</div>
-      <div class="pain-title">Jouw data voedt hun model</div>
-      <div class="pain-body">Elke reservering, elk rooster, elke klant. Die software leert van jouw cijfers. Jij betaalt het abonnement. Zij worden wijzer.</div>
-    </div>
-    <div class="pain-item">
-      <div class="pain-num">02</div>
-      <div class="pain-title">Zij bepalen de regels. Niet jij.</div>
-      <div class="pain-body">Wat je mag exporteren, hoe lang je data bewaard blijft, of je het aan een ander systeem mag koppelen. De kleine lettertjes veranderen. Jij mag blijven of vertrekken.</div>
-    </div>
-    <div class="pain-item">
-      <div class="pain-num">03</div>
-      <div class="pain-title">De software dicteert jouw processen</div>
-      <div class="pain-body">Jij werkt niet meer zoals het bij jou past. Je werkt zoals de software het toestaat. Elke afwijking van de standaard kost tijd, workarounds of een duur maatwerk-pakket.</div>
-    </div>
-    <div class="pain-item">
-      <div class="pain-num">04</div>
-      <div class="pain-title">Tien mensen nodig voor één systeem</div>
-      <div class="pain-body">Software die gebouwd is voor het gemiddelde bedrijf vraagt om aanpassing, training, helpdesk en beheerders. Terwijl jij gewoon je werk wil doen.</div>
-    </div>
-    <div class="pain-item">
-      <div class="pain-num">05</div>
-      <div class="pain-title">Morgen veranderen de voorwaarden</div>
-      <div class="pain-body">Zonder jouw toestemming. Je tekent opnieuw in of je verliest toegang tot jarenlange planningshistorie. Dat is geen vergissing. Dat is het businessmodel.</div>
-    </div>
-    <div class="pain-item">
-      <div class="pain-num">06</div>
-      <div class="pain-title">Stoppen kost meer dan doorgaan</div>
-      <div class="pain-body">Al je data zit erin. Al je medewerkers kennen het. De overstapdrempel is precies zo hoog gebouwd dat vertrekken pijn doet. Dat is geen toeval, dat is het verdienmodel. En het is niet jouw fout dat je er nu in zit.</div>
-    </div>
-  </div>
-</section>
-
 <!-- OPLOSSING -->
 <section class="section">
   <div class="section-label">Wat Eigen Grond doet</div>
@@ -909,17 +921,112 @@ h2 {
     <div class="solution-item">
       <div class="solution-icon"></div>
       <div class="solution-title">Eenmalig betaald</div>
-      <div class="solution-body">Stop met betalen voor data die niet van jou is. Geen maandelijks abonnement aan een platform dat groeit van jouw nummers. Een investering. Daarna is het van jou.</div>
+      <div class="solution-body">Stop met betalen voor data die niet van jou is. Geen maandelijks abonnement aan een softwarebedrijf dat groeit van jouw nummers. Een investering, daarna is het van jou.</div>
     </div>
     <div class="solution-item">
       <div class="solution-icon"></div>
       <div class="solution-title">Jouw software, jouw eigendom</div>
-      <div class="solution-body">De software is van jou. Waar die draait, kies je zelf. Geen platform dat morgen de prijzen verdubbelt of de spelregels verandert.</div>
+      <div class="solution-body">De software is van jou. Waar die draait, kies je zelf. Geen leverancier die morgen de prijzen verhoogt of de spelregels verandert.</div>
     </div>
     <div class="solution-item">
       <div class="solution-icon"></div>
       <div class="solution-title">Gebouwd door iemand die jouw werkdag kent</div>
-      <div class="solution-body">Ontworpen door een softwareontwerper die eerst kijkt hoe jij werkt. Gebouwd en gereviewd door een team van engineers. De broncode is van jou, en er is altijd iemand die ermee verder kan.</div>
+      <div class="solution-body">Ontworpen door een softwareontwerper die eerst kijkt hoe jij werkt. Gebouwd en gereviewd door een ervaren engineer. De broncode is van jou, en er is altijd iemand die ermee verder kan.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ZO GROEIT DE AFHANKELIJKHEID -->
+<section class="section">
+  <div class="section-label">Zo loopt het</div>
+  <h2>ZO GROEIT DE AFHANKELIJKHEID</h2>
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num">01</div>
+      <div class="flow-body-wrap">
+        <div class="flow-title">Het begint handig en goedkoop</div>
+        <div class="flow-text">Een reserveringssysteem, een rooster-app, een offertepakket. Een vast bedrag per maand, in een middag geregeld. Op dat moment niets mis mee.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">02</div>
+      <div class="flow-body-wrap">
+        <div class="flow-title">Je werk plooit zich eromheen</div>
+        <div class="flow-text">Je planning past zich aan wat het systeem toestaat, niet andersom. Voor alles wat niet past komt een Excel ernaast, en die Excel wordt langzaam je echte werk.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">03</div>
+      <div class="flow-body-wrap">
+        <div class="flow-title">Je data stapelt zich op, aan hun kant</div>
+        <div class="flow-text">Elke klant, elke afspraak, elk rooster gaat erin, jaar na jaar. Jij vult het systeem, het softwarebedrijf bewaart het en wordt er completer van.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">04</div>
+      <div class="flow-body-wrap">
+        <div class="flow-title">De prijs kruipt omhoog</div>
+        <div class="flow-text">Een tarief-aanpassing hier, een duurder pakket daar. Je merkt het amper, want overstappen voelt nog duurder dan blijven.</div>
+      </div>
+    </div>
+    <div class="flow-step flow-step--last">
+      <div class="flow-num">05</div>
+      <div class="flow-body-wrap">
+        <div class="flow-title">En dan kun je niet meer weg</div>
+        <div class="flow-text">Je data eruit halen kan beperkt of niet, je mensen kennen alleen dit. Vertrekken kost meer dan doorgaan, en dat is geen ongelukje maar het verdienmodel.</div>
+      </div>
+    </div>
+  </div>
+  <p class="flow-coda">Op dat punt ben je geen klant meer maar een abonnee die vastzit.</p>
+</section>
+
+<!-- HOE WE BEGINNEN -->
+<section class="section">
+  <div class="section-label">Hoe we beginnen</div>
+  <h2>VAN UITZOEKEN TOT EIGENDOM</h2>
+  <div class="pain-grid">
+    <div class="pain-item">
+      <div class="pain-num">01</div>
+      <div class="pain-title">Begin met een werksessie</div>
+      <div class="pain-body">Een vaste prijs, een dagdeel. We brengen in kaart welke processen je zelf in handen wil hebben en wat per proces zelf bouwen of houden is. Je loopt eruit met een concreet beeld, zonder verplichting.</div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">02</div>
+      <div class="pain-title">Doe het zelf, met begeleiding</div>
+      <div class="pain-body">Jij of je eigen mensen bouwen, met AI en met mij als klankbord en review. Voor wie het echt zelf wil doen maar niet alleen.</div>
+    </div>
+    <div class="pain-item">
+      <div class="pain-num">03</div>
+      <div class="pain-title">Of ik bouw het voor je</div>
+      <div class="pain-body">Maatwerksoftware op hoe jij werkt, in eigendom opgeleverd, met training zodat je verder kunt zonder mij. Een eenmalige investering, daarna is het van jou.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ONDERHOUD EN KOSTEN -->
+<section class="section">
+  <div class="section-label">Onderhoud en kosten</div>
+  <h2>EIGENDOM BETEKENT NIET DAT JE ER ALLEEN VOOR STAAT</h2>
+  <div class="solution-grid">
+    <div class="solution-item">
+      <div class="solution-icon"></div>
+      <div class="solution-title">Een investering, geen huur</div>
+      <div class="solution-body">Je betaalt eenmalig in plaats van elke maand. Over een paar jaar is dat goedkoper dan een abonnement dat blijft lopen. Het rapport rekent het voor.</div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-icon"></div>
+      <div class="solution-title">Het draait waar jij kiest</div>
+      <div class="solution-body">Op jouw eigen infrastructuur of bij een partij die je zelf uitkiest. Geen softwarebedrijf dat jouw cijfers verzamelt of eenzijdig de regels verandert.</div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-icon"></div>
+      <div class="solution-title">Jij kiest wie het onderhoudt</div>
+      <div class="solution-body">Je wordt getraind voor het dagelijkse beheer. De rest doe je zelf, je eigen mensen of ik. Geen verplichte insourcing, geen leveranciersslot.</div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-icon"></div>
+      <div class="solution-title">Veilig omdat het van jou is</div>
+      <div class="solution-body">Je bent niet afhankelijk van de beveiliging en de voorwaarden van een ander. Wat van jou is, kan niemand eenzijdig veranderen.</div>
     </div>
   </div>
 </section>
@@ -1076,7 +1183,7 @@ h2 {
   <div class="footer-links">
     <a href="contact.html">Contact</a>
     <a href="mediakit.html">Mediakit</a>
-    <a href="#">uxley.nl</a>
+    <a href="https://uxley.nl" target="_blank" rel="noopener">uxley.nl</a>
   </div>
 </footer>
 
