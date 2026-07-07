@@ -226,6 +226,18 @@
   margin-bottom: 0.25rem;
 }
 .ats-screenshot-icon svg { color: var(--muted); }
+.ats-screenshot--filled {
+  aspect-ratio: auto;
+  border: 1px solid var(--border);
+  background: transparent;
+  padding: 0;
+  display: block;
+}
+.ats-screenshot--filled img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .ats-screenshot-caption {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
@@ -501,14 +513,10 @@
     </div>
   </div>
 
-  <!-- SCREENSHOT placeholder -->
-  <figure class="ats-screenshot">
-    <div class="ats-screenshot-icon">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>
-    </div>
-    Screenshot &mdash; kandidatenoverzicht
+  <figure class="ats-screenshot ats-screenshot--filled">
+    <img src="Screenshot-Kandidatenoverzicht-ATS-op-maat.png" alt="Kandidatenoverzicht in het ATS: zoeken op taal, beschikbaarheid en sector">
   </figure>
-  <p class="ats-screenshot-caption">Schermafbeelding volgt</p>
+  <p class="ats-screenshot-caption">Kandidatenoverzicht &mdash; zoeken op taal, beschikbaarheid en sector</p>
 
   <p class="ats-problem-coda" style="margin-top: 3rem;">
     Geen nieuw systeem dat je hele manier van werken omgooit. <em>Wel het einde van overtikken, kwijtraken en gokken.</em>
@@ -559,12 +567,8 @@
       <p>Ik heb dit nu voor <strong>twee uitzendbureaus</strong> gebouwd die precies hier vastliepen: kandidaten in Excel, alles via WhatsApp. Nu staat het in <em>één systeem</em>.</p>
       <p>Ik ben geen softwareclub met een salesafdeling. Ik ben de bouwer zelf. <strong>Je praat met de persoon die het maakt en onderhoudt.</strong></p>
     </div>
-    <!-- SCREENSHOT placeholder -->
-    <figure class="ats-screenshot">
-      <div class="ats-screenshot-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="9" cy="11" r="2"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>
-      </div>
-      Screenshot &mdash; WhatsApp-vertaling
+    <figure class="ats-screenshot ats-screenshot--filled">
+      <img src="Screenshot-whatsapp-vertaling-ATS-op-maat.png" alt="WhatsApp-bericht in het Pools of Roemeens, automatisch vertaald en uitgeschreven in het Nederlands">
     </figure>
   </div>
 </section>
