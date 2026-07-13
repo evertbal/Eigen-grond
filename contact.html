@@ -113,13 +113,38 @@ header.contact-hero {
 .contact-form button:hover { background: #93BF46; }
 .contact-form-msg {
   display: none;
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 1.75rem;
   border: 1px solid var(--green);
-  color: var(--green-light);
-  font-size: 0.9rem;
+  color: var(--fg);
+  font-size: 0.95rem;
   margin-top: 1rem;
 }
 .contact-form-msg.visible { display: block; }
+.contact-form-msg strong { color: var(--green-light); font-weight: 500; }
+.contact-form-msg-lead {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+  color: var(--green-light);
+  margin-bottom: 0.65rem;
+}
+.contact-form-msg-next {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  font-size: 0.85rem;
+}
+.contact-form-msg-next a {
+  color: var(--green-light);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.15rem;
+  letter-spacing: 0.05em;
+}
+.contact-form-msg-next a:hover { border-bottom-color: var(--green-light); color: var(--fg); }
 .contact-form-error {
   display: none;
   padding: 1rem 1.25rem;
@@ -163,7 +188,7 @@ header.contact-hero {
   </button>
   <div class="nav-right" id="nav-menu">
     <a href="stukken/" class="nav-link">Stukken</a>
-    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="rapport.html" class="nav-link nav-link-primary">Rapport</a>
     <a href="cases.html" class="nav-link">Cases</a>
     <a href="over.html" class="nav-link">Over</a>
   </div>
@@ -201,7 +226,14 @@ header.contact-hero {
     <button type="submit">Verstuur
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <div class="contact-form-msg" id="formMsg">Ontvangen. We nemen binnen een week contact op.</div>
+    <div class="contact-form-msg" id="formMsg">
+      <div class="contact-form-msg-lead">Ontvangen.</div>
+      Evert reageert binnen een week. Ondertussen:
+      <div class="contact-form-msg-next">
+        <a href="rapport.html">Lees het rapport terwijl je wacht &rarr;</a>
+        <a href="grondwerk.html">Klaar voor iets concreets? Bekijk Grondwerk &rarr;</a>
+      </div>
+    </div>
     <div class="contact-form-error" id="formErr">Er ging iets mis. Probeer het opnieuw of stuur direct een mail naar info@uxley.nl.</div>
   </form>
 

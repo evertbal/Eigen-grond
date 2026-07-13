@@ -63,6 +63,18 @@ nav.site-nav {
 .nav-link:hover { background: var(--green); color: var(--fg); }
 .nav-link.is-active { background: var(--green); color: var(--fg); }
 .nav-link-download { display: inline-flex; align-items: center; gap: 0.4rem; }
+/* Primary pill — trekt oog naar de belangrijkste nav-CTA (rapport op alle
+   pagina's behalve rapport.html zelf, waar de PDF-download deze rol pakt). */
+.nav-link.nav-link-primary {
+  background: var(--green-light);
+  color: var(--bg);
+  border-color: var(--green-light);
+}
+.nav-link.nav-link-primary:hover {
+  background: var(--fg);
+  border-color: var(--fg);
+  color: var(--bg);
+}
 .nav-sub {
   font-size: 0.72rem;
   letter-spacing: 0.15em;
@@ -136,6 +148,132 @@ footer.site-footer {
 }
 .footer-links a:hover { color: var(--fg); }
 
+/* Fase Sequence Map — positie in de 7-delige visie. Gebruikt op elke
+   fase-pagina (Tidwell: Sequence Map). Op mobiel wrapt de rij netjes. */
+.phase-map {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0.5rem 2rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.phase-map-dot {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--border);
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.phase-map-dot:hover { color: var(--green-light); border-color: var(--green); }
+.phase-map-dot[aria-current="page"] {
+  color: var(--bg);
+  background: var(--green-light);
+  border-color: var(--green-light);
+}
+@media (max-width: 768px) {
+  .phase-map { padding: 0.25rem 1.25rem 1rem; }
+}
+@media (max-width: 380px) {
+  .phase-map { padding: 0.25rem 1rem 1rem; }
+  .phase-map-dot { padding: 0.2rem 0.5rem; font-size: 0.75rem; }
+}
+
+/* Prev-card voor fase-pagina's — spiegel van de bestaande phase-next-card,
+   maar met dimmer accent zodat de "next" visueel primair blijft. */
+.phase-nav-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.phase-prev-card {
+  display: block;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 2rem;
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.15s;
+}
+.phase-prev-card:hover { border-color: var(--green); }
+.phase-prev-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+.phase-prev-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  margin-bottom: 0.5rem;
+}
+.phase-prev-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+@media (max-width: 640px) {
+  .phase-nav-pair { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* Warm-lead CTA — escalatie naar Grondwerk (€750). Alleen gebruikt op
+   pagina's waar iemand al warm is: cases, rapport, contact-succes. */
+.warm-cta {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 3.5rem;
+  border-top: 1px solid var(--border);
+}
+.warm-cta-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+.warm-cta-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.75rem;
+}
+.warm-cta-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.3rem, 2.8vw, 1.7rem);
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  color: var(--fg);
+  margin-bottom: 0.5rem;
+}
+.warm-cta-body {
+  font-size: 0.92rem;
+  color: #B5A88E;
+  line-height: 1.55;
+  max-width: 520px;
+}
+.btn-warm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--green-light);
+  color: var(--green-light);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-warm:hover { background: var(--green-light); color: var(--bg); }
+@media (max-width: 640px) {
+  .warm-cta { padding: 2rem 1.25rem 3rem; }
+  .warm-cta-inner { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+
 /* Reveal-animatie utility (gebruikt door rapport, kan elke pagina gebruiken) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
@@ -197,6 +335,14 @@ footer.site-footer {
   .nav-link-download {
     display: inline-flex;
   }
+  /* Primary pill blijft ook op mobiel visueel het zwaarst */
+  .nav-link.nav-link-primary {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--green-light);
+    color: var(--fg);
+  }
+  .nav-link.nav-link-primary:hover { color: var(--green-light); background: transparent; }
 
   footer.site-footer {
     padding: 1.5rem 1.25rem;

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grondwerk. Een halve dag die vertelt wat je software je echt kost.</title>
+<meta name="description" content="Grondwerk: een halve dag meekijken op de werkvloer. Wat je software je echt kost, en een eerlijk advies: bouwen, zelf doen, of niets doen. Vaste prijs, verrekend bij opdracht.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* HERO */
+.gw-hero { max-width: 860px; margin: 0 auto; padding: 6rem 2rem 4rem; }
+.gw-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 2.5rem;
+}
+.gw-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--green-light); }
+.gw-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.2rem, 12vw, 8rem);
+  line-height: 0.95; letter-spacing: 0.01em; margin-bottom: 2rem;
+}
+.gw-hero h1 .accent { color: var(--green-light); }
+.gw-lead {
+  font-size: clamp(1rem, 2.2vw, 1.25rem); font-weight: 300; color: #BEB096;
+  max-width: 580px; line-height: 1.7; margin-bottom: 2.5rem;
+  border-left: 2px solid var(--green); padding-left: 1.25rem;
+}
+.btn-gw {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.8rem; background: var(--green-light); color: var(--bg);
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.08em;
+  text-decoration: none; transition: background 0.15s;
+}
+.btn-gw:hover { background: #93BF46; }
+
+/* SECTIES */
+.gw-section { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem; border-top: 1px solid var(--border); }
+.gw-section h2 {
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  letter-spacing: 0.02em; margin-bottom: 1.5rem;
+}
+.gw-section h2 em { font-style: normal; color: var(--green-light); }
+.gw-section p { max-width: 620px; color: #CFC3AB; margin-bottom: 1.1rem; }
+.gw-quote {
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+  line-height: 1.15; letter-spacing: 0.02em; color: var(--fg);
+  border-left: 3px solid var(--green-light); padding-left: 1.25rem; margin: 2rem 0;
+  max-width: 640px;
+}
+
+/* DELIVERABLES GRID */
+.gw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2rem; }
+.gw-card { background: var(--card); padding: 1.75rem; }
+.gw-card .num { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: var(--green-light); letter-spacing: 0.15em; margin-bottom: 0.6rem; }
+.gw-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: 0.03em; margin-bottom: 0.5rem; }
+.gw-card p { font-size: 0.92rem; color: #B5A78D; margin: 0; }
+@media (max-width: 640px) { .gw-grid { grid-template-columns: 1fr; } }
+
+/* WAAROM */
+.gw-waarom { display: flex; gap: 2.5rem; align-items: flex-start; margin-top: 1.5rem; }
+.gw-portret { width: 180px; height: auto; flex-shrink: 0; border: 1px solid var(--border); }
+@media (max-width: 640px) { .gw-waarom { flex-direction: column; } }
+
+/* UITKOMSTEN */
+.gw-uitkomsten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+.gw-uitkomst { border: 1px solid var(--border); padding: 1.5rem; }
+.gw-uitkomst h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.03em; color: var(--green-light); margin-bottom: 0.5rem; }
+.gw-uitkomst p { font-size: 0.9rem; color: #B5A78D; margin: 0; }
+@media (max-width: 640px) { .gw-uitkomsten { grid-template-columns: 1fr; } }
+
+/* PRIJS */
+.gw-prijs { display: flex; flex-wrap: wrap; gap: 3rem; align-items: baseline; margin-top: 1.5rem; }
+.gw-prijs .bedrag { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5rem); color: var(--fg); line-height: 1; }
+.gw-prijs .toelichting { max-width: 400px; color: #B5A78D; font-size: 0.95rem; }
+
+/* FORMULIER */
+.gw-form { max-width: 620px; margin-top: 2rem; }
+.gw-form label {
+  display: block; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--green-light); margin-bottom: 0.4rem;
+}
+.gw-form input, .gw-form textarea {
+  width: 100%; background: var(--card); border: 1px solid var(--border);
+  color: var(--fg); font-family: 'DM Sans', sans-serif; font-weight: 300;
+  padding: 0.8rem 1rem; margin-bottom: 1.25rem; font-size: 0.95rem;
+}
+.gw-form input:focus, .gw-form textarea:focus { outline: none; border-color: var(--green); }
+.gw-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 640px) { .gw-form-row { grid-template-columns: 1fr; } }
+.gw-form button {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.8rem; background: var(--green-light); color: var(--bg);
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem; letter-spacing: 0.08em;
+  border: none; cursor: pointer; transition: background 0.15s;
+}
+.gw-form button:hover { background: #93BF46; }
+.gw-form-msg, .gw-form-error { display: none; margin-top: 1.25rem; padding: 1rem 1.25rem; font-size: 0.95rem; }
+.gw-form-msg { border-left: 2px solid var(--green-light); color: var(--fg); }
+.gw-form-error { border-left: 2px solid #B0522D; color: #D9A78B; }
+.gw-fallback { margin-top: 1.5rem; font-size: 0.9rem; color: var(--muted); }
+.gw-fallback a { color: var(--green-light); }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">EIGEN<span>GROND</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
+    <a href="stukken/" class="nav-link">Stukken</a>
+    <a href="rapport.html" class="nav-link nav-link-primary">Rapport</a>
+    <a href="cases.html" class="nav-link">Cases</a>
+    <a href="over.html" class="nav-link">Over</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="gw-hero">
+  <div class="gw-label">Grondwerk</div>
+  <h1>EERST KIJKEN.<br><span class="accent">DAN PAS BOUWEN.</span></h1>
+  <p class="gw-lead">Een halve dag meekijken op jouw werkvloer. Daarna weet je wat je software je echt kost en wat het alternatief is. Ook als het alternatief is: niets doen.</p>
+  <a href="#aanvragen" class="btn-gw">Vraag Grondwerk aan
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</header>
+
+<!-- HET PATROON -->
+<section class="gw-section">
+  <h2>De gratis AI-scan kent je bedrijf <em>niet</em>.</h2>
+  <p>Er is een nieuw soort koude acquisitie: de gratis scan. Een chatbot stelt tien vragen, binnen 24 uur ligt er een rapport. Daarin staat wat je moet automatiseren, hoeveel uur je bespaart en welk pakket daarbij past. Toevallig het pakket van de afzender.</p>
+  <p>Niemand is langsgeweest. Niemand heeft gezien welke Excel er naast het systeem staat, waarom de planning nooit klopt met de werkelijkheid, of waar het werk vastloopt. Het rapport kent alleen je antwoorden.</p>
+  <div class="gw-quote">Gratis advies is geen advies maar acquisitie met een rapportje eromheen.</div>
+</section>
+
+<!-- WAT GRONDWERK IS -->
+<section class="gw-section">
+  <h2>Grondwerk is het <em>omgekeerde</em>.</h2>
+  <p>Een halve dag op locatie. Geen vragenlijst, geen presentatie. Er wordt gekeken hoe het werk hier echt loopt: wie doet wat, waar wringt het, wat staat er naast het systeem omdat het systeem het niet kan.</p>
+  <p>Binnen een week ligt er een verslag op tafel met vier onderdelen:</p>
+  <div class="gw-grid">
+    <div class="gw-card">
+      <div class="num">01</div>
+      <h3>Procesbeeld</h3>
+      <p>Hoe het werk nu echt loopt, op één pagina. Niet hoe het zou moeten lopen.</p>
+    </div>
+    <div class="gw-card">
+      <div class="num">02</div>
+      <h3>Kostenfoto</h3>
+      <p>Wat de huidige software jaarlijks kost, inclusief de posten die op geen enkele factuur staan: werkarounds, losse tools, wachttijd op tickets.</p>
+    </div>
+    <div class="gw-card">
+      <div class="num">03</div>
+      <h3>Eerlijk advies</h3>
+      <p>Bouwen, zelf doen met begeleiding, of niets doen. Alle drie zijn een mogelijke uitkomst, en dat staat er dan ook.</p>
+    </div>
+    <div class="gw-card">
+      <div class="num">04</div>
+      <h3>Vaste prijs</h3>
+      <p>Als bouwen zinvol is: een vaste prijs voor het maatwerk. Geen offertetraject, geen uurtarief, geen open einde.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAAROM -->
+<section class="gw-section">
+  <h2>Eerst kijken is een <em>vak</em>.</h2>
+  <div class="gw-waarom">
+    <img src="evert.png" alt="Evert Bal" class="gw-portret">
+    <div>
+      <p>Grondwerk komt niet uit de lucht vallen. Vijftien jaar lang was kijken het werk van Evert Bal: als ontwerper naast mensen zitten die moesten werken met software die ergens anders bedacht was, bij organisaties als ANWB, Philips en de Consumentenbond. Wat je dan elke keer vindt: de werkelijkheid staat niet in het systeem maar in de Excel ernaast.</p>
+      <p>Daarom bestaat Eigen Grond. Software hoort te passen op hoe een bedrijf werkt, en hoort van dat bedrijf te zijn. Bouwen is inmiddels het makkelijke deel, dat doet AI onder architectuur. Het kijken ging er nooit uit, en daar begint elk project: met Grondwerk.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DRIE UITKOMSTEN -->
+<section class="gw-section">
+  <h2>Drie mogelijke <em>uitkomsten</em>.</h2>
+  <p>Een advies dat maar één kant op kan, is een verkooppitch. Grondwerk kent drie uitkomsten en alle drie komen voor:</p>
+  <div class="gw-uitkomsten">
+    <div class="gw-uitkomst">
+      <h3>Bouwen</h3>
+      <p>Software op maat, in eigendom. Vaste prijs, eenmalig, broncode en data van jou.</p>
+    </div>
+    <div class="gw-uitkomst">
+      <h3>Zelf doen</h3>
+      <p>Jouw mensen bouwen of passen aan, met begeleiding en review op de achtergrond.</p>
+    </div>
+    <div class="gw-uitkomst">
+      <h3>Niets doen</h3>
+      <p>Als je huidige software gewoon voldoet, staat dat in het verslag. Dan ben je een misvatting armer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRIJS -->
+<section class="gw-section">
+  <h2>Eén prijs, vooraf <em>bekend</em>.</h2>
+  <div class="gw-prijs">
+    <div class="bedrag">&euro; 750</div>
+    <div class="toelichting">Vast bedrag voor de halve dag op locatie en het verslag. Volledig verrekend als er een opdracht uit volgt. Wie doorbouwt, heeft Grondwerk dus gratis gehad. Wie stopt, heeft een procesbeeld, een kostenfoto en een eerlijk antwoord.</div>
+  </div>
+</section>
+
+<!-- FORMULIER -->
+<section class="gw-section" id="aanvragen">
+  <h2>Vraag Grondwerk <em>aan</em>.</h2>
+  <p>Laat je gegevens achter. Evert Bal neemt binnen twee werkdagen contact op om een datum te plannen. Eerst kort telefonisch kennismaken kan ook.</p>
+  <form class="gw-form" id="grondwerkForm" action="https://formspree.io/f/mpqoaplo" method="POST">
+    <div class="gw-form-row">
+      <div>
+        <label for="naam">Naam</label>
+        <input type="text" id="naam" name="naam" placeholder="Jouw naam" required autocomplete="name">
+      </div>
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" required autocomplete="email">
+      </div>
+    </div>
+    <div>
+      <label for="bedrijf">Bedrijf</label>
+      <input type="text" id="bedrijf" name="bedrijf" placeholder="Naam van je bedrijf" required>
+    </div>
+    <div>
+      <label for="bericht">Waar wringt het? <span style="text-transform:none;letter-spacing:0;color:#625B4B;">(optioneel)</span></label>
+      <textarea id="bericht" name="bericht" rows="3" placeholder="Bijvoorbeeld: planning, offertes, urenregistratie, of dat ene systeem waar iedereen omheen werkt."></textarea>
+    </div>
+    <input type="hidden" name="_subject" value="Grondwerk-aanvraag via eigengrond.nu">
+    <input type="hidden" name="onderwerp" value="Grondwerk">
+    <button type="submit">Verstuur aanvraag
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="gw-form-msg" id="formMsg">Ontvangen. Je hoort binnen twee werkdagen van Evert.</div>
+    <div class="gw-form-error" id="formErr">Er ging iets mis. Probeer het opnieuw of mail direct naar info@uxley.nl.</div>
+  </form>
+  <p class="gw-fallback">Liever direct mailen? <a href="mailto:info@uxley.nl">info@uxley.nl</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <a href="https://uxley.nl" target="_blank" rel="noopener"><strong>Uxley</strong></a></div>
+  <div class="footer-links">
+    <a href="contact.html">Contact</a>
+    <a href="mediakit.html">Mediakit</a>
+    <a href="index.html">eigengrond.nu</a>
+  </div>
+</footer>
+
+<script src="nav.js" defer></script>
+<script src="analytics.js" defer></script>
+<script>
+document.getElementById('grondwerkForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var btn = form.querySelector('button');
+  btn.disabled = true;
+  btn.textContent = 'Versturen…';
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(function(r) {
+    if (r.ok) {
+      form.reset();
+      document.getElementById('formMsg').style.display = 'block';
+      document.getElementById('formErr').style.display = 'none';
+    } else { throw new Error(); }
+  }).catch(function() {
+    document.getElementById('formErr').style.display = 'block';
+  }).finally(function() {
+    btn.disabled = false;
+    btn.textContent = 'Verstuur aanvraag';
+  });
+});
+</script>
+</body>
+</html>

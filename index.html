@@ -77,23 +77,19 @@ h1 .accent { color: var(--green-light); }
 .btn-hero:hover { background: #93BF46; }
 .btn-hero-outline {
   background: transparent;
-  border: none;
-  color: var(--muted);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
+  border: 1px solid var(--green);
+  color: var(--green-light);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.6rem 0.5rem;
-  text-decoration: underline;
-  text-decoration-color: var(--border);
-  text-underline-offset: 4px;
-  transition: color 0.15s, text-decoration-color 0.15s;
+  padding: 0.75rem 1.6rem;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .btn-hero-outline:hover {
-  background: transparent;
-  color: var(--green-light);
-  text-decoration-color: var(--green);
+  background: var(--green);
+  color: var(--fg);
+  border-color: var(--green);
 }
 
 /* SECTIONS */
@@ -886,7 +882,7 @@ h2 {
   </button>
   <div class="nav-right" id="nav-menu">
     <a href="stukken/" class="nav-link">Stukken</a>
-    <a href="rapport.html" class="nav-link">Rapport</a>
+    <a href="rapport.html" class="nav-link nav-link-primary">Rapport</a>
     <a href="cases.html" class="nav-link">Cases</a>
     <a href="over.html" class="nav-link">Over</a>
   </div>
@@ -1116,27 +1112,6 @@ h2 {
   </div>
 </div>
 
-<!-- LAATST GESCHREVEN -->
-<section class="recent-writing">
-  <div class="recent-writing-inner">
-    <div class="recent-writing-meta">
-      Laatst geschreven
-      <span class="meta-date">15 mei 2026</span>
-    </div>
-    <div>
-      <h2 class="recent-writing-title">6 MILJARD VOOR AI.<br><em>NUL VOOR HET FAMILIEBEDRIJF.</em></h2>
-      <p class="recent-writing-body">De twee grootste AI-bedrijven haalden in mei 2026 samen bijna zes miljard dollar op om AI te installeren bij bedrijven. De eerste bedrijven die geholpen worden zijn de bedrijven die de investeringsfondsen al bezitten. Het familiebedrijf in Bergambacht staat op geen enkele lijst.</p>
-      <div class="recent-writing-actions">
-        <a href="stukken/6-miljard-voor-ai.html" class="recent-writing-link">
-          Lees het volledige stuk
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="stukken/" class="recent-writing-link is-quiet">Alle stukken &rarr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- WIE HIERACHTER ZIT -->
 <div class="who-section">
   <div class="who-inner">
@@ -1188,6 +1163,27 @@ h2 {
     </div>
     <div class="success-title">JE STAAT OP DE LIJST.</div>
     <p class="success-body">Evert neemt binnen een week contact op.</p>
+  </div>
+</section>
+
+<!-- LAATST GESCHREVEN -->
+<section class="recent-writing">
+  <div class="recent-writing-inner">
+    <div class="recent-writing-meta">
+      Laatst geschreven
+      <span class="meta-date">15 mei 2026</span>
+    </div>
+    <div>
+      <h2 class="recent-writing-title">6 MILJARD VOOR AI.<br><em>NUL VOOR HET FAMILIEBEDRIJF.</em></h2>
+      <p class="recent-writing-body">De twee grootste AI-bedrijven haalden in mei 2026 samen bijna zes miljard dollar op om AI te installeren bij bedrijven. De eerste bedrijven die geholpen worden zijn de bedrijven die de investeringsfondsen al bezitten. Het familiebedrijf in Bergambacht staat op geen enkele lijst.</p>
+      <div class="recent-writing-actions">
+        <a href="stukken/6-miljard-voor-ai.html" class="recent-writing-link">
+          Lees het volledige stuk
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="stukken/" class="recent-writing-link is-quiet">Alle stukken &rarr;</a>
+      </div>
+    </div>
   </div>
 </section>
 

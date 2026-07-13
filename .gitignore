@@ -10,3 +10,7 @@ evert-bron.png
 
 # Linux fuse mount artefacten (Dropbox sync)
 .fuse_hidden*
+
+# Finder-kopieën die per ongeluk in de repo belanden
+*kopie*
+* copy*

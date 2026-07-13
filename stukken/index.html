@@ -212,6 +212,10 @@ header.stukken-hero {
   transition: border-color 0.15s, color 0.15s;
 }
 .stukken-linkedin a:hover { color: var(--fg); border-bottom-color: var(--green-light); }
+.stukken-linkedin-actions { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-end; }
+@media (max-width: 640px) {
+  .stukken-linkedin-actions { align-items: flex-start; }
+}
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -251,7 +255,7 @@ header.stukken-hero {
   </button>
   <div class="nav-right" id="nav-menu">
     <a href="index.html" class="nav-link is-active">Stukken</a>
-    <a href="../rapport.html" class="nav-link">Rapport</a>
+    <a href="../rapport.html" class="nav-link nav-link-primary">Rapport</a>
     <a href="../cases.html" class="nav-link">Cases</a>
     <a href="../over.html" class="nav-link">Over</a>
   </div>
@@ -318,10 +322,13 @@ header.stukken-hero {
 
 </div>
 
-<!-- LINKEDIN HINT -->
+<!-- LINKEDIN HINT + RAPPORT-CTA -->
 <div class="stukken-linkedin">
-  <p>De korte observaties verschijnen eerst op LinkedIn. Wie wil meelezen op het moment dat ze worden geschreven, kan daar terecht.</p>
-  <a href="https://www.linkedin.com/in/evertbal/" target="_blank" rel="noopener">Volg op LinkedIn &rarr;</a>
+  <p>De korte observaties verschijnen eerst op LinkedIn. Wie wil meelezen op het moment dat ze worden geschreven, kan daar terecht. Wie het volledige beeld wil, kan verder in het rapport.</p>
+  <div class="stukken-linkedin-actions">
+    <a href="../rapport.html">Lees het rapport &rarr;</a>
+    <a href="https://www.linkedin.com/in/evertbal/" target="_blank" rel="noopener">Volg op LinkedIn &rarr;</a>
+  </div>
 </div>
 
 <footer class="site-footer">
