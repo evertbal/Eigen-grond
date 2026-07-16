@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anderhalf miljard dollar voor een tekening van je werkproces. Eigen Grond</title>
+<meta name="description" content="Anthropic, Blackstone en Hellman &amp; Friedman lanceren Ode: engineers gaan bij bedrijven naar binnen en tekenen eerst het werkproces. De grootste investeerders ter wereld zetten hun geld op procesmapping.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/stukken/ode-grondwerk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Anderhalf miljard dollar voor een tekening van je werkproces">
+<meta property="og:description" content="Anthropic, Blackstone en Hellman &amp; Friedman lanceren Ode. Het grootste geld in AI gaat niet naar slimmere modellen maar naar de vraag hoe een bedrijf eigenlijk werkt.">
+<meta property="og:url" content="https://eigengrond.nu/stukken/ode-grondwerk">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* Reading progress bar */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--green-light);
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+
+/* Back link */
+.back-link-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--green-light); }
+.back-link svg { transform: rotate(180deg); }
+
+/* HERO */
+.stuk-hero {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2.5rem;
+}
+.stuk-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 2rem;
+}
+.stuk-meta .dot { color: var(--muted); }
+.stuk-meta .meta-author { color: var(--muted); }
+.stuk-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  color: var(--fg);
+  margin-bottom: 1.75rem;
+}
+.stuk-title em { color: var(--green-light); font-style: normal; }
+.stuk-lead {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: #B5A88E;
+  line-height: 1.65;
+  font-weight: 300;
+  border-left: 2px solid var(--green);
+  padding-left: 1.25rem;
+  max-width: 640px;
+}
+
+/* BODY */
+.stuk-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem 2rem 4rem;
+}
+.stuk-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #D9CFB9;
+  margin-bottom: 1.5rem;
+}
+.stuk-body p.lead-paragraph {
+  font-size: 1.15rem;
+  color: var(--fg);
+  font-weight: 400;
+}
+.stuk-body p strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+.stuk-section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: var(--fg);
+  margin: 3.5rem 0 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.stuk-section-title em { color: var(--green-light); font-style: normal; }
+.stuk-body blockquote {
+  border-left: 2px solid var(--green);
+  margin: 2rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  font-size: 1.1rem;
+  color: var(--fg);
+  font-style: normal;
+}
+
+/* BRONNEN */
+.stuk-sources {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  border-top: 1px solid var(--border);
+}
+.stuk-sources-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1rem;
+}
+.stuk-sources p {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.stuk-sources a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s, border-color 0.15s;
+}
+.stuk-sources a:hover { color: var(--green-light); border-bottom-color: var(--green-light); }
+
+/* MEER IN DEZE LIJN */
+.stuk-more {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stuk-more-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+.stuk-more-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.5rem;
+}
+.stuk-more-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+  color: var(--fg);
+}
+.stuk-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--green-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+.stuk-more-link:hover {
+  color: var(--fg);
+  border-bottom-color: var(--green-light);
+}
+
+/* CTA */
+.rapport-cta {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+}
+.rapport-cta-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.85rem;
+}
+.rapport-cta-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  color: var(--fg);
+  margin-bottom: 0.85rem;
+}
+.rapport-cta-body {
+  font-size: 1rem;
+  color: #B5A88E;
+  line-height: 1.65;
+  max-width: 520px;
+}
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.6rem;
+  background: var(--green-light);
+  color: var(--bg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-cta:hover { background: #93BF46; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .back-link-wrap { padding: 1.5rem 1.25rem 0; }
+  .stuk-hero { padding: 2rem 1.25rem 1.75rem; }
+  .stuk-body { padding: 1rem 1.25rem 3rem; }
+  .stuk-body p { font-size: 1rem; }
+  .stuk-sources { padding: 2rem 1.25rem 3rem; }
+  .stuk-more-inner { padding: 3rem 1.25rem; }
+  .rapport-cta { grid-template-columns: 1fr; padding: 3rem 1.25rem 4rem; }
+}
+@media (max-width: 380px) {
+  .stuk-hero { padding: 1.5rem 1rem 1.25rem; }
+  .stuk-body { padding: 1rem 1rem 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="../index.html">EIGEN<span>GROND</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
+    <a href="index.html" class="nav-link is-active">Stukken</a>
+    <a href="../rapport.html" class="nav-link">Rapport</a>
+    <a href="../cases.html" class="nav-link">Cases</a>
+    <a href="../over.html" class="nav-link">Over</a>
+  </div>
+</nav>
+
+<!-- BACK -->
+<div class="back-link-wrap">
+  <a class="back-link" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Alle stukken
+  </a>
+</div>
+
+<!-- HERO -->
+<header class="stuk-hero">
+  <div class="stuk-meta">
+    <span>16 juli 2026</span>
+    <span class="dot">·</span>
+    <span>Leestijd 4 minuten</span>
+    <span class="dot">·</span>
+    <span class="meta-author">Evert Bal</span>
+  </div>
+  <h1 class="stuk-title">ANDERHALF MILJARD DOLLAR VOOR EEN <em>TEKENING</em> VAN JE WERKPROCES.</h1>
+  <p class="stuk-lead">
+    Anthropic, Blackstone en Hellman &amp; Friedman lanceren Ode. Een dienstverlener met anderhalf miljard dollar kapitaal. Geen model, geen platform, geen app. Een werkwijze.
+  </p>
+</header>
+
+<!-- BODY -->
+<article class="stuk-body">
+
+  <p class="lead-paragraph">Op 15 juli lanceren Anthropic, Blackstone en Hellman &amp; Friedman een nieuw bedrijf: Ode. Kapitaal: circa anderhalf miljard dollar, met Goldman Sachs, Apollo en Sequoia als mede-investeerders. Het product is opvallend onspectaculair. Ode stuurt engineers naar binnen bij bedrijven, brengt in kaart hoe het werk daadwerkelijk loopt en bouwt daar systemen bovenop.</p>
+
+  <p><strong>Geen model, geen platform, geen app. Een werkwijze.</strong></p>
+
+  <h2 class="stuk-section-title">Waarom dat de moeite waard is <em>om op te letten</em></h2>
+
+  <p>Dat de grootste investeerders ter wereld hier hun geld op zetten, zegt iets over waar AI in de praktijk vastloopt. Niet op de techniek. De modellen zijn er, ze zijn goed en ze worden elke maand beter.</p>
+
+  <p>AI loopt vast op iets veel gewoners: bijna geen enkel bedrijf weet precies hoe het eigen proces in elkaar zit. De offerte die via drie mailboxen loopt. De planning die in het hoofd van één medewerker zit. De orderregel die twee keer wordt overgetypt omdat twee pakketten elkaar niet kennen.</p>
+
+  <p><strong>Wie daar AI overheen legt, automatiseert de chaos.</strong></p>
+
+  <p>Eerst de kaart, dan het systeem. Ode noemt dat <em>forward deployed engineering</em>. Hier heet het grondwerk.</p>
+
+  <h2 class="stuk-section-title">Het verschil zit onder <em>de motorkap</em></h2>
+
+  <p>Er zit wel één verschil met wat Ode doet, en dat verschil is wezenlijk. Ode bouwt uitsluitend op de modellen van Anthropic, een van de eigenaren. De analyse van jouw proces wordt het fundament onder andermans platform.</p>
+
+  <p>Het bekende patroon, in een nieuwe jas: <strong>het inzicht is van jou, de infrastructuur waarop het draait niet.</strong></p>
+
+  <blockquote>Ode tekent de kaart en houdt het fundament. Grondwerk tekent de kaart en geeft alles over.</blockquote>
+
+  <p>Het kan ook anders. Het proces in kaart brengen, de software daarop bouwen en het geheel overdragen: broncode, data, infrastructuur. Eén keer betalen, daarna is het van jou. Medewerkers leren het systeem zelf aanpassen, zodat een wijziging geen ticket van €300 en twee weken wachttijd kost.</p>
+
+  <h2 class="stuk-section-title">Ode belt de Krimpenerwaard <em>niet</em></h2>
+
+  <p>Ode bedient Amerikaanse banken, zorginstellingen en middelgrote fabrieken. Het is een boutique, capaciteitsbeperkt. Het MKB in de Krimpenerwaard staat niet in hun pipeline, en zal daar ook niet komen.</p>
+
+  <p>Het principe waarvoor zij anderhalf miljard ophaalden past intussen op een middag aan een keukentafel: het eigen proces uittekenen zoals het echt loopt.</p>
+
+  <p><strong>Daar begint het grondwerk.</strong></p>
+
+</article>
+
+<!-- BRONNEN -->
+<section class="stuk-sources">
+  <div class="stuk-sources-label">Bronnen</div>
+  <p>
+    <a href="https://www.businesswire.com/news/home/20260715205134/en/Anthropic-Blackstone-and-Hellman-Friedman-Introduce-Ode-with-Anthropic-an-Enterprise-AI-Services-Firm" target="_blank" rel="noopener">Businesswire: persbericht lancering Ode</a>,
+    <a href="https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/" target="_blank" rel="noopener">TechCrunch: Anthropic en Blackstone wedden dat implementatie de volgende biljoenenkans is</a>,
+    <a href="https://www.investing.com/news/company-news/anthropic-launches-ai-services-firm-with-blackstone-hf-backing-93CH-4793673" target="_blank" rel="noopener">Investing.com: Anthropic launches AI services firm</a>. Alle bronnen 15&ndash;16 juli 2026.
+  </p>
+</section>
+
+<!-- MEER IN DEZE LIJN -->
+<section class="stuk-more">
+  <div class="stuk-more-inner">
+    <div class="stuk-more-label">Meer in deze lijn</div>
+    <h2 class="stuk-more-title">Het volledige rapport: <span style="color: var(--green-light);">wat uw software u &eacute;cht kost.</span></h2>
+    <a href="../rapport.html" class="stuk-more-link">
+      Lees het rapport
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="rapport-cta">
+  <div>
+    <div class="rapport-cta-label">Waar begint het bij u?</div>
+    <p class="rapport-cta-title">EEN MIDDAG AAN TAFEL.</p>
+    <p class="rapport-cta-body">Het eigen proces uittekenen zoals het echt loopt. Van aanvraag tot factuur, van klant tot planning. Daar begint het grondwerk &mdash; en zonder die kaart valt er niets te automatiseren, met of zonder AI.</p>
+  </div>
+  <a href="../index.html#join-form" class="btn-cta">Neem contact op
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <a href="https://uxley.nl" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border);"><strong>Uxley</strong></a></div>
+  <div class="footer-links">
+    <a href="../contact.html">Contact</a>
+    <a href="../mediakit.html">Mediakit</a>
+    <a href="index.html">Stukken</a>
+  </div>
+</footer>
+
+<script>
+// Reading progress bar
+(function() {
+  const bar = document.getElementById('progress-bar');
+  if (!bar) return;
+  function update() {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (scrolled / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+
+<script src="../nav.js" defer></script>
+<script src="../analytics.js" defer></script>
+</body>
+</html>
