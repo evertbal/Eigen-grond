@@ -124,16 +124,16 @@
 
 <!-- HERO -->
 <header class="gw-hero">
-  <div class="gw-label">Grondwerk</div>
-  <h1>EERST KIJKEN.<br><span class="accent">DAN PAS BOUWEN.</span></h1>
-  <p class="gw-lead">Een halve dag meekijken op jouw werkvloer. Daarna weet je wat je software je echt kost en wat het alternatief is. Ook als het alternatief is: niets doen.</p>
-  <a href="#aanvragen" class="btn-gw">Vraag Grondwerk aan
+  <div class="gw-label" data-reveal="up">Grondwerk</div>
+  <h1 data-reveal="up">EERST KIJKEN.<br><span class="accent">DAN PAS BOUWEN.</span></h1>
+  <p class="gw-lead" data-reveal="up">Een halve dag meekijken op jouw werkvloer. Daarna weet je wat je software je echt kost en wat het alternatief is. Ook als het alternatief is: niets doen.</p>
+  <a href="#aanvragen" class="btn-gw" data-reveal="up">Vraag Grondwerk aan
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
 </header>
 
 <!-- HET PATROON -->
-<section class="gw-section">
+<section class="gw-section" data-reveal="up">
   <h2>De gratis AI-scan kent je bedrijf <em>niet</em>.</h2>
   <p>Er is een nieuw soort koude acquisitie: de gratis scan. Een chatbot stelt tien vragen, binnen 24 uur ligt er een rapport. Daarin staat wat je moet automatiseren, hoeveel uur je bespaart en welk pakket daarbij past. Toevallig het pakket van de afzender.</p>
   <p>Niemand is langsgeweest. Niemand heeft gezien welke Excel er naast het systeem staat, waarom de planning nooit klopt met de werkelijkheid, of waar het werk vastloopt. Het rapport kent alleen je antwoorden.</p>
@@ -141,7 +141,7 @@
 </section>
 
 <!-- WAT GRONDWERK IS -->
-<section class="gw-section">
+<section class="gw-section" data-reveal="up">
   <h2>Grondwerk is het <em>omgekeerde</em>.</h2>
   <p>Een halve dag op locatie. Geen vragenlijst, geen presentatie. Er wordt gekeken hoe het werk hier echt loopt: wie doet wat, waar wringt het, wat staat er naast het systeem omdat het systeem het niet kan.</p>
   <p>Binnen een week ligt er een verslag op tafel met vier onderdelen:</p>
@@ -170,7 +170,7 @@
 </section>
 
 <!-- WAAROM -->
-<section class="gw-section">
+<section class="gw-section" data-reveal="up">
   <h2>Eerst kijken is een <em>vak</em>.</h2>
   <div class="gw-waarom">
     <img src="evert.png" alt="Evert Bal" class="gw-portret">
@@ -182,7 +182,7 @@
 </section>
 
 <!-- DRIE UITKOMSTEN -->
-<section class="gw-section">
+<section class="gw-section" data-reveal="up">
   <h2>Drie mogelijke <em>uitkomsten</em>.</h2>
   <p>Een advies dat maar één kant op kan, is een verkooppitch. Grondwerk kent drie uitkomsten en alle drie komen voor:</p>
   <div class="gw-uitkomsten">
@@ -202,7 +202,7 @@
 </section>
 
 <!-- PRIJS -->
-<section class="gw-section">
+<section class="gw-section" data-reveal="up">
   <h2>Eén prijs, vooraf <em>bekend</em>.</h2>
   <div class="gw-prijs">
     <div class="bedrag">&euro; 750</div>
@@ -211,7 +211,7 @@
 </section>
 
 <!-- FORMULIER -->
-<section class="gw-section" id="aanvragen">
+<section class="gw-section" data-reveal="up" id="aanvragen">
   <h2>Vraag Grondwerk <em>aan</em>.</h2>
   <p>Laat je gegevens achter. Evert Bal neemt binnen twee werkdagen contact op om een datum te plannen. Eerst kort telefonisch kennismaken kan ook.</p>
   <form class="gw-form" id="grondwerkForm" action="https://formspree.io/f/mpqoaplo" method="POST">
@@ -255,6 +255,7 @@
 </footer>
 
 <script src="nav.js" defer></script>
+<script src="motion.js" defer></script>
 <script src="analytics.js" defer></script>
 <script>
 document.getElementById('grondwerkForm').addEventListener('submit', function(e) {

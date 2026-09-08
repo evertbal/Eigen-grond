@@ -263,9 +263,9 @@ header.stukken-hero {
 
 <!-- HERO -->
 <header class="stukken-hero">
-  <div class="stukken-hero-label">Stukken</div>
-  <h1 class="stukken-hero-title">WAT ER <em>OPVALT.</em><br>EN WAAROM <em>HET TELT.</em></h1>
-  <p class="stukken-hero-lead">
+  <div class="stukken-hero-label" data-reveal="up">Stukken</div>
+  <h1 class="stukken-hero-title" data-reveal="up">WAT ER <em>OPVALT.</em><br>EN WAAROM <em>HET TELT.</em></h1>
+  <p class="stukken-hero-lead" data-reveal="up">
     Observaties over softwareafhankelijkheid, AI en de positie van het Nederlandse familiebedrijf. Korte stukken die eerst verschenen op LinkedIn, langere stukken die ergens een keer geschreven moesten worden.
   </p>
 </header>
@@ -274,7 +274,7 @@ header.stukken-hero {
 <div class="stukken-list">
 
   <!-- FEATURED: manifest -->
-  <a class="stuk-featured" href="6-miljard-voor-ai.html">
+  <a class="stuk-featured" data-reveal="up" href="6-miljard-voor-ai.html">
     <img class="stuk-featured-image" src="../stukken-6-miljard-skyline.png" alt="Industrieterrein bij avond met één verlicht raam, op de achtergrond een skyline van kantoortorens">
     <div class="stuk-featured-text">
       <div class="stuk-featured-meta">
@@ -294,11 +294,11 @@ header.stukken-hero {
   </a>
 
   <!-- Serverkast / lokaal met cloud-gemak -->
-  <a class="stuk-row" href="de-serverkast-is-terug.html">
-    <span class="stuk-row-date">31 jul 2026</span>
+  <a class="stuk-row" data-reveal="up" data-stagger href="de-serverkast-is-terug.html">
+    <span class="stuk-row-date">1 sep 2026</span>
     <div class="stuk-row-body">
       <h3 class="stuk-row-title">De serverkast is terug. Zonder de zorgen.</h3>
-      <p class="stuk-row-summary">Drie jaar geleden betekende een eigen server eigen ellende. Nu is er een markt die het gat vult tussen alles in de cloud en alles zelf doen: de data bij jou in huis, het beheer als dienst. Met de spelers, de kanttekeningen en de echte kosten.</p>
+      <p class="stuk-row-summary">Drie jaar geleden betekende een eigen server eigen ellende. Dat antwoord is verlopen. En de instap is kleiner dan iedereen denkt: begin met één apparaat van tweehonderd euro, breid pas uit als het nodig is. Herziene versie, met de echte kosten en het eerlijke verhaal over e-mail.</p>
     </div>
     <span class="stuk-row-meta">Observatie</span>
     <span class="stuk-row-arrow">
@@ -307,7 +307,7 @@ header.stukken-hero {
   </a>
 
   <!-- Ode / grondwerk -->
-  <a class="stuk-row" href="ode-grondwerk.html">
+  <a class="stuk-row" data-reveal="up" data-stagger href="ode-grondwerk.html">
     <span class="stuk-row-date">16 jul 2026</span>
     <div class="stuk-row-body">
       <h3 class="stuk-row-title">Anderhalf miljard dollar voor een tekening van je werkproces</h3>
@@ -320,7 +320,7 @@ header.stukken-hero {
   </a>
 
   <!-- The Firewall -->
-  <a class="stuk-row" href="the-firewall.html">
+  <a class="stuk-row" data-reveal="up" data-stagger href="the-firewall.html">
     <span class="stuk-row-date">28 mei 2026</span>
     <div class="stuk-row-body">
       <h3 class="stuk-row-title">De brandmuur die zichzelf beschermt</h3>
@@ -333,7 +333,7 @@ header.stukken-hero {
   </a>
 
   <!-- VOORBEELD-TEMPLATE voor een LinkedIn-post (uit-commentarieerd). Kopieer en vul in om te activeren.
-  <a class="stuk-row" href="[slug].html">
+  <a class="stuk-row" data-reveal="up" data-stagger href="[slug].html">
     <span class="stuk-row-date">DD mmm 2026</span>
     <div class="stuk-row-body">
       <h3 class="stuk-row-title">Titel van het stuk</h3>
@@ -367,6 +367,7 @@ header.stukken-hero {
 </footer>
 
 <script src="../nav.js" defer></script>
+<script src="../motion.js" defer></script>
 <script src="../analytics.js" defer></script>
 </body>
 </html>

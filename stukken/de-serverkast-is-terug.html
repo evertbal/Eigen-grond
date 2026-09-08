@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>De serverkast is terug. Zonder de zorgen. Eigen Grond</title>
-<meta name="description" content="Drie jaar geleden betekende een eigen server eigen zorgen. Nu is er een marktsegment dat het gat vult tussen alles in de cloud en eigen server met eigen ellende: data in eigen huis, beheer als dienst.">
+<meta name="description" content="Drie jaar geleden betekende een eigen server eigen zorgen. Dat antwoord is verlopen. En de instap is kleiner dan iedereen denkt: begin met een apparaat van tweehonderd euro, breid pas uit als het nodig is.">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="canonical" href="https://eigengrond.nu/stukken/de-serverkast-is-terug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="De serverkast is terug. Zonder de zorgen.">
-<meta property="og:description" content="Er is een marktsegment ontstaan dat het gat vult tussen alles in de cloud en eigen server met eigen zorgen: de data bij jou in huis, het beheer als dienst.">
+<meta property="og:description" content="De data bij jou in huis, het beheer als dienst. En je begint met één apparaat van tweehonderd euro, niet met een serverkast.">
 <meta property="og:url" content="https://eigengrond.nu/stukken/de-serverkast-is-terug">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -124,6 +124,51 @@
   font-size: 1.1rem;
   color: var(--fg);
   font-style: normal;
+}
+
+/* Trap: drie stappen */
+.trap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+.trede {
+  background: var(--card);
+  padding: 1.5rem;
+}
+.trede-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.75rem;
+}
+.trede-titel {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+  color: var(--fg);
+  margin-bottom: 0.6rem;
+  line-height: 1.1;
+}
+.trede p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #B5A88E;
+  margin-bottom: 0.75rem;
+}
+.trede p:last-child { margin-bottom: 0; }
+.trede-prijs {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  color: var(--green-light);
+}
+@media (max-width: 700px) {
+  .trap { grid-template-columns: 1fr; }
 }
 
 /* BRONNEN */
@@ -286,61 +331,124 @@
 
 <!-- HERO -->
 <header class="stuk-hero">
-  <div class="stuk-meta">
-    <span>31 juli 2026</span>
+  <div class="stuk-meta" data-reveal="up">
+    <span>1 september 2026</span>
     <span class="dot">·</span>
-    <span>Leestijd 4 minuten</span>
+    <span>Leestijd 7 minuten</span>
     <span class="dot">·</span>
     <span class="meta-author">Evert Bal</span>
+    <span class="dot">·</span>
+    <span class="meta-author">Herziene versie</span>
   </div>
-  <h1 class="stuk-title">DE SERVERKAST IS TERUG. <em>ZONDER DE ZORGEN.</em></h1>
-  <p class="stuk-lead">
-    Drie jaar geleden betekende een eigen server eigen ellende. Nu is er een marktsegment dat het gat vult tussen "alles in de cloud" en "alles zelf doen": de data bij jou in huis, het beheer als dienst.
+  <h1 class="stuk-title" data-reveal="up">DE SERVERKAST IS TERUG. <em>ZONDER DE ZORGEN.</em></h1>
+  <p class="stuk-lead" data-reveal="up">
+    Drie jaar geleden betekende een eigen server eigen ellende. Dat antwoord is verlopen. En de instap is veel kleiner dan iedereen denkt: één apparaat van tweehonderd euro in de meterkast, en pas uitbreiden als er reden voor is.
   </p>
 </header>
 
 <!-- BODY -->
 <article class="stuk-body">
 
-  <p class="lead-paragraph">"Kan onze software niet gewoon weer bij ons in huis draaien?" De vraag kwam deze zomer van een familiebedrijf met vier werkplekken. Drie jaar geleden was het eerlijke antwoord geweest: doe het niet. Een eigen server betekende back-ups regelen, updates bijhouden, beveiliging bewaken, en iemand in dienst of op afroep die er verstand van heeft. Wie dat wilde vermijden, had &eacute;&eacute;n route: alles naar de cloud.</p>
+  <p class="lead-paragraph">"Kan onze software niet gewoon weer bij ons in huis draaien?" De vraag kwam deze zomer van een familiebedrijf met vier werkplekken. Drie jaar geleden was het eerlijke antwoord geweest: doe het niet. Een eigen server betekende back-ups regelen, updates bijhouden, beveiliging bewaken, en iemand in dienst of op afroep die er verstand van heeft. Wie dat wilde vermijden, had één route: alles naar de cloud.</p>
 
   <p><strong>Dat antwoord is verlopen.</strong> Wie vandaag de markt induikt, vindt een segment dat twee jaar geleden nauwelijks bestond.</p>
 
+  <p>Dit stuk stond hier eind juli al. Sindsdien heb ik doorgevraagd, en op twee punten had ik het te makkelijk opgeschreven. Ze staan er nu in.</p>
+
   <h2 class="stuk-section-title">Vier dingen kwamen <em>samen</em></h2>
 
-  <p><strong>De hardware werd goedkoop en krachtig.</strong> Nieuwe spelers dwongen prijsconcurrentie af bij de gevestigde merken. Een zakelijk opslagapparaat met moderne processor kost nu wat een kaal consumentenapparaat in 2023 kostte: zeshonderd tot achthonderd euro.</p>
+  <p><strong>De hardware werd goedkoop en krachtig.</strong> Een kleine machine die een compleet bedrijfssysteem draait, met database en al, kost inmiddels tweehonderd euro en past in een schoenendoos. En als er later opslag bij moet: nieuwe spelers dwongen prijsconcurrentie af, waardoor een zakelijk opslagapparaat nu kost wat een kaal consumentenapparaat in 2023 kostte.</p>
 
-  <p><strong>Het beheer verhuisde naar de cloud, de data niet.</strong> Elk serieus merk heeft inmiddels &eacute;&eacute;n online beheerportaal. Een beheerder ziet en onderhoudt het apparaat vanaf elke plek, terwijl de bestanden gewoon op kantoor staan.</p>
+  <p><strong>Het beheer verhuisde naar de cloud, de data niet.</strong> Elk serieus merk heeft inmiddels één online beheerportaal. Een beheerder ziet en onderhoudt het apparaat vanaf elke plek, terwijl de bestanden gewoon op kantoor staan.</p>
 
   <p><strong>Back-up is ingebouwd in plaats van een project.</strong> Versleutelde back-up naar een externe opslagdienst zit standaard in de software. Geen scripts, geen tapes, geen goede voornemens.</p>
 
   <p><strong>Veilige toegang op afstand werd triviaal.</strong> Moderne mesh-VPN's maken versleutelde verbindingen tussen apparaten zonder open poorten en zonder netwerkexpert. Onderweg bij je bestanden en systemen, zonder dat het kantoor een doelwit wordt.</p>
 
-  <p>En daar bovenop kwam de opvallendste verschuiving: <strong>managed self-hosting.</strong> Diensten die de software op jouw eigen kastje op afstand beheren. Updates, monitoring, SSL-certificaten en back-ups worden geregeld, terwijl alles fysiek bij jou draait. Kostprijs van die beheerlaag: tien tot vijfentwintig euro per maand. Drie jaar geleden was dat een fulltime zorg.</p>
+  <p>En daar bovenop kwam de opvallendste verschuiving: <strong>managed self-hosting.</strong> Diensten die de software op jouw eigen apparaat op afstand beheren. Updates, monitoring, certificaten en back-ups worden geregeld, terwijl alles fysiek bij jou draait. Kostprijs van die beheerlaag: tien tot vijfentwintig euro per maand. Drie jaar geleden was dat een fulltime zorg.</p>
+
+  <h2 class="stuk-section-title">Correctie één: begin met <em>één klein kastje</em></h2>
+
+  <p>In de eerste versie van dit stuk stond "een kastje op kantoor", en daarmee bedoelde ik het opslagapparaat waar iedereen aan denkt. Dat was op twee manieren te snel. Voor de meeste bedrijven is dat apparaat namelijk te veel, en tegelijk is het het verkeerde ding om je software op te zetten.</p>
+
+  <p>Begin bij wat een bedrijf werkelijk vraagt. Meestal is dat één systeem: een klantenbestand, een planning, een ordersysteem. Technisch is dat een programma met een database eronder, en zo'n database blijft voor tien mensen jarenlang onder de vijf gigabyte. Dat is niets. Een mini-pc ter grootte van een boterhamtrommel, met een terabyte opslag en genoeg geheugen, kost tussen de honderdvijftig en tweehonderdvijftig euro en verbruikt tien watt.</p>
+
+  <p><strong>Eén zo'n machine in de meterkast is genoeg om te beginnen.</strong> Daarop draait het systeem, de database en de beveiligde toegang voor iedereen die erbij moet, op kantoor en onderweg. Geen serverruimte, geen koeling, geen opslagapparaat. Voor een bedrijf van vier tot vijfentwintig man is dit de hele basis.</p>
+
+  <h2 class="stuk-section-title">De tweede machine is <em>de back-up</em></h2>
+
+  <p>En omdat zo'n machine tweehonderd euro kost, koop je er gewoon twee. De ene staat op kantoor, de andere bij de directeur thuis. Elke nacht stuurt de eerste een versleutelde kopie naar de tweede. Geen gedoe met het thuisnetwerk, want de mesh-VPN uit punt vier regelt dat ze elkaar vinden.</p>
+
+  <p>Dat levert twee dingen tegelijk op. Een back-up buiten de deur, en een reservemachine die je bij pech aanzet. Daar komt nog een derde kopie bij, versleuteld naar een Europese opslagdienst voor vijf tot tien euro per maand. Dat is de brandverzekering: de enige laag die overleeft als het pand er niet meer staat.</p>
+
+  <blockquote>Drie kopieën, twee locaties, één daarvan buiten het pand. Dat is geen luxe-inrichting, dat is de ondergrens.</blockquote>
+
+  <h2 class="stuk-section-title">En wanneer haal je er <em>wél opslag</em> bij?</h2>
+
+  <p>Op het moment dat er bestanden bijkomen. Tekeningen, scans, foto's van het werk, video, een gedeelde schijf waar iedereen in werkt, tien jaar mailarchief. Dat is een andere soort last dan een database: veel ruimte, weinig snelheid, en het groeit elk jaar door. Precies waar een opslagapparaat goed in is en een mini-pc niet.</p>
+
+  <p>Dan pas komt dat apparaat erbij, en dan klopt de rolverdeling ook. De verleiding is op dat moment groot om alles maar op de NAS te zetten, want hij staat er toch. <strong>Doe dat niet.</strong> De containersoftware van de grootste fabrikant staat op een versie uit juni 2023, terwijl de concurrentie vijf versies verder is. De processor in hun nieuwste zakelijke modellen komt uit 2018 en 2019. En de makers van de meest gebruikte mailserver verbieden installatie op zo'n apparaat letterlijk in hun eigen handleiding, met als advies: zet er een aparte machine naast.</p>
+
+  <div class="trap">
+    <div class="trede">
+      <div class="trede-label">Stap één</div>
+      <div class="trede-titel">DE WERKBANK</div>
+      <p>Uw systeem, de database, de toegang. Eén mini-pc in de meterkast. Voor de meeste bedrijven is dit het hele verhaal.</p>
+      <p class="trede-prijs">± € 250</p>
+    </div>
+    <div class="trede">
+      <div class="trede-label">Stap twee</div>
+      <div class="trede-titel">DE RESERVE</div>
+      <p>Dezelfde machine, bij de directeur thuis. Back-up buiten de deur en reserve in één. Plus een kopie in de cloud.</p>
+      <p class="trede-prijs">± € 250 + € 10 p/m</p>
+    </div>
+    <div class="trede">
+      <div class="trede-label">Stap drie, alleen als het nodig is</div>
+      <div class="trede-titel">DE KLUIS</div>
+      <p>Pas als er bestanden en archief bijkomen: een opslagapparaat met dubbele schijven. Voor de spullen, niet voor de software.</p>
+      <p class="trede-prijs">€ 1.100 tot € 1.700</p>
+    </div>
+  </div>
+
+  <p>Deze volgorde maakt het verhaal niet duurder maar sterker. Je begint bij het probleem dat de ondernemer vandaag heeft, niet bij een apparaat dat een leverancier graag verkoopt. <strong>Wat waardevol is staat op de duurzame machine. Wat kapot mag gaan draait op de wegwerpbare.</strong> En de belangrijkste vraag van elke ondernemer wordt simpel te beantwoorden: wat als dat ding het begeeft? Antwoord: dan zet je de reserve aan.</p>
+
+  <h2 class="stuk-section-title">En e-mail? Dat lag <em>anders dan ik dacht</em></h2>
+
+  <p>In de eerste versie schreef ik: e-mail blijft bij Microsoft, punt. Dat was te kort door de bocht. Ik keek alleen naar de route die Microsoft zelf aanbiedt, en die is inderdaad gebouwd voor overheden en grootbedrijf.</p>
+
+  <p>De rest van de markt zit anders in elkaar. Er is de afgelopen drie jaar een stille inhaalslag geweest: mailservers die in hun eentje doen waar vroeger vijf programma's voor nodig waren, agenda's en contacten inbegrepen, draaiend op een halve gigabyte geheugen. Er is zelfs een volwaardig alternatief voor Exchange waar Outlook gewoon mee praat alsof er niets veranderd is. Een deel daarvan is met Europees publiek geld ontwikkeld, precies om deze afhankelijkheid te doorbreken.</p>
+
+  <p>Wat níémand heeft opgelost, en wat ook niet oplosbaar is, is de <strong>bezorging</strong>. Of jouw mail in de inbox van je klant belandt, bepaalt jouw server niet. Dat bepalen Google en Microsoft, op basis van de reputatie van je internetadres. Die reputatie bouw je niet op vanaf een kantoorverbinding in de polder. Erger nog: als het misgaat krijg je geen foutmelding, je mail belandt gewoon stil in de spammap en je merkt het pas als klanten niet reageren.</p>
+
+  <p>De oplossing die iedereen die dit serieus doet inmiddels hanteert, is de boel splitsen. De postbus staat bij jou, de bezorging koop je in bij een dienst met een schone reputatie, voor een paar euro per maand. Dat klinkt als een compromis, maar het is een wezenlijk ander soort afhankelijkheid dan nu. <strong>Nu bezit Microsoft je postbus. In dit model bezit jij de postbus en huur je alleen de postbode in.</strong></p>
+
+  <p>Of je dat moet doen is een andere vraag dan of het kan. Voor de meeste bedrijven is de eerlijke volgorde: eerst je software en je data naar huis halen, mail pas daarna, en alleen als er een reden voor is.</p>
 
   <h2 class="stuk-section-title">De eerlijke <em>kanttekeningen</em></h2>
 
   <p>Dit is geen verhaal zonder mitsen, en wie ze verzwijgt verkoopt je iets.</p>
 
-  <p>Een kastje zonder iemand die ernaar omkijkt is geen oplossing maar een risico. De vakpers is daar zelf helder over: deze apparaten zijn bedoeld voor organisaties met iemand die verantwoordelijk is voor het beheer, in dienst of ingehuurd. Het kantoor wordt bovendien een single point of failure: stroom, internetlijn, brand. Een noodstroomvoorziening en een goede zakelijke verbinding zijn geen luxe maar voorwaarde.</p>
+  <p>Een machine zonder iemand die ernaar omkijkt is geen oplossing maar een risico. Dat geldt voor het kleinste kastje net zo goed als voor een serverkast: updates, back-ups die je controleert, en eens per jaar een echte test of je een herstelde kopie ook kunt gebruiken. Reken op vier tot acht uur per maand, en spreek af wie die uren maakt voordat het ding aan gaat.</p>
 
-  <p>En e-mail blijft bij Microsoft. De lokale variant van Microsoft 365 die begin dit jaar verscheen, is gebouwd voor overheden en grootbedrijf, met verplichte partners en minimaal negen servers. Voor een mkb-bedrijf is dat geen route, en dat hoeft ook niet: mail is niet waar het eigenaarschapsverhaal om draait.</p>
+  <p>Het kantoor wordt een single point of failure: stroom, internetlijn, brand. Een noodstroomvoorziening en een goede zakelijke verbinding zijn geen luxe maar voorwaarde. En zo'n mini-pc is geen serverklasse hardware: geen redundante voeding, geen zakelijke garantie op locatie. Vandaar de reservemachine, die dat probleem voor een paar honderd euro oplost.</p>
 
-  <blockquote>De middenweg die jarenlang niet bestond, bestaat nu: de data bij jou in huis, het beheer als dienst.</blockquote>
+  <p>Tot slot: je ruilt de ene afhankelijkheid deels in voor de andere. Kies je één merk voor alles, dan zit je vast aan dat merk. Daarom staat er in dit verhaal gewone, vervangbare techniek op de rekenmachine, en niet het eigen ecosysteem van een fabrikant.</p>
 
   <h2 class="stuk-section-title">Wat het <em>kost</em></h2>
 
-  <p>Een beheerd kastje op kantoor, met gespiegelde schijven, noodstroom en inrichting, komt eenmalig op zestienhonderd tot ruim drieduizend euro. Daarna praat je over grofweg honderd tot tweehonderdzeventig euro per maand, inclusief de Microsoft-licenties die je toch al betaalt.</p>
+  <p>Voor een bedrijf dat één eigen systeem in huis wil halen, bijvoorbeeld het klantenbestand of de planning: twee mini-pc's plus noodstroom, samen zeshonderd tot duizend euro eenmalig. Daarna twintig tot vijftig euro per maand aan toegang, cloud-back-up en stroom, plus wat u afspreekt voor het beheer. Wie klein wil beginnen kan zelfs met één machine starten en de reserve later kopen, al zou ik dat niet lang uitstellen.</p>
 
-  <p>Zet dat naast wat een volledig gehoste werkplek bij een ICT-dienstverlener kost: in Nederland doorgaans vijfenzeventig tot honderdvijftig euro per gebruiker per maand. Voor een bedrijf met vier werkplekken is dat drie- tot zeshonderd euro, elke maand opnieuw. <strong>De eigen-huis-route is dus niet alleen een gevoel, hij is vaak ook gewoon goedkoper.</strong></p>
+  <p>Komt daar later de gedeelde schijf en het archief bij, dan komt het opslagapparaat erbij en loopt de eenmalige investering op naar zestienhonderd tot ruim drieduizend euro. Dat was het bedrag in de eerste versie van dit stuk, en het klopt nog steeds. Alleen weet u nu dat het de bovenkant is en niet de instap.</p>
+
+  <p>Zet dat naast wat een volledig gehoste werkplek bij een ICT-dienstverlener kost: in Nederland doorgaans vijfenzeventig tot honderdvijftig euro per gebruiker per maand. Voor een bedrijf met vier werkplekken is dat drie- tot zeshonderd euro, elke maand opnieuw. <strong>De eigen-huis-route is dus niet alleen een gevoel, hij is vaak binnen het jaar terugverdiend.</strong></p>
 
   <h2 class="stuk-section-title">Waarom dit meer is <em>dan techniek</em></h2>
 
   <p>Het verlangen van ondernemers om hun spullen terug in eigen hand te krijgen wordt nog wel eens weggezet als nostalgie. Dat is het niet. De Europese druk op datalocatie is zichtbaar tot in het aanbod van de grootste techbedrijven, en er is een complete markt ontstaan van "data in eigen huis, beheer als dienst". Het gevoel klopt. Alleen de invulling vraagt vakmanschap.</p>
 
-  <p>Want het verschil tussen een kastje dat een kluis is en een kastje dat een risico is, zit niet in de hardware. Het zit in de vraag wie ernaar omkijkt, wat er precies op draait, en of de afspraken over data en documentatie op papier staan. <strong>Eigenaarschap is geen aankoop, het is een inrichting.</strong></p>
+  <p>Want het verschil tussen een kastje dat een kluis is en een kastje dat een risico is, zit niet in de hardware. Het zit in de vraag wie ernaar omkijkt, wat er precies op draait, waar de back-up staat, en of de afspraken over data en documentatie op papier staan. <strong>Eigenaarschap is geen aankoop, het is een inrichting.</strong></p>
 
-  <p>Dat begint, zoals altijd, met eerst kijken hoe het werk echt loopt. Daarna pas een kastje kopen.</p>
+  <p>Dat begint, zoals altijd, met eerst kijken hoe het werk echt loopt. Daarna pas een kastje kopen. Of twee.</p>
 
 </article>
 
@@ -349,18 +457,24 @@
   <div class="stuk-sources-label">Bronnen</div>
   <p>
     <a href="https://ifeeltech.com/blog/best-nas-small-business" target="_blank" rel="noopener">iFeeltech: Best NAS for Small Business 2026</a>,
-    <a href="https://nascompares.com/news/synology-dsm-vs-qnap-ugreen-unifi-terramaster-asustor-nas-software-2026/" target="_blank" rel="noopener">NAS Compares: NAS-software vergeleken (2026)</a>,
+    <a href="https://mariushosting.com/docker-engine-synology-terramaster-ugreen-asustor-qnap/" target="_blank" rel="noopener">Marius Hosting: containerversies per NAS-merk (2026)</a>,
+    <a href="https://kb.synology.com/en-af/DSM/tutorial/Why_is_Container_Manager_1630_not_available_on_my_Synology_NAS" target="_blank" rel="noopener">Synology: Container Manager-versie</a>,
+    <a href="https://docs.mailcow.email/getstarted/prerequisite-system/" target="_blank" rel="noopener">mailcow: systeemeisen en het NAS-verbod</a>,
+    <a href="https://stalw.art/docs/install/requirements/" target="_blank" rel="noopener">Stalwart: systeemeisen</a>,
+    <a href="https://grommunio.com/exchange-alternative/" target="_blank" rel="noopener">grommunio: Exchange-alternatief</a>,
+    <a href="https://www.sidn.nl/en/news-and-blogs/four-modern-mail-systems-for-self-hosting" target="_blank" rel="noopener">SIDN: vier moderne mailsystemen om zelf te hosten</a>,
+    <a href="https://www.scaleway.com/en/transactional-email-tem/" target="_blank" rel="noopener">Scaleway: transactionele e-mail (EU-relay)</a>,
     <a href="https://wecloudit.nl/synology-managed-private-cloud/" target="_blank" rel="noopener">WeCloudIT: Managed Private Cloud</a>,
     <a href="https://elest.io/bring-your-own-vm" target="_blank" rel="noopener">Elestio: Bring Your Own VM</a>,
     <a href="https://www.cloudron.io/pricing.html" target="_blank" rel="noopener">Cloudron: prijzen</a>,
     <a href="https://wz-it.com/en/blog/tailscale-pricing-2026-headscale-netbird-self-hosted/" target="_blank" rel="noopener">WZ-IT: Tailscale en self-hosted alternatieven (2026)</a>,
-    <a href="https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/m365-local/microsoft-365-local-overview" target="_blank" rel="noopener">Microsoft Learn: Microsoft 365 Local</a>. Prijzen indicatief, juli 2026.
+    <a href="https://learn.microsoft.com/en-us/azure/azure-sovereign-clouds/private/m365-local/microsoft-365-local-overview" target="_blank" rel="noopener">Microsoft Learn: Microsoft 365 Local</a>. Prijzen indicatief, september 2026. Eerste versie van dit stuk verscheen op 31 juli 2026.
   </p>
 </section>
 
 <!-- MEER IN DEZE LIJN -->
 <section class="stuk-more">
-  <div class="stuk-more-inner">
+  <div class="stuk-more-inner" data-reveal="up">
     <div class="stuk-more-label">Meer in deze lijn</div>
     <h2 class="stuk-more-title">Fase 2 van de roadmap: <span style="color: var(--green-light);">eigen server.</span></h2>
     <a href="../fase-02-eigen-server.html" class="stuk-more-link">
@@ -373,9 +487,9 @@
 <!-- CTA -->
 <div class="rapport-cta">
   <div>
-    <div class="rapport-cta-label">Grondwerk</div>
-    <p class="rapport-cta-title">EERST KIJKEN. DAN PAS BOUWEN.</p>
-    <p class="rapport-cta-body">Een halve dag meekijken op de werkvloer, en een eerlijk advies wat uw software u &eacute;cht kost. Bouwen, zelf doen, of niets doen. Vaste prijs, verrekend bij opdracht.</p>
+    <div class="rapport-cta-label" data-reveal="up">Grondwerk</div>
+    <p class="rapport-cta-title" data-reveal="up">EERST KIJKEN. DAN PAS BOUWEN.</p>
+    <p class="rapport-cta-body">Een halve dag meekijken op de werkvloer, en een eerlijk advies wat uw software u écht kost. Bouwen, zelf doen, of niets doen. Vaste prijs, verrekend bij opdracht.</p>
   </div>
   <a href="../grondwerk.html" class="btn-cta">Vraag Grondwerk aan
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -409,6 +523,7 @@
 </script>
 
 <script src="../nav.js" defer></script>
+<script src="../motion.js" defer></script>
 <script src="../analytics.js" defer></script>
 </body>
 </html>

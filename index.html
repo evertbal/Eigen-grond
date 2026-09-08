@@ -873,28 +873,11 @@ h2 {
 }
 
 /* =================================================================
-   MOTION · deliberate, calm, matching the site's grounded voice.
-   Alles gevoelig voor prefers-reduced-motion (buiten no-preference
-   media query: element blijft gewoon zichtbaar zonder motion).
+   MOTION · homepage-specifiek. Universele reveal + parallax staan in
+   styles.css. Hier alleen wat uniek is voor de homepage: hero-cascade
+   bij laden en de manifesto-twee-fase-reveal.
    ================================================================= */
 @media (prefers-reduced-motion: no-preference) {
-
-  /* Universele scroll-reveal — element krijgt .is-in via IntersectionObserver.
-     data-reveal="up" schuift van onder naar boven; "in" is alleen fade. */
-  [data-reveal] {
-    opacity: 0;
-    will-change: opacity, transform;
-    transition:
-      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  [data-reveal="up"]  { transform: translateY(24px); }
-  [data-reveal="in"]  { transform: none; }
-  [data-reveal].is-in { opacity: 1; transform: none; }
-
-  /* Stagger utility — kinderen die als [data-stagger] gemarkeerd zijn
-     krijgen sequentieel hun eigen delay. Ingesteld via JS. */
-  [data-stagger] { transition-delay: var(--stagger-delay, 0ms); }
 
   /* HERO — cascade bij laden (geen scroll nodig) */
   .hero h1 > span.line { display: inline-block; }
@@ -940,12 +923,6 @@ h2 {
   @keyframes mani-rise {
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: none; }
-  }
-
-  /* Flow-figure (wortels) — subtiele parallax, aangedreven door JS. */
-  .flow-figure img {
-    transform: translate3d(0, var(--parallax-y, 0px), 0);
-    transition: transform 0.05s linear;
   }
 }
 </style>
@@ -1274,75 +1251,6 @@ h2 {
 </footer>
 
 <script>
-/* Motion: reveal-on-scroll + parallax.
-   Werkt alleen als de gebruiker motion niet heeft uitgeschakeld.
-   Als IntersectionObserver ontbreekt of er iets misgaat: elementen
-   blijven zichtbaar (geen fade-out fallback). */
-(function() {
-  var prefersReduced = window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReduced || !('IntersectionObserver' in window)) {
-    // Niets doen: CSS zorgt dat statisch weergeven ook werkt.
-    document.querySelectorAll('[data-reveal]').forEach(function(el) {
-      el.classList.add('is-in');
-    });
-    return;
-  }
-
-  /* Stagger — geef broertjes met [data-stagger] oplopende delays. */
-  var staggerGroups = new Map();
-  document.querySelectorAll('[data-stagger]').forEach(function(el) {
-    var parent = el.parentElement;
-    if (!staggerGroups.has(parent)) staggerGroups.set(parent, 0);
-    var index = staggerGroups.get(parent);
-    el.style.setProperty('--stagger-delay', (index * 90) + 'ms');
-    staggerGroups.set(parent, index + 1);
-  });
-
-  /* Reveal-observer */
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-in');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-
-  document.querySelectorAll('[data-reveal]').forEach(function(el) {
-    revealObserver.observe(el);
-  });
-
-  /* Parallax — alleen op desktop, alleen voor [data-parallax] elementen. */
-  var parallaxTargets = document.querySelectorAll('[data-parallax]');
-  if (parallaxTargets.length && window.matchMedia('(min-width: 769px)').matches) {
-    var raf = null;
-    function updateParallax() {
-      raf = null;
-      var viewportH = window.innerHeight;
-      parallaxTargets.forEach(function(el) {
-        var rect = el.getBoundingClientRect();
-        var elCenter = rect.top + rect.height / 2;
-        var progress = (elCenter - viewportH / 2) / viewportH; // -0.5..+0.5 rond midden
-        var strength = parseFloat(el.dataset.parallax) || 0.15;
-        var max = 60; // px maximum verplaatsing
-        var y = Math.max(-max, Math.min(max, -progress * max * (strength * 4)));
-        var img = el.querySelector('img') || el;
-        img.style.setProperty('--parallax-y', y.toFixed(1) + 'px');
-      });
-    }
-    function onScroll() {
-      if (raf === null) raf = window.requestAnimationFrame(updateParallax);
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-    updateParallax();
-  }
-})();
-</script>
-
-<script>
 const form = document.getElementById('join-form');
 const success = document.getElementById('success');
 const btn = form ? form.querySelector('.btn-submit') : null;
@@ -1374,6 +1282,7 @@ if (form) {
 </script>
 
 <script src="nav.js" defer></script>
+<script src="motion.js" defer></script>
 <script src="analytics.js" defer></script>
 </body>
 </html>

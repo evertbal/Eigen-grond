@@ -196,14 +196,14 @@ header.contact-hero {
 
 <!-- HERO -->
 <header class="contact-hero">
-  <div class="contact-label">Contact</div>
-  <h1 class="contact-title">Stel je <em>vraag</em>.</h1>
-  <p class="contact-sub">Geen pitch, geen verplichtingen. Een eerste gesprek duurt maximaal een half uur. Vertel waar je software niet aansluit op hoe je werkt &mdash; we nemen contact op binnen een week.</p>
+  <div class="contact-label" data-reveal="up">Contact</div>
+  <h1 class="contact-title" data-reveal="up">Stel je <em>vraag</em>.</h1>
+  <p class="contact-sub" data-reveal="up">Geen pitch, geen verplichtingen. Een eerste gesprek duurt maximaal een half uur. Vertel waar je software niet aansluit op hoe je werkt &mdash; we nemen contact op binnen een week.</p>
 </header>
 
 <!-- CONTENT -->
 <div class="contact-content">
-  <form class="contact-form" id="contactForm" action="https://formspree.io/f/mpqoaplo" method="POST">
+  <form class="contact-form" data-reveal="up" id="contactForm" action="https://formspree.io/f/mpqoaplo" method="POST">
     <div class="contact-form-row">
       <div>
         <label for="naam">Naam</label>
@@ -251,6 +251,7 @@ header.contact-hero {
 </footer>
 
 <script src="nav.js" defer></script>
+<script src="motion.js" defer></script>
 <script src="analytics.js" defer></script>
 <script>
 document.getElementById('contactForm').addEventListener('submit', function(e) {

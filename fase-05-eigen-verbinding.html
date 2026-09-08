@@ -194,17 +194,17 @@ header.phase-hero { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 2rem;
 </nav>
 
 <header class="phase-hero">
-  <div class="phase-badge">Fase 05 <span class="phase-status">Middellange termijn</span></div>
-  <h1>Eigen <em>verbinding</em>.</h1>
-  <p class="phase-subtitle">Lokale netwerken die blijven werken als het internet uitvalt.</p>
+  <div class="phase-badge" data-reveal="up">Fase 05 <span class="phase-status">Middellange termijn</span></div>
+  <h1 data-reveal="up">Eigen <em>verbinding</em>.</h1>
+  <p class="phase-subtitle" data-reveal="up">Lokale netwerken die blijven werken als het internet uitvalt.</p>
 </header>
 
-<div class="phase-intro">
+<div class="phase-intro" data-reveal="up">
   <p>Elke stroomstoring, elke cyberaanval, elk technisch mankement bij een telecomprovider legt bedrijven plat. Geen internet, geen communicatie, geen systeem. Eigen Verbinding is een lokaal mesh-netwerk dat bedrijven onderling verbindt, onafhankelijk van provider of centraal netwerk.</p>
 </div>
 
 <div class="phase-content">
-    <div class="phase-section">
+    <div class="phase-section" data-reveal="up">
       <div class="phase-section-label">Wat</div>
       <h2>Mesh: een netwerk zonder middelpunt</h2>
       <p>Een mesh-netwerk bestaat uit meerdere zenders die onderling met elkaar communiceren. Er is geen centraal punt dat het netwerk aanstuurt. Als &eacute;&eacute;n knooppunt uitvalt, vindt het netwerk automatisch een andere route. Hoe meer deelnemers, hoe sterker het netwerk wordt.</p>
@@ -212,7 +212,7 @@ header.phase-hero { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 2rem;
       <p>In Nederland bestaat al het LocalMesh-initiatief: een burgerbeweging die via MeshCore-technologie en LoRa-radio een onafhankelijk noodcommunicatienetwerk opbouwt. Meer dan honderd repeaters staan actief in de Randstad. De technologie is bewezen, de kosten zijn laag (een basisapparaat kost &euro;20 tot &euro;50), en er is geen vergunning of abonnement nodig.</p>
     </div>
 
-    <div class="phase-section">
+    <div class="phase-section" data-reveal="up">
       <div class="phase-section-label">Hoe</div>
       <h2>Van noodcommunicatie naar operationele verbinding</h2>
       <p>De eerste stap is basiscommunicatie: tekstberichten en co&ouml;rdinatie tussen bedrijven als het reguliere netwerk uitvalt. Dit is haalbaar met bestaande LoRa-apparatuur op de vrije 868 MHz-frequentieband.</p>
@@ -221,7 +221,7 @@ header.phase-hero { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 2rem;
       <p>Dit is niet alleen relevant bij crisissituaties. Een lokaal netwerk is sneller dan een internetverbinding, onafhankelijk van de grillen van een provider, en biedt een extra laag van operationele continu&iuml;teit die steeds waardevoller wordt naarmate de digitale afhankelijkheid groeit.</p>
     </div>
 
-    <div class="phase-section">
+    <div class="phase-section" data-reveal="up">
       <div class="phase-section-label">Waarom</div>
       <h2>Onafhankelijkheid van factoren buiten je controle</h2>
       <p>De afhankelijkheid van &eacute;&eacute;n internetprovider en &eacute;&eacute;n centraal netwerk is een risico dat de meeste bedrijven niet bewust nemen. Het overkomt ze. Een eigen verbinding maakt dat risico zichtbaar en biedt een praktisch alternatief.</p>
@@ -237,7 +237,7 @@ header.phase-hero { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 2rem;
     <div class="phase-prev-title">EIGEN NETWERK</div>
     <div class="phase-prev-desc">Bedrijven die hun software en data lokaal delen, zonder tussenpartij.</div>
   </a>
-  <a class="phase-next-card" href="fase-06-eigen-diensten.html">
+  <a class="phase-next-card" data-reveal="up" href="fase-06-eigen-diensten.html">
     <div class="phase-next-label">Volgende fase &rarr; Fase 06</div>
     <div class="phase-next-title">EIGEN DIENSTEN</div>
     <div class="phase-next-desc">Lokale apps voor burgers en bedrijven. Diensten van hier, voor hier.</div>
@@ -245,7 +245,7 @@ header.phase-hero { max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 2rem;
   </div>
 </div>
 
-<div class="phase-form">
+<div class="phase-form" data-reveal="up">
   <h2>Meedenken?</h2>
   <p>Dit is een visie in ontwikkeling. Suggesties, vragen of ervaringen die hierbij passen zijn welkom.</p>
   <form id="contactForm" action="https://formspree.io/f/mpqoaplo" method="POST">
@@ -282,6 +282,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
 </script>
 
 <script src="nav.js" defer></script>
+<script src="motion.js" defer></script>
 <script src="analytics.js" defer></script>
 </body>
 </html>
