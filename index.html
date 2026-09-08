@@ -871,6 +871,83 @@ h2 {
   height: auto;
   border: 1px solid var(--border);
 }
+
+/* =================================================================
+   MOTION · deliberate, calm, matching the site's grounded voice.
+   Alles gevoelig voor prefers-reduced-motion (buiten no-preference
+   media query: element blijft gewoon zichtbaar zonder motion).
+   ================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Universele scroll-reveal — element krijgt .is-in via IntersectionObserver.
+     data-reveal="up" schuift van onder naar boven; "in" is alleen fade. */
+  [data-reveal] {
+    opacity: 0;
+    will-change: opacity, transform;
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  [data-reveal="up"]  { transform: translateY(24px); }
+  [data-reveal="in"]  { transform: none; }
+  [data-reveal].is-in { opacity: 1; transform: none; }
+
+  /* Stagger utility — kinderen die als [data-stagger] gemarkeerd zijn
+     krijgen sequentieel hun eigen delay. Ingesteld via JS. */
+  [data-stagger] { transition-delay: var(--stagger-delay, 0ms); }
+
+  /* HERO — cascade bij laden (geen scroll nodig) */
+  .hero h1 > span.line { display: inline-block; }
+  .hero-tag,
+  .hero h1 > span.line,
+  .hero-lead,
+  .hero-actions {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .hero-tag             { animation-delay: 0.05s; }
+  .hero h1 .line-1      { animation-delay: 0.30s; }
+  .hero h1 .line-2      { animation-delay: 0.48s; }
+  .hero h1 .line-3      { animation-delay: 0.66s; }
+  .hero-lead            { animation-delay: 0.95s; }
+  .hero-actions         { animation-delay: 1.15s; }
+
+  /* Streepje voor de hero-tag groeit uit tot volle breedte. */
+  .hero-tag::before {
+    width: 0;
+    animation: hero-line-grow 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.20s forwards;
+  }
+
+  @keyframes hero-rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes hero-line-grow {
+    from { width: 0; }
+    to   { width: 28px; }
+  }
+
+  /* Manifesto — twee-fase reveal: hoofdregel eerst, coda na een pauze. */
+  .manifesto[data-reveal].is-in .manifesto-inner p:first-child {
+    animation: mani-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  }
+  .manifesto[data-reveal].is-in .manifesto-coda {
+    animation: mani-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+  }
+  .manifesto[data-reveal] .manifesto-inner p:first-child,
+  .manifesto[data-reveal] .manifesto-coda { opacity: 0; }
+  @keyframes mani-rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Flow-figure (wortels) — subtiele parallax, aangedreven door JS. */
+  .flow-figure img {
+    transform: translate3d(0, var(--parallax-y, 0px), 0);
+    transition: transform 0.05s linear;
+  }
+}
 </style>
 </head>
 <body>
@@ -891,7 +968,7 @@ h2 {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-tag">Digitale onafhankelijkheid voor het MKB</div>
-  <h1>JOUW <span class="accent">SOFTWARE.</span><br>JOUW <span class="accent">DATA.</span><br>JOUW <span class="accent">REGELS.</span></h1>
+  <h1><span class="line line-1">JOUW <span class="accent">SOFTWARE.</span></span><br><span class="line line-2">JOUW <span class="accent">DATA.</span></span><br><span class="line line-3">JOUW <span class="accent">REGELS.</span></span></h1>
   <p class="hero-lead">
     Ik bouw maatwerksoftware die je zelf bezit, gebouwd op hoe jouw bedrijf echt werkt. Eenmalig betaald, geen abonnement, geen leveranciersslot. De data, de regels en de broncode blijven van jou.
   </p>
@@ -904,7 +981,7 @@ h2 {
 </section>
 
 <!-- MANIFESTO BALK -->
-<div class="manifesto">
+<div class="manifesto" data-reveal="in">
   <div class="manifesto-inner">
     <p>
       <span>Je huurt je eigen bedrijf terug.</span><br>
@@ -916,25 +993,25 @@ h2 {
 
 <!-- OPLOSSING -->
 <section class="section">
-  <div class="section-label">Wat Eigen Grond doet</div>
-  <h2>SOFTWARE DIE ECHT VAN JOU IS</h2>
+  <div class="section-label" data-reveal="up">Wat Eigen Grond doet</div>
+  <h2 data-reveal="up">SOFTWARE DIE ECHT VAN JOU IS</h2>
   <div class="solution-grid">
-    <div class="solution-item">
+    <div class="solution-item" data-reveal="up" data-stagger>
       <div class="solution-icon"></div>
       <div class="solution-title">Gebouwd op hoe jij werkt</div>
       <div class="solution-body">Niet aangepast aan hoe duizend andere bedrijven werken. Jouw roosters, jouw planningslogica, jouw reserveringsflow. Precies.</div>
     </div>
-    <div class="solution-item">
+    <div class="solution-item" data-reveal="up" data-stagger>
       <div class="solution-icon"></div>
       <div class="solution-title">Eenmalig betaald</div>
       <div class="solution-body">Stop met betalen voor data die niet van jou is. Geen maandelijks abonnement aan een softwarebedrijf dat groeit van jouw nummers. Een investering, daarna is het van jou.</div>
     </div>
-    <div class="solution-item">
+    <div class="solution-item" data-reveal="up" data-stagger>
       <div class="solution-icon"></div>
       <div class="solution-title">Jouw software, jouw eigendom</div>
       <div class="solution-body">De software is van jou. Waar die draait, kies je zelf. Geen leverancier die morgen de prijzen verhoogt of de spelregels verandert.</div>
     </div>
-    <div class="solution-item">
+    <div class="solution-item" data-reveal="up" data-stagger>
       <div class="solution-icon"></div>
       <div class="solution-title">Gebouwd door iemand die jouw werkdag kent</div>
       <div class="solution-body">Ontworpen door een softwareontwerper die eerst kijkt hoe jij werkt. Gebouwd en gereviewd door een ervaren engineer. De broncode is van jou, en er is altijd iemand die ermee verder kan.</div>
@@ -944,38 +1021,38 @@ h2 {
 
 <!-- ZO GROEIT DE AFHANKELIJKHEID -->
 <section class="section">
-  <div class="section-label">Zo loopt het</div>
-  <h2>ZO GROEIT DE AFHANKELIJKHEID</h2>
+  <div class="section-label" data-reveal="up">Zo loopt het</div>
+  <h2 data-reveal="up">ZO GROEIT DE AFHANKELIJKHEID</h2>
   <div class="flow">
-    <div class="flow-step">
+    <div class="flow-step" data-reveal="up" data-stagger>
       <div class="flow-num">01</div>
       <div class="flow-body-wrap">
         <div class="flow-title">Het begint handig en goedkoop</div>
         <div class="flow-text">Een reserveringssysteem, een rooster-app, een offertepakket. Een vast bedrag per maand, in een middag geregeld. Op dat moment niets mis mee.</div>
       </div>
     </div>
-    <div class="flow-step">
+    <div class="flow-step" data-reveal="up" data-stagger>
       <div class="flow-num">02</div>
       <div class="flow-body-wrap">
         <div class="flow-title">Je werk plooit zich eromheen</div>
         <div class="flow-text">Je planning past zich aan wat het systeem toestaat, niet andersom. Voor alles wat niet past komt een Excel ernaast, en die Excel wordt langzaam je echte werk.</div>
       </div>
     </div>
-    <div class="flow-step">
+    <div class="flow-step" data-reveal="up" data-stagger>
       <div class="flow-num">03</div>
       <div class="flow-body-wrap">
         <div class="flow-title">Je data stapelt zich op, aan hun kant</div>
         <div class="flow-text">Elke klant, elke afspraak, elk rooster gaat erin, jaar na jaar. Jij vult het systeem, het softwarebedrijf bewaart het en wordt er completer van.</div>
       </div>
     </div>
-    <div class="flow-step">
+    <div class="flow-step" data-reveal="up" data-stagger>
       <div class="flow-num">04</div>
       <div class="flow-body-wrap">
         <div class="flow-title">De prijs kruipt omhoog</div>
         <div class="flow-text">Een tarief-aanpassing hier, een duurder pakket daar. Je merkt het amper, want overstappen voelt nog duurder dan blijven.</div>
       </div>
     </div>
-    <div class="flow-step flow-step--last">
+    <div class="flow-step flow-step--last" data-reveal="up" data-stagger>
       <div class="flow-num">05</div>
       <div class="flow-body-wrap">
         <div class="flow-title">En dan kun je niet meer weg</div>
@@ -983,28 +1060,28 @@ h2 {
       </div>
     </div>
   </div>
-  <p class="flow-coda">Op dat punt ben je geen klant meer maar een abonnee die vastzit.</p>
-  <figure class="flow-figure">
+  <p class="flow-coda" data-reveal="up">Op dat punt ben je geen klant meer maar een abonnee die vastzit.</p>
+  <figure class="flow-figure" data-reveal="in" data-parallax="0.15">
     <img src="wortels-kantoor.png" alt="Een kantoorgebouw met diepe, vertakte wortels in de grond. Tekst: Hoe langer je blijft. Hoe dieper de wortels." width="600" height="750" loading="lazy">
   </figure>
 </section>
 
 <!-- HOE WE BEGINNEN -->
 <section class="section">
-  <div class="section-label">Hoe we beginnen</div>
-  <h2>VAN UITZOEKEN TOT EIGENDOM</h2>
+  <div class="section-label" data-reveal="up">Hoe we beginnen</div>
+  <h2 data-reveal="up">VAN UITZOEKEN TOT EIGENDOM</h2>
   <div class="pain-grid">
-    <div class="pain-item">
+    <div class="pain-item" data-reveal="up" data-stagger>
       <div class="pain-num">01</div>
       <div class="pain-title">Begin met een werksessie</div>
       <div class="pain-body">Een vaste prijs, een dagdeel. We brengen in kaart welke processen je zelf in handen wil hebben en wat per proces zelf bouwen of houden is. Je loopt eruit met een concreet beeld, zonder verplichting.</div>
     </div>
-    <div class="pain-item">
+    <div class="pain-item" data-reveal="up" data-stagger>
       <div class="pain-num">02</div>
       <div class="pain-title">Doe het zelf, met begeleiding</div>
       <div class="pain-body">Jij of je eigen mensen bouwen, met AI en met mij als klankbord en review. Voor wie het echt zelf wil doen maar niet alleen.</div>
     </div>
-    <div class="pain-item">
+    <div class="pain-item" data-reveal="up" data-stagger>
       <div class="pain-num">03</div>
       <div class="pain-title">Of ik bouw het voor je</div>
       <div class="pain-body">Maatwerksoftware op hoe jij werkt, in eigendom opgeleverd, met training zodat je verder kunt zonder mij. Een eenmalige investering, daarna is het van jou.</div>
@@ -1014,25 +1091,25 @@ h2 {
 
 <!-- ONDERHOUD EN KOSTEN -->
 <section class="section">
-  <div class="section-label">Onderhoud en kosten</div>
-  <h2>EIGENDOM BETEKENT NIET DAT JE ER ALLEEN VOOR STAAT</h2>
+  <div class="section-label" data-reveal="up">Onderhoud en kosten</div>
+  <h2 data-reveal="up">EIGENDOM BETEKENT NIET DAT JE ER ALLEEN VOOR STAAT</h2>
   <div class="solution-grid">
-    <div class="solution-item">
+    <div class="solution-item" data-reveal="up" data-stagger>
       <div class="solution-icon"></div>
       <div class="solution-title">Een investering, geen huur</div>
       <div class="solution-body">Je betaalt eenmalig in plaats van elke maand. Over een paar jaar is dat goedkoper dan een abonnement dat blijft lopen. Het rapport rekent het voor.</div>
     </div>
-    <div class="solution-item">
+    <div class="solution-item" data-reveal="up" data-stagger>
       <div class="solution-icon"></div>
       <div class="solution-title">Het draait waar jij kiest</div>
       <div class="solution-body">Op jouw eigen infrastructuur of bij een partij die je zelf uitkiest. Geen softwarebedrijf dat jouw cijfers verzamelt of eenzijdig de regels verandert.</div>
     </div>
-    <div class="solution-item">
+    <div class="solution-item" data-reveal="up" data-stagger>
       <div class="solution-icon"></div>
       <div class="solution-title">Jij kiest wie het onderhoudt</div>
       <div class="solution-body">Je wordt getraind voor het dagelijkse beheer. De rest doe je zelf, je eigen mensen of ik. Geen verplichte insourcing, geen leveranciersslot.</div>
     </div>
-    <div class="solution-item">
+    <div class="solution-item" data-reveal="up" data-stagger>
       <div class="solution-icon"></div>
       <div class="solution-title">Veilig omdat het van jou is</div>
       <div class="solution-body">Je bent niet afhankelijk van de beveiliging en de voorwaarden van een ander. Wat van jou is, kan niemand eenzijdig veranderen.</div>
@@ -1043,13 +1120,13 @@ h2 {
 <!-- CASE SECTIE -->
 <div class="case-section">
   <div class="case-inner">
-    <div class="case-label">Uit de praktijk</div>
-    <h2 class="cases-overview-title">DRIE BEDRIJVEN. &Eacute;&Eacute;N PATROON.</h2>
-    <p class="cases-overview-intro">Drie bedrijven die hun eigen software in eigendom hebben. Drie sectoren, drie schalen, dezelfde keuze.</p>
+    <div class="case-label" data-reveal="up">Uit de praktijk</div>
+    <h2 class="cases-overview-title" data-reveal="up">DRIE BEDRIJVEN. &Eacute;&Eacute;N PATROON.</h2>
+    <p class="cases-overview-intro" data-reveal="up">Drie bedrijven die hun eigen software in eigendom hebben. Drie sectoren, drie schalen, dezelfde keuze.</p>
 
     <div class="cases-list">
 
-      <article class="case-item">
+      <article class="case-item" data-reveal="up" data-stagger>
         <div class="case-item-text">
           <div class="case-item-sector">Houwsteel &middot; Internationale staalhandel, Sliedrecht</div>
           <h3 class="case-item-headline">6.000 CONTACTEN. NIEMAND DIE OPMERKT WIE STIL VALT.</h3>
@@ -1061,7 +1138,7 @@ h2 {
         </div>
       </article>
 
-      <article class="case-item">
+      <article class="case-item" data-reveal="up" data-stagger>
         <div class="case-item-text">
           <div class="case-item-sector">Doeners in Groen &middot; Uitzendbureau groenvoorziening, Krimpen aan de IJssel</div>
           <h3 class="case-item-headline">ZE BREIDDEN HET GISTEREN UIT. ZELF.</h3>
@@ -1073,7 +1150,7 @@ h2 {
         </div>
       </article>
 
-      <article class="case-item">
+      <article class="case-item" data-reveal="up" data-stagger>
         <div class="case-item-text">
           <div class="case-item-sector">Hebikvia &middot; Conceptstore, Gouda</div>
           <h3 class="case-item-headline">10,5 UUR EIGEN MUZIEK. GEEN BUMA. GEEN ABONNEMENT.</h3>
@@ -1098,11 +1175,11 @@ h2 {
 <div class="rapport-cta">
   <div class="rapport-cta-inner">
     <div class="rapport-cta-text">
-      <div class="rapport-cta-label">Marktverkenning</div>
-      <p class="rapport-cta-title">WAT UW SOFTWARE U &Eacute;CHT KOST.</p>
-      <p class="rapport-cta-body">Lees het volledige rapport over platformafhankelijkheid, verborgen kosten en waarom maatwerk nu w&eacute;l bereikbaar is voor het MKB.</p>
+      <div class="rapport-cta-label" data-reveal="up">Marktverkenning</div>
+      <p class="rapport-cta-title" data-reveal="up">WAT UW SOFTWARE U &Eacute;CHT KOST.</p>
+      <p class="rapport-cta-body" data-reveal="up">Lees het volledige rapport over platformafhankelijkheid, verborgen kosten en waarom maatwerk nu w&eacute;l bereikbaar is voor het MKB.</p>
     </div>
-    <div class="rapport-cta-actions">
+    <div class="rapport-cta-actions" data-reveal="up">
       <a href="rapport.html" class="btn-rapport">Lees het rapport</a>
       <a href="rapport.pdf" download class="btn-rapport btn-rapport-outline">
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1115,12 +1192,12 @@ h2 {
 <!-- WIE HIERACHTER ZIT -->
 <div class="who-section">
   <div class="who-inner">
-    <div class="who-portrait">
+    <div class="who-portrait" data-reveal="in">
       <img src="evert.png" srcset="evert.png 1x, evert@2x.png 2x" alt="Portret Evert Bal" width="130" height="130" loading="lazy">
     </div>
     <div class="who-content">
-      <p class="who-label">Wie hierachter zit</p>
-      <h2 class="who-name">EVERT BAL</h2>
+      <p class="who-label" data-reveal="up">Wie hierachter zit</p>
+      <h2 class="who-name" data-reveal="up">EVERT BAL</h2>
       <p>Vijftien jaar als UX-ontwerper. Bij de ANWB, Philips, de Consumentenbond. Vijftien jaar lang kijken hoe bedrijven worstelen met software die niet past. Op een gegeven moment verschuift de vraag van &ldquo;hoe maak ik deze interface beter&rdquo; naar &ldquo;waarom is dit systeem niet gebouwd op hoe deze mensen werken.&rdquo;</p>
       <p>Eigen Grond is het antwoord op die vraag. Eerst kijken hoe het bedrijf werkt. Dan bouwen wat daarbij past. Geen platform, geen abonnement, geen leveranciersslot.</p>
       <blockquote class="who-quote">
@@ -1134,8 +1211,8 @@ h2 {
 
 <!-- FORM -->
 <section class="form-section">
-  <h2 class="form-title">KLAAR MET HUREN?</h2>
-  <p class="form-sub">Vertel waar je software niet aansluit op hoe je werkt. We nemen contact op voor een vrijblijvend gesprek.</p>
+  <h2 class="form-title" data-reveal="up">KLAAR MET HUREN?</h2>
+  <p class="form-sub" data-reveal="up">Vertel waar je software niet aansluit op hoe je werkt. We nemen contact op voor een vrijblijvend gesprek.</p>
 
   <form id="join-form">
     <div class="field-group">
@@ -1169,13 +1246,13 @@ h2 {
 <!-- LAATST GESCHREVEN -->
 <section class="recent-writing">
   <div class="recent-writing-inner">
-    <div class="recent-writing-meta">
+    <div class="recent-writing-meta" data-reveal="up">
       Laatst geschreven
       <span class="meta-date">15 mei 2026</span>
     </div>
     <div>
-      <h2 class="recent-writing-title">6 MILJARD VOOR AI.<br><em>NUL VOOR HET FAMILIEBEDRIJF.</em></h2>
-      <p class="recent-writing-body">De twee grootste AI-bedrijven haalden in mei 2026 samen bijna zes miljard dollar op om AI te installeren bij bedrijven. De eerste bedrijven die geholpen worden zijn de bedrijven die de investeringsfondsen al bezitten. Het familiebedrijf in Bergambacht staat op geen enkele lijst.</p>
+      <h2 class="recent-writing-title" data-reveal="up">6 MILJARD VOOR AI.<br><em>NUL VOOR HET FAMILIEBEDRIJF.</em></h2>
+      <p class="recent-writing-body" data-reveal="up">De twee grootste AI-bedrijven haalden in mei 2026 samen bijna zes miljard dollar op om AI te installeren bij bedrijven. De eerste bedrijven die geholpen worden zijn de bedrijven die de investeringsfondsen al bezitten. Het familiebedrijf in Bergambacht staat op geen enkele lijst.</p>
       <div class="recent-writing-actions">
         <a href="stukken/6-miljard-voor-ai.html" class="recent-writing-link">
           Lees het volledige stuk
@@ -1195,6 +1272,75 @@ h2 {
     <a href="https://uxley.nl" target="_blank" rel="noopener">uxley.nl</a>
   </div>
 </footer>
+
+<script>
+/* Motion: reveal-on-scroll + parallax.
+   Werkt alleen als de gebruiker motion niet heeft uitgeschakeld.
+   Als IntersectionObserver ontbreekt of er iets misgaat: elementen
+   blijven zichtbaar (geen fade-out fallback). */
+(function() {
+  var prefersReduced = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    // Niets doen: CSS zorgt dat statisch weergeven ook werkt.
+    document.querySelectorAll('[data-reveal]').forEach(function(el) {
+      el.classList.add('is-in');
+    });
+    return;
+  }
+
+  /* Stagger — geef broertjes met [data-stagger] oplopende delays. */
+  var staggerGroups = new Map();
+  document.querySelectorAll('[data-stagger]').forEach(function(el) {
+    var parent = el.parentElement;
+    if (!staggerGroups.has(parent)) staggerGroups.set(parent, 0);
+    var index = staggerGroups.get(parent);
+    el.style.setProperty('--stagger-delay', (index * 90) + 'ms');
+    staggerGroups.set(parent, index + 1);
+  });
+
+  /* Reveal-observer */
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  document.querySelectorAll('[data-reveal]').forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  /* Parallax — alleen op desktop, alleen voor [data-parallax] elementen. */
+  var parallaxTargets = document.querySelectorAll('[data-parallax]');
+  if (parallaxTargets.length && window.matchMedia('(min-width: 769px)').matches) {
+    var raf = null;
+    function updateParallax() {
+      raf = null;
+      var viewportH = window.innerHeight;
+      parallaxTargets.forEach(function(el) {
+        var rect = el.getBoundingClientRect();
+        var elCenter = rect.top + rect.height / 2;
+        var progress = (elCenter - viewportH / 2) / viewportH; // -0.5..+0.5 rond midden
+        var strength = parseFloat(el.dataset.parallax) || 0.15;
+        var max = 60; // px maximum verplaatsing
+        var y = Math.max(-max, Math.min(max, -progress * max * (strength * 4)));
+        var img = el.querySelector('img') || el;
+        img.style.setProperty('--parallax-y', y.toFixed(1) + 'px');
+      });
+    }
+    function onScroll() {
+      if (raf === null) raf = window.requestAnimationFrame(updateParallax);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    updateParallax();
+  }
+})();
+</script>
 
 <script>
 const form = document.getElementById('join-form');
