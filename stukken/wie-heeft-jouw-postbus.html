@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wie heeft jouw postbus? Eigen Grond</title>
+<meta name="description" content="E-mail was het enige communicatiemiddel dat van niemand was. In tien jaar is het aandeel domeinen met een eigen mailserver gehalveerd en vangen twee bedrijven de post van bijna veertig procent van het zakelijke internet. Hoe dat gebeurde, en wat je er zelf aan kunt doen.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="canonical" href="https://eigengrond.nu/stukken/wie-heeft-jouw-postbus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wie heeft jouw postbus?">
+<meta property="og:description" content="E-mail was het enige communicatiemiddel dat van niemand was. In tien jaar is het aandeel domeinen met een eigen mailserver gehalveerd en vangen twee bedrijven de post van bijna veertig procent van het zakelijke internet. Hoe dat gebeurde, en wat je er zelf aan kunt doen.">
+<meta property="og:url" content="https://eigengrond.nu/stukken/wie-heeft-jouw-postbus">
+<meta property="og:image" content="https://eigengrond.nu/stukken-postbus-tolplein.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* Reading progress bar */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--green-light);
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+
+/* Back link */
+.back-link-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--green-light); }
+.back-link svg { transform: rotate(180deg); }
+
+/* HERO */
+.stuk-hero {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2.5rem;
+}
+.stuk-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 2rem;
+}
+.stuk-meta .dot { color: var(--muted); }
+.stuk-meta .meta-author { color: var(--muted); }
+.stuk-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  color: var(--fg);
+  margin-bottom: 1.75rem;
+}
+.stuk-title em { color: var(--green-light); font-style: normal; }
+.stuk-lead {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: #B5A88E;
+  line-height: 1.65;
+  font-weight: 300;
+  border-left: 2px solid var(--green);
+  padding-left: 1.25rem;
+  max-width: 640px;
+}
+
+/* HERO IMAGE */
+.stuk-image-wrap {
+  max-width: 1200px;
+  margin: 1rem auto 3rem;
+  padding: 0 2rem;
+}
+.stuk-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: saturate(0.92);
+}
+.stuk-image-caption {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.85rem;
+  text-align: right;
+}
+
+/* BODY */
+.stuk-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+.stuk-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #D9CFB9;
+  margin-bottom: 1.5rem;
+}
+.stuk-body p.lead-paragraph {
+  font-size: 1.15rem;
+  color: var(--fg);
+  font-weight: 400;
+}
+.stuk-body p strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+.stuk-section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: var(--fg);
+  margin: 3.5rem 0 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.stuk-section-title em { color: var(--green-light); font-style: normal; }
+.stuk-body blockquote {
+  border-left: 2px solid var(--green);
+  margin: 2rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  font-size: 1.1rem;
+  color: var(--fg);
+  font-style: normal;
+}
+
+/* BRONNEN */
+.stuk-sources {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  border-top: 1px solid var(--border);
+}
+.stuk-sources-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1rem;
+}
+.stuk-sources p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* MEER IN DEZE LIJN */
+.stuk-more {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stuk-more-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+.stuk-more-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.5rem;
+}
+.stuk-more-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+  color: var(--fg);
+}
+.stuk-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--green-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+.stuk-more-link:hover {
+  color: var(--fg);
+  border-bottom-color: var(--green-light);
+}
+
+/* RAPPORT CTA */
+.rapport-cta {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+}
+.rapport-cta-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.85rem;
+}
+.rapport-cta-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  color: var(--fg);
+  margin-bottom: 0.85rem;
+}
+.rapport-cta-body {
+  font-size: 1rem;
+  color: #B5A88E;
+  line-height: 1.65;
+  max-width: 480px;
+}
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.6rem;
+  background: var(--green-light);
+  color: var(--bg);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-cta:hover { background: #93BF46; }
+
+/* AUTHOR CARD */
+.stuk-author {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 3.5rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  border-top: 1px solid var(--border);
+}
+.stuk-author img {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+.stuk-author-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--green-light);
+  margin-bottom: 0.4rem;
+}
+.stuk-author-body {
+  font-size: 0.9rem;
+  color: #B5A88E;
+  line-height: 1.6;
+  margin: 0;
+}
+.stuk-author-body a {
+  color: var(--green-light);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+.stuk-author-body a:hover { border-bottom-color: var(--green-light); color: var(--fg); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .back-link-wrap { padding: 1.5rem 1.25rem 0; }
+  .stuk-hero { padding: 2rem 1.25rem 1.75rem; }
+  .stuk-image-wrap { padding: 0 1.25rem; margin-bottom: 2rem; }
+  .stuk-body { padding: 0 1.25rem 3rem; }
+  .stuk-body p { font-size: 1rem; }
+  .stuk-sources { padding: 2rem 1.25rem 3rem; }
+  .stuk-more-inner { padding: 3rem 1.25rem; }
+  .rapport-cta { grid-template-columns: 1fr; padding: 3rem 1.25rem 4rem; }
+}
+@media (max-width: 380px) {
+  .stuk-hero { padding: 1.5rem 1rem 1.25rem; }
+  .stuk-body { padding: 0 1rem 2.5rem; }
+  .stuk-image-wrap { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-logo" href="../index.html">EIGEN<span>GROND</span></a>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+    <span class="nav-toggle-icon"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
+    <a href="index.html" class="nav-link is-active">Stukken</a>
+    <a href="../rapport.html" class="nav-link nav-link-primary">Rapport</a>
+    <a href="../cases.html" class="nav-link">Cases</a>
+    <a href="../over.html" class="nav-link">Over</a>
+  </div>
+</nav>
+
+<!-- BACK -->
+<div class="back-link-wrap">
+  <a class="back-link" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Alle stukken
+  </a>
+</div>
+
+<!-- HERO -->
+<header class="stuk-hero">
+  <div class="stuk-meta" data-reveal="up">
+    <span>13 november 2026</span>
+    <span class="dot">&middot;</span>
+    <span>Leestijd 9 minuten</span>
+    <span class="dot">&middot;</span>
+    <span class="meta-author">Evert Bal</span>
+  </div>
+  <h1 class="stuk-title" data-reveal="up">WIE HEEFT<br><em>JOUW POSTBUS?</em></h1>
+  <p class="stuk-lead" data-reveal="up">
+    In september schreef ik dat de bezorging van e-mail het enige is wat niemand heeft opgelost. Deze week legde één configuratiefout bij Microsoft de post plat in 74 landen. De interessante vraag is niet of het mis kan gaan. De interessante vraag is hoe het enige communicatiemiddel dat ooit van niemand was, het bezit werd van twee bedrijven.
+  </p>
+</header>
+
+<!-- IMAGE -->
+<figure class="stuk-image-wrap">
+  <img class="stuk-image" src="../stukken-postbus-tolplein.jpg" alt="Een verlaten tolpoort van beton boven een smalle polderweg, die er vrij onderdoor loopt naar de horizon">
+  <figcaption class="stuk-image-caption">De weg is nog van iedereen. Er staat alleen een poort in.</figcaption>
+</figure>
+
+<!-- BODY -->
+<article class="stuk-body">
+
+  <p class="lead-paragraph">Op donderdag 12 november, om kwart over vijf 's middags, ging er bij Microsoft iets mis met een configuratiewijziging. Binnen een uur lagen Outlook, Teams en Copilot plat in 74 landen. Bijna 130.000 storingsmeldingen wereldwijd. De volgende ochtend was het nog niet opgelost, en zelfs de Australische inlichtingendienst en federale politie zaten eraan vast.</p>
+
+  <p>Een storing. Die gaan over.</p>
+
+  <p>Maar er bleef bij mij een vraag hangen die niet over Microsoft ging. E-mail is het enige communicatiemiddel dat ooit van niemand was. Geen eigenaar, geen platform, geen gebruiksvoorwaarden. Hoe is dat in dertig jaar het bezit geworden van twee bedrijven, zonder dat iemand het heeft gekocht?</p>
+
+  <p><strong>Dit stuk gaat over dat hoe.</strong> Niet over wat je moet kopen, daar schreef ik in september al over. Over hoe we hier beland zijn, waarom dat patroon zich nu opnieuw voltrekt, en wat je er als ondernemer zelf aan kunt doen.</p>
+
+  <h2 class="stuk-section-title">Wat e-mail <em>wás</em></h2>
+
+  <p>Om te begrijpen wat we kwijt zijn, moet je eerst weten wat het was.</p>
+
+  <p>E-mail is geen dienst. E-mail is een afspraak. In 1982 werd vastgelegd hoe twee computers een bericht aan elkaar doorgeven. Dat document beschrijft een handdruk. Server A zegt: ik heb post voor iemand bij jou. Server B zegt: geef maar. Klaar.</p>
+
+  <p>In die afspraak zit geen partij die toestemming geeft. Geen account, geen abonnement, geen voorwaarden waar je op akkoord klikt. Wie een computer aan het internet hing en die afspraak implementeerde, deed mee. Je universiteit had een mailserver. Je werkgever had er een. Je provider had er een. En wie zin had draaide er zelf een.</p>
+
+  <p>Dat is zeldzamer dan het klinkt. Zoek maar eens een ander massacommunicatiemiddel waar nooit iemand in het midden zat. Telefonie niet. Televisie niet. Post niet. WhatsApp al helemaal niet.</p>
+
+  <p>En het bijzondere is: die afspraak werkt nog steeds. Het protocol is niet kapot, niet afgeschaft, niet vervangen. Zet jij vandaag een server neer die het spreekt, dan doet hij technisch gewoon mee.</p>
+
+  <p>Onthoud dat, want het komt terug.</p>
+
+  <h2 class="stuk-section-title">Hoe we hier <em>gekomen zijn</em></h2>
+
+  <p>Er is geen moment aan te wijzen waarop e-mail is overgenomen. Geen overname, geen contract, geen besluit. Wat er wél is, zijn vier bewegingen die elkaar over dertig jaar hebben versterkt. Elke beweging was op zichzelf verdedigbaar. Sommige waren ronduit noodzakelijk.</p>
+
+  <p><strong>Eén: gratis haalde de markt onderuit.</strong> In 1996 kwam Hotmail, gratis en betaald uit reclame. Microsoft kocht het een jaar later. In 2004 kwam Gmail, met meer gratis opslag dan iedereen tot dan toe aanbood. Voor de gebruiker was dat een cadeautje. Maar er was altijd een bedrijfstak geweest die mailhosting verkocht voor een paar euro per postbus, en tegen gratis kun je dat niet verkopen. Het verdienmodel verschoof van hostingkosten naar data en advertenties, en dat model konden alleen de grootste partijen draaien. De onafhankelijke mailhosting is niet opgekocht. Die is doodgebloed.</p>
+
+  <p><strong>Twee: de spambestrijding bouwde een poort.</strong> Dit is het deel dat de meeste mensen niet kennen, en het belangrijkste deel van het verhaal.</p>
+
+  <p>Eind jaren negentig werd spam een plaag. Niet een ergernis, een plaag: er waren momenten dat mailservers onbruikbaar werden. Er moest iets gebeuren. Het eerste gecoördineerde antwoord was niet een betere filter, maar een lijst. MAPS, opgericht in 1996, begon een gedeelde database bij te houden van adressen waar spam vandaan kwam. Andere beheerders konden die lijst raadplegen en die adressen weigeren.</p>
+
+  <p>Begrijp wat daar gebeurde. Vanaf dat moment werd er een oordeel geveld over de afzender, voordat er één woord van het bericht gelezen was. Niet: is dit bericht spam? Maar: mag deze server hier überhaupt aankloppen?</p>
+
+  <p>Dat werkte, en het was op die schaal de enige manier waarop het kón werken. Maar het verplaatste iets fundamenteels. De beslissing wie er mag praten verhuisde van het protocol naar een handvol private partijen, en die partijen zijn aan niemand verantwoording schuldig.</p>
+
+  <p>De Electronic Frontier Foundation zag dit vroeg aankomen. In hun kritiek op de programma's waarbij verzenders konden betalen om zich te laten certificeren, schreven ze dat e-mail zo een pay-to-play-medium dreigde te worden: wie geld heeft komt aan, wie dat niet heeft krijgt onbetrouwbare bezorging. Dat was ruim vijftien jaar geleden en het werd weggezet als paranoïde.</p>
+
+  <p>Een recent academisch stuk formuleert het scherper dan ik kan: de criteria die bepalen of een verzender de inbox haalt, worden vastgesteld in een forum waar de verzenders zelf geen toegang toe hebben.</p>
+
+  <p><strong>Drie: authenticatie maakte reputatie meetbaar.</strong> Daarna kwamen de technieken die vastleggen welke servers namens jouw domein mogen verzenden en die berichten ondertekenen. Bedoeld tegen vervalsing, en daar zijn ze goed in. Maar het effect was groter: ze gaven reputatie een vast anker. En reputatie kent schaalvoordeel. Wie veel verstuurt bouwt een profiel op, wie weinig verstuurt blijft een onbekende, en een onbekende is verdacht. Precies daar is de kleine zelfhoster uit beeld verdwenen. Niet omdat hij iets fout deed, maar omdat hij te klein was om vertrouwd te raken.</p>
+
+  <p><strong>Vier: je adres werd je identiteit.</strong> En toen gebeurde er iets wat niemand ontworpen heeft. Je mailadres werd de sleutel tot al je andere accounts. Wachtwoord vergeten? Mail. Tweestapsverificatie? Mail. Inloggen bij een nieuwe dienst? Inloggen met Google. Facturen, contracten, bevestigingen: allemaal mail.</p>
+
+  <blockquote>Mail is geen communicatiemiddel meer. Mail is de sleutelbos.</blockquote>
+
+  <p>Dat betekent dat wie jouw postbus beheert in de praktijk toegang heeft tot alles wat eraan hangt. En dat als jouw postbus een paar uur onbereikbaar is, je ook nergens anders meer naar binnen komt. Dat is precies waarom die storing van 12 november zoveel verder reikte dan alleen mail.</p>
+
+  <h2 class="stuk-section-title">Waar dat op <em>uitkwam</em></h2>
+
+  <p>Nu de cijfers.</p>
+
+  <p>Het aandeel van de grootste een miljoen domeinen op internet dat zijn eigen mailserver draait, is gezakt van 44,6 procent in 2016 naar 22,4 procent in 2026. Bijna gehalveerd in tien jaar, gemeten over 192 momentopnames.</p>
+
+  <p>Waar is die helft naartoe? Google Workspace ontvangt nu de post van 21,8 procent van alle domeinen met een mailrecord, Microsoft 365 van 16,8 procent. Samen 38,6 procent. De eerstvolgende partij staat op 1,9 procent. Er is dus geen derde speler, er is een tweetal met een lange staart erachter.</p>
+
+  <p>Bij consumentenpostbussen is het nog schever: Gmail alleen al heeft 42,9 procent van de wereldmarkt.</p>
+
+  <p>De onderzoeker achter die eerste cijfers vat de consequentie precies goed samen. Als meer dan een derde van de populaire domeinen van twee aanbieders afhangt om post te ontvangen, dan plant een storing, een filterwijziging of een beleidsbesluit bij één van beide zich in één keer door het hele ecosysteem voort.</p>
+
+  <p>Dat was op 12 november geen theorie meer.</p>
+
+  <h2 class="stuk-section-title">Wat ik in september <em>te snel opschreef</em></h2>
+
+  <p>In <a href="de-serverkast-is-terug.html">het stuk over de serverkast</a> schreef ik dat de bezorging het enige is wat niemand heeft opgelost, en dat je dus moet splitsen: de postbus bij jou, de bezorging ingekocht bij een dienst met een schone reputatie. Dat klopt nog steeds, en wie wil weten wat zoiets kost en welke apparatuur erbij hoort, leest het daar.</p>
+
+  <p>Wat ik daar te snel bij opschreef, was de toon. Ik behandelde het als een technische conclusie: dit kan wel, dat kan niet, einde discussie.</p>
+
+  <p>Maar de vraag of je je eigen post kunt bezorgen is helemaal geen technische vraag. Het is een vraag over vertrouwen, en vertrouwen is georganiseerd. Door partijen, met criteria, in een proces. Dat je er als klein bedrijf niet bij kunt is geen natuurwet en geen pech. Het is de uitkomst van dertig jaar keuzes die stuk voor stuk logisch waren.</p>
+
+  <p>Dat verschil is belangrijk, want een natuurwet accepteer je. Een uitkomst kun je ter discussie stellen.</p>
+
+  <h2 class="stuk-section-title">Wat je <em>zelf kunt doen</em></h2>
+
+  <p>Goed. Je hebt het verhaal gelezen. Wat nu?</p>
+
+  <p>Drie stappen, en elke stap is op zichzelf zinvol. Je hoeft niet verder te gaan dan waar je je prettig bij voelt. Dat is bewust, want de grootste fout in dit soort trajecten is dat mensen van niets naar alles willen en dan afhaken.</p>
+
+  <p><strong>Eén: zoek uit van wie je domein is. Vandaag nog, gratis.</strong></p>
+
+  <p>Dit is de enige stap die iedereen zou moeten zetten en die bijna niemand zet. Kijk naar je mailadres. Alles achter het apenstaartje is je domein. De vraag is: staat dat op naam van jouw bedrijf, of op naam van je IT-leverancier, je webbouwer of je neef?</p>
+
+  <p>Dat ene gegeven bepaalt alles. Bezit je het domein, dan kun je altijd verhuizen. Je mailadres blijft hetzelfde, je visitekaartjes blijven kloppen, je klanten merken niets. Bezit je het niet, dan ben je in de praktijk huurder van je eigen naam en kun je nergens heen zonder toestemming.</p>
+
+  <p>Controleren kan via een whois-dienst, of door je leverancier schriftelijk te vragen wie de houder is. Is het antwoord "geen idee", dan weet je genoeg. Regel dit eerst, en pas daarna de rest.</p>
+
+  <p><strong>Twee: haal je archief naar binnen. Een middag werk.</strong></p>
+
+  <p>Dit is de stap die bijna al het ongemak wegneemt tegen bijna geen risico. Een apparaat op kantoor dat automatisch een volledige kopie binnenhaalt van je Microsoft 365-omgeving: alle mail, alle bijlagen, alle bestanden. Bij sommige merken zit die software er gratis bij.</p>
+
+  <p>Wat je daarmee hebt: twintig jaar bedrijfsgeheugen, versleuteld, fysiek in je eigen pand. Operationeel verandert er niets. Valt het apparaat uit, dan merkt niemand het. Ligt de cloud plat of gaat je leverancier failliet, dan heb je nog steeds alles.</p>
+
+  <p><strong>Drie: doe een proef voordat je iets belooft.</strong></p>
+
+  <p>Wil je weten of eigen postbussen haalbaar zijn, dan kun je dat uitproberen zonder er iets voor op het spel te zetten. Verschillende van de serieuze pakketten zijn gratis tot vijf gebruikers. Zet er een testdomein op, zet er een bezorgdienst voor, en laat het twee maanden meelopen.</p>
+
+  <p>Dan meet je wat er werkelijk gebeurt in plaats van erover te discussiëren. Komt de post aan? Hoe voelt het beheer? Wat gaat er stuk? Dat is feiten verzamelen, en feiten zijn in deze discussie schaars.</p>
+
+  <p>Wat je níét moet doen: een mailserver neerzetten op een consumentenaansluiting, zelf mailbeheerder worden zonder achtervang, of alles tegelijk willen. En geloven dat je honderd procent onafhankelijk kunt zijn. Dat kan niet, en wie dat belooft verkoopt je iets.</p>
+
+  <h2 class="stuk-section-title">Het patroon dat zich <em>nu herhaalt</em></h2>
+
+  <p>Dit is niet het patroon "monopolist koopt markt op". Niemand heeft e-mail gekocht.</p>
+
+  <p>Dit is: een vrij protocol centraliseert via zijn eigen misbruikbestrijding. Misbruik ontstaat. Filtering komt. Filtering vraagt om reputatie. Reputatie kent schaalvoordeel. Schaalvoordeel leidt tot concentratie.</p>
+
+  <p>Elke stap in die keten is verdedigbaar. Niemand doet iets kwaads. En het eindpunt wil niemand.</p>
+
+  <p>Dat patroon is niet klaar. Het draait op dit moment opnieuw, bij AI-agenten die namens jou toegang willen tot websites en diensten. De vraag wie die agenten mag doorlaten wordt nu beantwoord door dezelfde soort partijen, met dezelfde soort lijsten, op dezelfde gronden. Over tien jaar kunnen we hetzelfde stuk schrijven over iets anders.</p>
+
+  <p>De les die ik eruit haal is niet technisch maar strategisch.</p>
+
+  <blockquote>De belangrijkste keuzes in een systeem worden zelden als keuze gepresenteerd. Ze komen binnen als oplossing voor een echt probleem, op het moment dat je dankbaar bent dat iemand het oplost.</blockquote>
+
+  <p>Daarom is "wie heeft hier belang bij" een betere vraag dan "wie heeft hier schuld aan". En het antwoord is niet één partij maar vier, met uiteenlopende belangen die toevallig dezelfde kant op wezen. Google en Microsoft: mail is de voordeur naar de rest van hun pakket. De antispamindustrie: reputatie en certificering zijn alleen een product zolang het probleem bestaat. De internetproviders: een mailserver is een kostenpost en een misbruikrisico, dus poort dicht en consumentenmail afstoten. En wij: wij wilden gratis, we wilden geen spam, en we wilden er niet over nadenken.</p>
+
+  <p>Alle vier hadden gelijk op hun eigen voorwaarden. Dat is precies wat het zo ongemakkelijk maakt.</p>
+
+  <h2 class="stuk-section-title">Waar dit <em>heen moet</em></h2>
+
+  <p>Ik eindig niet met een klacht, want klagen is goedkoop.</p>
+
+  <p><strong>Eigendom hoort weer de standaard te zijn.</strong> De normale vraag bij een nieuw systeem zou moeten zijn: van wie is dit straks? Nu is de normale vraag: wat kost het per maand. Dat is een omkering die je in één gesprek kunt maken, zonder dat er iets gebouwd hoeft te worden. Een bedrijf dat weet van wie zijn domein, zijn data en zijn systemen zijn, is al een ander bedrijf dan een dat dat niet weet.</p>
+
+  <p><strong>Beheer uitbesteden, eigendom niet.</strong> Het apparaat staat bij jou, de data is van jou, het onderhoud koop je in bij iemand die je kunt bellen en kunt wegsturen. Vertrekt die partij, dan blijven het apparaat, de data en de documentatie van jou. Dat is geen compromis tussen cloud en eigen beheer, dat is een derde vorm, en hij is beter dan allebei. Wat er nog voor nodig is: fatsoenlijke exit-afspraken als standaard. Wie beheert wat, binnen welke tijd reageert hij, en wat gebeurt er als jullie uit elkaar gaan. Dat zou in elk contract moeten staan en het staat er bijna nooit in.</p>
+
+  <p><strong>En het eindbeeld.</strong> Een doos met een kastje erin. Je zet hem op kantoor, sluit hem aan, hij stelt een paar vragen. Daarna staat je administratie, je klantgegevens, je bestanden en je archief bij jou in huis, draaien de systemen die je nodig hebt erop, en kun je een stapel abonnementen opzeggen.</p>
+
+  <p>Niet omdat abonnementen slecht zijn. Omdat je dan kunt kiezen, en dat is het hele punt.</p>
+
+  <p>De bezorging van post doet nog steeds een ander. Het onderhoud koop je in. Maar het geheugen van je bedrijf, twintig jaar klantcontact, alles wat je ooit hebt afgesproken en vastgelegd, dat staat dan bij jou.</p>
+
+  <p>Dat is geen nostalgie naar hoe het internet ooit was. Het is gewoon hoe eigendom er in elke andere sector uitziet. Je koopt een pand. Je huurt de schoonmaak in. Niemand vindt dat raar.</p>
+
+  <p><strong>Alleen bij software zijn we vergeten dat dat ook kan.</strong></p>
+
+</article>
+
+<!-- BRONNEN -->
+<section class="stuk-sources">
+  <div class="stuk-sources-label">Bronnen</div>
+  <p>
+    <a href="https://www.vrt.be/vrtnws/nl/2026/11/13/grote-storing-microsoft-outlook-en-teams-bedrijven-overheden/" target="_blank" rel="noopener">VRT NWS: grote storing bij Microsoft (13 nov 2026)</a>,
+    <a href="https://pulse.internetsociety.org/en/blog/2026/08/two-providers-a-stubborn-plateau-and-a-very-long-tail-email-in-the-tranco-top-1m/" target="_blank" rel="noopener">Internet Society Pulse: twee aanbieders en een lange staart</a>,
+    <a href="https://check.live-direct-marketing.online/blog/decade-email-consolidation-2016-2026" target="_blank" rel="noopener">Live Direct Marketing: tien jaar e-mailconcentratie in kaart</a>,
+    <a href="https://www.validity.com/wp-content/uploads/2026/03/2026-Benchmark-Report.pdf" target="_blank" rel="noopener">Validity: Email Deliverability Benchmark Report 2026</a>,
+    <a href="https://en.wikipedia.org/wiki/Mail_Abuse_Prevention_System" target="_blank" rel="noopener">Mail Abuse Prevention System (MAPS)</a>,
+    <a href="https://www.eff.org/hi/wp/noncommercial-email-lists-collateral-damage-fight-against-spam" target="_blank" rel="noopener">EFF: non-commerciële maillijsten als collateral damage</a>,
+    <a href="https://arxiv.org/pdf/2608.06510" target="_blank" rel="noopener">arXiv: Agentic AI, user empowerment or foreclosure?</a>,
+    <a href="https://www.ibm.com/think/insights/hidden-email-crisis" target="_blank" rel="noopener">IBM: de verborgen e-mailcrisis</a>,
+    <a href="https://jorijn.com/en/blog/self-hosted-email-2026/" target="_blank" rel="noopener">Jorijn Schrijvershof: zelf e-mail hosten in 2026</a>,
+    <a href="https://www.sidn.nl/en/news-and-blogs/four-modern-mail-systems-for-self-hosting" target="_blank" rel="noopener">SIDN: vier moderne mailsystemen om zelf te hosten</a>.
+    Cijfers gecontroleerd november 2026. Dit stuk bouwt voort op <a href="de-serverkast-is-terug.html">De serverkast is terug</a> van 1 september 2026.
+  </p>
+</section>
+
+<!-- MEER IN DEZE LIJN -->
+<section class="stuk-more">
+  <div class="stuk-more-inner" data-reveal="up">
+    <div class="stuk-more-label">Meer in deze lijn</div>
+    <h2 class="stuk-more-title">Het voorgaande stuk: <span style="color: var(--green-light);">de serverkast is terug.</span></h2>
+    <a href="de-serverkast-is-terug.html" class="stuk-more-link">
+      Lees over de apparatuur en de kosten
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="rapport-cta">
+  <div>
+    <div class="rapport-cta-label" data-reveal="up">Klaar met huren?</div>
+    <p class="rapport-cta-title" data-reveal="up">PRAAT MET EVERT.</p>
+    <p class="rapport-cta-body">Een gesprek over de software die u nu gebruikt, en wat het zou betekenen om iets te bouwen dat van het bedrijf zelf is.</p>
+  </div>
+  <a href="../contact.html" class="btn-cta">Neem contact op
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<!-- AUTEUR -->
+<section class="stuk-author">
+  <img src="../evert.png" alt="Evert Bal" width="72" height="72">
+  <div>
+    <div class="stuk-author-name">Evert Bal</div>
+    <p class="stuk-author-body">Vijftien jaar UX-ontwerp bij o.a. ANWB, Philips en Consumentenbond. Nu Eigen Grond: software die past op hoe een bedrijf werkt. <a href="../over.html">Meer over Evert &rarr;</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-brand">Eigen Grond is een initiatief van <a href="https://uxley.nl" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border);"><strong>Uxley</strong></a></div>
+  <div class="footer-links">
+    <a href="../contact.html">Contact</a>
+    <a href="../mediakit.html">Mediakit</a>
+    <a href="index.html">Stukken</a>
+  </div>
+</footer>
+
+<script>
+// Reading progress bar
+(function() {
+  const bar = document.getElementById('progress-bar');
+  if (!bar) return;
+  function update() {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (scrolled / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+
+<script src="../nav.js" defer></script>
+<script src="../motion.js" defer></script>
+<script src="../analytics.js" defer></script>
+</body>
+</html>
